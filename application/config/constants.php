@@ -12,6 +12,12 @@ defined('STATUS_ORDER_CANCEL')  OR define('STATUS_ORDER_CANCEL', 3);
 defined('PAGINATION_FE')  OR define('PAGINATION_FE', 12);
 defined('PAYMENT_CASH')  OR define('PAYMENT_CASH', 1);
 defined('PAYMENT_CARD')  OR define('PAYMENT_CARD', 2);
+
+defined('TYPE_SELL')  OR define('TYPE_SELL', 1);
+defined('TYPE_FOR_RENT')  OR define('TYPE_FOR_RENT', 2);
+defined('TYPE_BUY')  OR define('TYPE_BUY', 3);
+defined('TYPE_RENT')  OR define('TYPE_RENT', 4);
+
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
