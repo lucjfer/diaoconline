@@ -36,12 +36,12 @@ class DistrictC extends MY_Controller {
         $data['title'] = 'Chỉnh sửa Quận/Huyện';
         $data['template'] = 'admin/districtC/form';
         $model = $this->district->getModelArray(['id' => $id]);
-        $data['province'] = $model;
+        $data['model'] = $model;
         $data['link_submit'] = base_url('admin/districtC/update/'.$id);
 
         if (isset($_POST['District'])) {
             $data_insert = $_POST['District'];
-            $this->provinces->update_model($id, $data_insert);
+            $this->district->update_model($id, $data_insert);
             redirect('admin/districtC/index', 'refresh');
         }
 
@@ -69,7 +69,7 @@ class DistrictC extends MY_Controller {
                 $this->district->delete_model($model->id);
             }
         }
-        redirect('admin/district/index', 'refresh');
+        redirect('admin/districtC/index', 'refresh');
     }
 
 }

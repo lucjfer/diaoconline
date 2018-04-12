@@ -16,13 +16,18 @@
             <?php 
                 $column = [
                     [
-                        'header' => 'Tên quận/huyện',
-                        'value' => 'district_name',
+                        'header' => 'Tên phường / xã',
+                        'value' => 'ward_name',
                         'type' => 'field'
                     ],
                     [
-                        'header' => 'Thuộc tỉnh/thành',
-                        'value' => 'getProvince',
+                        'header' => 'Quận / huyện',
+                        'value' => 'getDistrict',
+                        'type' => 'function',
+                    ],
+                    [
+                        'header' => 'Tỉnh / thành',
+                        'value' => 'getProvinceName',
                         'type' => 'function',
                     ],
                     [
@@ -32,7 +37,7 @@
                     ],
                 ];
              ?>
-            <?php echo $this->load->widget('table', ['districtC', $models, $column]); ?>
+            <?php echo $this->load->widget('table', ['wardsC', $models, $column]); ?>
         </div>
     </div>
 </div>

@@ -3,7 +3,7 @@
         <h4 class="page-title"><?php echo $title ?></h4>
     </div>
     <?php
-        $breadcrumb = [base_url('admin/system') => 'Dashboard', base_url('admin/districtC') => 'Quản lý quảng cáo', 'active' => $title];
+        $breadcrumb = [base_url('admin/system') => 'Dashboard', base_url('admin/districtC') => 'Quản lý quận / huyện', 'active' => $title];
         $this->load->view('admin/layouts/breadcrumbs', ['breadcrumb' => $breadcrumb]);
      ?>
     <!-- /.col-lg-12 -->
@@ -24,14 +24,14 @@
                 </div>
                 <div class="col-sm-6 col-xs-12">
                     <div class="form-group">
-                        <label class="col-md-12">Tên tỉnh / thành</label>
+                        <label class="col-md-12">Thuộc tỉnh / thành</label>
                         <div class="col-md-12">
                             <?php $provinces = $this->district->getDropdownListProvince(); ?>
                             <select class="form-control" name="District[province_id]" required>
                                 <option value=""> --- chọn tỉnh / thành --- </option>
                                 <?php
                                 foreach ($provinces as $province): 
-                                    $selected = ($model->province_id == $province->id) ? 'selected' : '';
+                                    $selected = ($model['province_id'] == $province->id) ? 'selected' : '';
                                 ?>
                                     <option value="<?php echo $province->id?>" <?php echo $selected?>><?php echo $province->province_name?></option>
                                 <?php endforeach ?>

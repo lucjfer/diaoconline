@@ -4,6 +4,8 @@ class Provinces extends CI_Model {
 
     public function __construct()
     {
+    	$this->load->model('district');
+
 	    $this->load->database();
 		$this->load->helper('url');
     }
@@ -60,6 +62,15 @@ class Provinces extends CI_Model {
 			$this->db->where('id', $slug->id);
   			$this->db->delete('gen_slug');
 		}
+
+		$query = $this->db->query("SELECT * FROM ci_district WHERE province_id = ".$this->id);
+		$districts = $query->result('District');
+		if (count($districts) > 0) {
+			foreach ($districts as $district) {
+				$district->delete_model();
+			}
+		}
+
 		$this->db->where('id', $this->id);
   		$this->db->delete('provinces');
 	}

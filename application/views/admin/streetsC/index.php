@@ -16,13 +16,23 @@
             <?php 
                 $column = [
                     [
-                        'header' => 'Tên quận/huyện',
-                        'value' => 'district_name',
+                        'header' => 'Tên đường',
+                        'value' => 'street_name',
                         'type' => 'field'
                     ],
                     [
-                        'header' => 'Thuộc tỉnh/thành',
-                        'value' => 'getProvince',
+                        'header' => 'Phường / xã',
+                        'value' => 'getWard',
+                        'type' => 'function',
+                    ],
+                    [
+                        'header' => 'Quận / huyện',
+                        'value' => 'getDistrictName',
+                        'type' => 'function',
+                    ],
+                    [
+                        'header' => 'Tỉnh / thành',
+                        'value' => 'getProvinceName',
                         'type' => 'function',
                     ],
                     [
@@ -32,7 +42,7 @@
                     ],
                 ];
              ?>
-            <?php echo $this->load->widget('table', ['districtC', $models, $column]); ?>
+            <?php echo $this->load->widget('table', ['streetsC', $models, $column]); ?>
         </div>
     </div>
 </div>

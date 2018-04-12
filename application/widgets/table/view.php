@@ -12,8 +12,8 @@
                     <thead>
                         <tr>
                             <th class="no-sort text-center"><input type="checkbox" name="" id="select_all"></th>
-                            <?php foreach ($column['thead'] as $value): ?>
-                            	<th <?php echo $value['htmlOption'] ?>><?php echo $value['name'] ?></th>
+                            <?php foreach ($column as $value): ?>
+                            	<th <?php echo isset($value['htmlOption']) ? $value['htmlOption'] : '' ?>><?php echo $value['header'] ?></th>
                             <?php endforeach ?>
                             <th>Hành động</th>
                         </tr>
@@ -22,7 +22,7 @@
                         <?php foreach ($models as $model): ?>
                             <tr id="tr-<?php echo $model->id?>">
                                 <td class="text-center check-element"><input type="checkbox" name="select[]" value="<?php echo $model->id ?>"></td>
-                                <?php foreach ($column['tbody'] as $value): ?>
+                                <?php foreach ($column as $value): ?>
                                 	<td><?php echo ($value['type'] == 'field') ? $model->$value['value'] : $model->$value['value'](); ?></td>
                                 <?php endforeach ?>
                                 <td class="button-column">

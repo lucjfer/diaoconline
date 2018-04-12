@@ -15,25 +15,17 @@
         <div class="white-box">
             <?php 
                 $column = [
-                    'thead' => [
-                        [
-                            'name' => 'Tên tỉnh/thành',
-                            'htmlOption' => '',
-                        ],
-                        [
-                            'name' => 'Ngày cập nhật',
-                            'htmlOption' => '',
-                        ],
+                    [
+                        'header' => 'Tên tỉnh/thành',
+                        'value' => 'province_name',
+                        'type' => 'field',
+                        'htmlOption' => '',
                     ],
-                    'tbody' => [
-                        [
-                            'value' => 'province_name',
-                            'type' => 'field'
-                        ],
-                        [
-                            'value' => 'get_update_date',
-                            'type' => 'function',
-                        ],
+                    [
+                        'header' => 'Ngày cập nhật',
+                        'value' => 'get_update_date',
+                        'type' => 'function',
+                        'htmlOption' => '',
                     ],
                 ];
              ?>

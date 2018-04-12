@@ -5,7 +5,8 @@ class District extends CI_Model {
     public function __construct()
     {
     	$this->load->model('provinces');
-    	
+    	$this->load->model('wards');
+
 	    $this->load->database();
 		$this->load->helper('url');
     }
@@ -62,6 +63,15 @@ class District extends CI_Model {
 			$this->db->where('id', $slug->id);
   			$this->db->delete('gen_slug');
 		}
+
+		$query = $this->db->query("SELECT * FROM ci_wards WHERE district_id = ".$this->id);
+		$wards = $query->result('Wards');
+		if (count($wards) > 0) {
+			foreach ($wards as $ward) {
+				$ward->delete_model();
+			}
+		}
+
 		$this->db->where('id', $this->id);
   		$this->db->delete('district');
 	}
