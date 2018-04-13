@@ -66,7 +66,7 @@ class ProvincesC extends MY_Controller {
             $query = $this->db->query("SELECT * FROM ci_provinces WHERE id in(".implode(',', $deleteItems).")");
             $models = $query->result('Provinces');
             foreach ($models as $model) {
-                $this->provinces->delete_model($model->id);
+                $model->delete_model();
             }
         }
         redirect('admin/provincesC/index', 'refresh');

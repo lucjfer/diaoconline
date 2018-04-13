@@ -65,7 +65,7 @@ class SearchPriceC extends MY_Controller {
             $query = $this->db->query("SELECT * FROM ci_search_price WHERE id in(".implode(',', $deleteItems).")");
             $models = $query->result('SearchPrice');
             foreach ($models as $model) {
-                $this->searchPrice->delete_model($model->id);
+                $model->delete_model();
             }
         }
         redirect('admin/searchPriceC/index', 'refresh');

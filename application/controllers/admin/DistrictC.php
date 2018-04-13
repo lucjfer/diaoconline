@@ -66,7 +66,7 @@ class DistrictC extends MY_Controller {
             $query = $this->db->query("SELECT * FROM ci_district WHERE id in(".implode(',', $deleteItems).")");
             $models = $query->result('District');
             foreach ($models as $model) {
-                $this->district->delete_model($model->id);
+                $model->delete_model();
             }
         }
         redirect('admin/districtC/index', 'refresh');

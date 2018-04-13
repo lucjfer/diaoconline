@@ -66,7 +66,7 @@ class WardsC extends MY_Controller {
             $query = $this->db->query("SELECT * FROM ci_wards WHERE id in(".implode(',', $deleteItems).")");
             $models = $query->result('Wards');
             foreach ($models as $model) {
-                $this->wards->delete_model($model->id);
+                $model->delete_model();
             }
         }
         redirect('admin/wardsC/index', 'refresh');

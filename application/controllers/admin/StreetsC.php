@@ -67,7 +67,7 @@ class StreetsC extends MY_Controller {
             $query = $this->db->query("SELECT * FROM ci_streets WHERE id in(".implode(',', $deleteItems).")");
             $models = $query->result('Streets');
             foreach ($models as $model) {
-                $this->Streets->delete_model($model->id);
+                $model->delete_model();
             }
         }
         redirect('admin/streetsC/index', 'refresh');
