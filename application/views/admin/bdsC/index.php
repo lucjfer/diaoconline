@@ -16,9 +16,19 @@
             <?php 
                 $column = [
                     [
-                        'header' => 'Tên tiện ích',
+                        'header' => 'Tên bất động sản',
                         'value' => 'name',
                         'type' => 'field'
+                    ],
+                    [
+                        'header' => 'Loại tin đăng',
+                        'value' => 'getType',
+                        'type' => 'function',
+                    ],
+                    [
+                        'header' => 'Loại bất động sản',
+                        'value' => 'getRealType',
+                        'type' => 'function',
                     ],
                     [
                         'header' => 'Ngày cập nhật',

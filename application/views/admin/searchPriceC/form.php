@@ -3,7 +3,7 @@
         <h4 class="page-title"><?php echo $title ?></h4>
     </div>
     <?php
-        $breadcrumb = [base_url('admin/system') => 'Dashboard', base_url('admin/searchPriceC') => 'Quản lý giá tìm kiếm', 'active' => $title];
+        $breadcrumb = [base_url('admin/system') => 'Dashboard', base_url('admin/'.$this->router->fetch_class()) => 'Quản lý giá tìm kiếm', 'active' => $title];
         $this->load->view('admin/layouts/breadcrumbs', ['breadcrumb' => $breadcrumb]);
      ?>
     <!-- /.col-lg-12 -->
@@ -38,7 +38,7 @@
                 <div class="col-xs-12">
                     <div class="text-center">
                         <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Lưu</button>
-                        <a href="<?php echo base_url('admin/searchPriceC')?>" class="btn btn-inverse waves-effect waves-light">Hủy</a>
+                        <a href="<?php echo base_url('admin/'.$this->router->fetch_class())?>" class="btn btn-inverse waves-effect waves-light">Hủy</a>
                     </div>
                 </div>
             <?php echo form_close(); ?>

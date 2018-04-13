@@ -42,7 +42,7 @@
                     ],
                 ];
              ?>
-            <?php echo $this->load->widget('table', ['streetsC', $models, $column]); ?>
+            <?php echo $this->load->widget('table', [$this->router->fetch_class(), $models, $column]); ?>
         </div>
     </div>
 </div>
