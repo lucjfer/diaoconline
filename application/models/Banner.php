@@ -19,7 +19,7 @@ class Banner extends CI_Model {
 		if (!empty($conditions)) {
 			$query = $this->db->get_where('banners', $conditions);
 
-        	return $query->row();
+        	return $query->row(0, 'Banner');
 		} else {
 			$query = $this->db->query("SELECT * FROM ci_banners ORDER BY created_date desc");
 			return $query->result('Banner');
@@ -47,8 +47,12 @@ class Banner extends CI_Model {
         $this->db->update('banners', $data_insert);
 	}
 
-	public function delete_model($id) {
-		$this->db->where('id', $id);
+	public function delete_model() {
+		if (is_file('./'.$this->image)) {
+			unlink('./'.$this->image);
+		}
+
+		$this->db->where('id', $this->id);
   		$this->db->delete('banners');
 	}
 

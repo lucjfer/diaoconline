@@ -1,26 +1,26 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
--- http://www.phpmyadmin.net
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2018 at 11:49 AM
--- Server version: 5.6.11
--- PHP Version: 5.5.3
+-- Generation Time: Apr 15, 2018 at 04:24 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 5.6.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `diaoconline`
 --
-CREATE DATABASE IF NOT EXISTS `diaoconline` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `diaoconline`;
 
 -- --------------------------------------------------------
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `ci_banners` (
   `created_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_banners`
@@ -60,6 +60,66 @@ INSERT INTO `ci_banners` (`id`, `name`, `button_name`, `name_en`, `button_name_e
 (13, 'quang cáo 1', '', '', '', '', '/uploads/advertisement/eeeddedc37e1746a04b8894b7896c4c6.gif', 'advertisement', 1, 1, '2018-04-06 22:09:36', '2018-04-06 22:09:36'),
 (14, 'quang cáo 2', '', '', '', '', '/uploads/advertisement/318d4fd752dbfa254305d890c4cb5759.gif', 'advertisement', 1, 2, '2018-04-06 22:09:53', '2018-04-06 22:09:53'),
 (15, 'quang cáo 3', '', '', '', 'quang cáo 3', '/uploads/advertisement/2cd6d36862e1d076e0400b31cbb55bec.jpg', 'advertisement', 1, 3, '2018-04-06 22:29:18', '2018-04-06 22:29:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ci_bds`
+--
+
+DROP TABLE IF EXISTS `ci_bds`;
+CREATE TABLE IF NOT EXISTS `ci_bds` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `meta_description` text COLLATE utf8_unicode_ci NOT NULL,
+  `type` int(11) NOT NULL,
+  `real_type_id` int(11) NOT NULL,
+  `front_area_id` int(11) NOT NULL,
+  `province_id` int(11) NOT NULL,
+  `district_id` int(11) NOT NULL,
+  `ward_id` int(11) NOT NULL,
+  `street_id` int(11) NOT NULL,
+  `apartment_number` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `project_id` bigint(20) NOT NULL,
+  `price` int(11) NOT NULL,
+  `currency` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `unit` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `area` int(11) NOT NULL,
+  `horizontal_yard_area` int(11) NOT NULL,
+  `vertical_yard_area` int(11) NOT NULL,
+  `horizontal_yard_area_after` int(11) NOT NULL,
+  `horizonta_contruction_area` int(11) NOT NULL,
+  `vertica_contruction_area` int(11) NOT NULL,
+  `horizonta_contruction_area_after` int(11) NOT NULL,
+  `phap_ly_id` int(11) NOT NULL,
+  `direction_id` int(11) NOT NULL,
+  `utility_id` int(11) NOT NULL,
+  `number_of_floor` int(11) NOT NULL,
+  `number_of_guest_room` int(11) NOT NULL,
+  `number_of_bed_room` int(11) NOT NULL,
+  `number_of_rest_room` int(11) NOT NULL,
+  `number_of_other_room` int(11) NOT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `poster` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `cell_phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `note` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `update_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ci_bds`
+--
+
+INSERT INTO `ci_bds` (`id`, `user_id`, `name`, `description`, `title`, `meta_description`, `type`, `real_type_id`, `front_area_id`, `province_id`, `district_id`, `ward_id`, `street_id`, `apartment_number`, `project_id`, `price`, `currency`, `unit`, `area`, `horizontal_yard_area`, `vertical_yard_area`, `horizontal_yard_area_after`, `horizonta_contruction_area`, `vertica_contruction_area`, `horizonta_contruction_area_after`, `phap_ly_id`, `direction_id`, `utility_id`, `number_of_floor`, `number_of_guest_room`, `number_of_bed_room`, `number_of_rest_room`, `number_of_other_room`, `slug`, `poster`, `phone`, `cell_phone`, `address`, `note`, `status`, `created_date`, `update_date`) VALUES
+(1, 0, 'a', 'a', 'a', 'a', 1, 18, 7, 7, 4, 1, 1, 'a', 0, 5, '', '1', 5, 0, 5, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'a', 'Lucjfer', '', '5', '5', '5', 0, '2018-04-15 10:05:49', '2018-04-15 14:08:30');
 
 -- --------------------------------------------------------
 
@@ -88,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `ci_billing_address` (
   `created_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -118,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `ci_categories` (
   `update_date` datetime NOT NULL,
   `is_featured` int(10) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=79 ;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_categories`
@@ -137,9 +197,6 @@ INSERT INTO `ci_categories` (`id`, `parent_id`, `category_name`, `category_name_
 (62, 61, 'View All Dell', '', 'View All Dell', '', 'View All Dell', '', 'dell-72c.html', 'view-all-dell-77', '', 3, '', 1, '', 'menu', '2018-04-06 21:55:35', '2018-04-08 17:45:03', 0),
 (63, 61, 'Dell Inspirion', '', 'Dell Inspirion', '', 'Dell Inspirion', '', 'dell-inspiron-73c.html', 'dell-inspirion-77', '', 3, '', 2, '', 'menu', '2018-04-06 21:55:57', '2018-04-08 17:45:09', 0),
 (64, 53, 'HP', '', 'HP', '', 'HP', '', 'hp-73c.html', 'hp-77', '', 2, '', 3, '', 'menu', '2018-04-06 21:57:49', '2018-04-08 17:45:30', 0),
-(65, 0, 'Tin công nghệ', '', 'Tin công nghệ', '', '', '', '', 'tin-cong-nghe-64', '', 1, '', 0, '', 'news', '2018-04-06 22:02:47', '2018-04-06 22:02:47', 0),
-(66, 0, 'Tin công ty', '', 'Tin công ty', '', '', '', '', 'tin-cong-ty-65', '', 1, '', 0, '', 'news', '2018-04-06 22:04:20', '2018-04-06 22:04:20', 0),
-(67, 0, 'Tin khuyễn mãi', '', 'Tin khuyễn mãi', '', '', '', '', 'tin-khuyen-mai-66', '', 1, '', 0, '', 'news', '2018-04-06 22:04:25', '2018-04-06 22:04:25', 0),
 (68, 73, 'Dell Inspiron', '', 'Dell Inspiron', '', '', '', '', 'dell-inspiron-73', '', 3, '', 0, '', 'category', '2018-04-06 22:14:36', '2018-04-06 22:28:42', 0),
 (69, 73, 'Dell Vostro', '', 'Dell Vostro', '', '', '', '', 'dell-vostro-73', '', 3, '', 0, '', 'category', '2018-04-06 22:14:45', '2018-04-06 22:27:40', 0),
 (70, 73, 'Dell XPS', '', 'Dell XPS', '', '', '', '', 'dell-xps-73', '', 3, '', 0, '', 'category', '2018-04-06 22:14:50', '2018-04-06 22:27:44', 0),
@@ -166,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `ci_city` (
   `created_date` int(11) NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -194,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `ci_contact` (
   `comment` text COLLATE utf8_unicode_ci NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -214,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `ci_contact_info_product` (
   `contact_id` bigint(20) NOT NULL,
   `created_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -233,7 +290,7 @@ CREATE TABLE IF NOT EXISTS `ci_coupon` (
   `status` tinyint(1) NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -251,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `ci_coupon_history` (
   `discount_amount` double NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -266,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `ci_direction` (
   `created_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ci_direction`
@@ -298,7 +355,7 @@ CREATE TABLE IF NOT EXISTS `ci_district` (
   `created_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_district`
@@ -323,7 +380,7 @@ CREATE TABLE IF NOT EXISTS `ci_email_templates` (
   `note` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_date` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -338,7 +395,7 @@ CREATE TABLE IF NOT EXISTS `ci_front_area` (
   `created_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ci_front_area`
@@ -365,7 +422,7 @@ CREATE TABLE IF NOT EXISTS `ci_gen_slug` (
   `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ci_gen_slug`
@@ -391,7 +448,10 @@ INSERT INTO `ci_gen_slug` (`id`, `slug`, `type`) VALUES
 (27, 'nha-kho-xuong', 'real_type'),
 (28, 'nha-hang-khach-san', 'real_type'),
 (29, 'mat-bang-cua-hang', 'real_type'),
-(30, 'phong-tro', 'real_type');
+(30, 'phong-tro', 'real_type'),
+(31, 'nha-dau-hem-quoc-lo-13-cach-duong-chi-80-m', 'bds'),
+(32, 'nha-dau-hem-quoc-lo-13-cach-duong-chi-80-m-1', 'bds'),
+(33, 'a', 'bds');
 
 -- --------------------------------------------------------
 
@@ -405,7 +465,7 @@ CREATE TABLE IF NOT EXISTS `ci_masterfile_product_option` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `is_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -419,7 +479,7 @@ CREATE TABLE IF NOT EXISTS `ci_masterfile_product_option_value` (
   `product_option_id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -440,7 +500,7 @@ CREATE TABLE IF NOT EXISTS `ci_menus` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_menus`
@@ -456,7 +516,7 @@ INSERT INTO `ci_menus` (`id`, `parent_id`, `menu_name`, `menu_link`, `show_in_me
 (30, 28, 'Danh mục bài viết', 'admin/categoryNews', 1, 2, 'fa fa-list-ul', 1, '2018-04-06 15:01:18', '2018-04-06 22:01:18'),
 (31, 25, 'Quảng cáo', 'admin/advertisement', 1, 3, 'fa fa-align-center', 1, '2018-04-06 15:08:41', '2018-04-06 22:08:41'),
 (32, 0, 'Quản lý sản phẩm', '', 1, 4, 'glyphicon glyphicon-th-large', 1, '2018-04-06 16:50:53', '2018-04-06 23:50:53'),
-(33, 32, 'Sản phẩm', 'admin/product', 1, 1, 'glyphicon glyphicon-th-list', 1, '2018-04-06 15:11:55', '2018-04-06 22:11:55'),
+(33, 32, 'Sản phẩm', 'admin/product', 0, 1, 'glyphicon glyphicon-th-list', 1, '2018-04-13 15:14:33', '2018-04-13 17:14:33'),
 (34, 32, 'Danh mục sản phẩm', 'admin/category', 1, 2, 'glyphicon glyphicon-tasks', 1, '2018-04-06 15:14:19', '2018-04-06 22:14:19'),
 (35, 0, 'Quản lý địa điểm', '', 1, 5, 'glyphicon glyphicon-road', 1, '2018-04-11 04:24:21', '2018-04-11 06:24:21'),
 (36, 0, 'Quản lý trang tĩnh', 'admin/post', 1, 6, 'glyphicon glyphicon-book', 1, '2018-04-08 15:05:05', '2018-04-08 17:05:05'),
@@ -469,7 +529,9 @@ INSERT INTO `ci_menus` (`id`, `parent_id`, `menu_name`, `menu_link`, `show_in_me
 (43, 32, 'Pháp lý', 'admin/phapLyC', 1, 4, 'glyphicon glyphicon-comment', 1, '2018-04-13 08:43:43', '2018-04-13 10:43:43'),
 (44, 32, 'Hướng nhà', 'admin/directionC', 1, 5, 'glyphicon glyphicon-cloud', 1, '2018-04-13 08:51:12', '2018-04-13 10:51:12'),
 (45, 32, 'Loại đia ốc', 'admin/realEstateTypeC', 1, 6, 'glyphicon glyphicon-flag', 1, '2018-04-13 09:00:28', '2018-04-13 11:00:28'),
-(46, 32, 'Đường trước nhà', 'admin/frontAreaC', 1, 7, 'glyphicon glyphicon-tag', 1, '2018-04-13 09:27:35', '2018-04-13 11:27:35');
+(46, 32, 'Đường trước nhà', 'admin/frontAreaC', 1, 7, 'glyphicon glyphicon-tag', 1, '2018-04-13 09:27:35', '2018-04-13 11:27:35'),
+(47, 32, 'Bất động sản', 'admin/bdsC', 1, 1, 'glyphicon glyphicon-home', 1, '2018-04-13 15:13:29', '2018-04-13 17:13:29'),
+(48, 0, 'Quản lý dự án', 'admin/project', 1, 8, 'glyphicon glyphicon-file', 1, '2018-04-15 05:37:20', '2018-04-15 07:37:20');
 
 -- --------------------------------------------------------
 
@@ -494,15 +556,7 @@ CREATE TABLE IF NOT EXISTS `ci_news` (
   `views` int(255) NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
-
---
--- Dumping data for table `ci_news`
---
-
-INSERT INTO `ci_news` (`id`, `title`, `title_en`, `description`, `short_content`, `short_content_en`, `content`, `content_en`, `category_id`, `featured_image`, `slug`, `language`, `views`, `created_date`) VALUES
-(12, 'HƯỚNG DẪN MUA HÀNG TRẢ GÓP QUA VÍ ĐIỆN TỬ NGÂN LƯỢNG TRÊN KHOLAPTOP.VN', NULL, 'Bạn muốn mua hàng trả góp qua thẻ tín dụng nhưng lại lo ngại về các thủ tục rườm rà?\r\n\r\nĐừng lo, vì KHOLAPTOP sẽ hỗ trợ bạn mua trả góp với lãi suất ưu đãi qua thẻ mà chẳng cần giấy tờ lại còn được hưởng rất nhiều Lợi ích:', 'Bạn muốn mua hàng trả góp qua thẻ tín dụng nhưng lại lo ngại về các thủ tục rườm rà?\r\n\r\nĐừng lo, vì KHOLAPTOP sẽ hỗ trợ bạn mua trả góp với lãi suất ưu đãi qua thẻ mà chẳng cần giấy tờ lại còn được hưởng rất nhiều Lợi ích:', '', '<p><strong>Bạn muốn mua h&agrave;ng trả g&oacute;p qua thẻ t&iacute;n dụng nhưng lại lo ngại về c&aacute;c thủ tục rườm r&agrave;?</strong></p>\r\n\r\n<p><strong>Đừng lo, v&igrave; KHOLAPTOP sẽ hỗ trợ bạn mua trả g&oacute;p với l&atilde;i suất ưu đ&atilde;i qua thẻ m&agrave; chẳng cần giấy tờ lại c&ograve;n được hưởng rất nhiều Lợi &iacute;ch:</strong></p>\r\n\r\n<p><em><strong>* LỢI &Iacute;CH KHI SỬ DỤNG THẺ T&Iacute;N DỤNG ĐỂ TRẢ G&Oacute;P:</strong></em></p>\r\n\r\n<p><em>- l&atilde;i suất thấp; Kh&ocirc;ng đặt cọc</em></p>\r\n\r\n<p><em>- Thủ tục đơn giản kh&ocirc;ng cần giấy tờ (kh&ocirc;ng cần CMND/Bằng l&aacute;i xe/Hộ khẩu/H&oacute;a đơn điện nước&hellip;)</em></p>\r\n\r\n<p><em>- Kh&ocirc;ng bắt buộc phải tới cửa h&agrave;ng</em></p>\r\n\r\n<p><em>- Kh&ocirc;ng cần chứng minh thu nhập</em></p>\r\n\r\n<p><em>- Được &aacute;p dụng đầy đủ c&aacute;c chương tr&igrave;nh Khuyến M&atilde;i, Giảm Gi&aacute; hay Tặng qu&agrave; đang diễn ra trong thời điểm Qu&yacute; Kh&aacute;ch h&agrave;ngmua trả g&oacute;p.</em></p>\r\n\r\n<p><em>- Chỉ 1 ph&uacute;t l&agrave; c&oacute; ngay sản phẩm</em></p>\r\n\r\n<p><em>- K&igrave; hạn trả g&oacute;p linh hoạt 3 v&agrave; 12 th&aacute;ng</em></p>\r\n\r\n<p><em>- Đối với c&aacute;c thẻ đủ điều kiện(*), tỷ lệ th&agrave;nh c&ocirc;ng đơn h&agrave;ng trả g&oacute;p l&agrave; 100% (*: Xem chi tiết tại cuối b&agrave;i hướng dẫn n&agrave;y)</em></p>\r\n\r\n<p><strong>&gt;&gt; Bạn chỉ cần thao t&aacute;c theo 4 BƯỚC ĐƠN GIẢN dưới đ&acirc;y:</strong></p>\r\n\r\n<p><strong>Bước 1: Chọn Sản phẩm cần mua Trả g&oacute;p qua Thẻ t&iacute;n dụng (V&iacute; dụ trọn m&aacute;y&nbsp;DELL VOSTRO V5568C):</strong></p>\r\n\r\n<p><strong><img alt="" src="http://kholaptop.vn/media/news/2003_1.jpg" /></strong></p>\r\n\r\n<p>Click n&uacute;t&nbsp;<strong>&quot;Trả g&oacute;p online&quot;</strong></p>\r\n\r\n<p><strong>Bước 2: Điền đầy đủ th&ocirc;ng tin c&aacute; nh&acirc;n: Họ t&ecirc;n, Số ĐT, Địa chỉ, E-mail v&agrave; số tiền c&oacute; thể trả trước:</strong></p>\r\n\r\n<p><strong><img alt="" src="http://kholaptop.vn/media/news/2003_2.jpg" /></strong></p>\r\n\r\n<p><strong>Bước 3: Khai b&aacute;o th&ocirc;ng tin tr&ecirc;n cổng thanh to&aacute;n AlePay: 1 l&agrave; trọn ng&acirc;n h&agrave;ng, 2 trọn loại thẻ, 3 l&agrave; thời gian để trả g&oacute;p. 4 t&iacute;ch v&agrave;o &ocirc; vu&ocirc;ng để đồng &yacute;, cuối c&ugrave;ng l&agrave; click v&agrave;o n&uacute;t trả g&oacute;p:</strong></p>\r\n\r\n<p><strong><img alt="" src="http://kholaptop.vn/media/news/2003_3.jpg" /></strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Bước 4:&nbsp;Sau khi đ&atilde; trọn ng&acirc;n h&agrave;ng v&agrave; loại thẻ th&igrave; trang web sẽ nhảy sang trang mới để bạn điền th&ocirc;ng tin tr&ecirc;n thẻ v&agrave;o để c&oacute; thể thanh to&aacute;n online: Họ v&agrave; t&ecirc;n, Số thẻ, Ng&agrave;y hết hạn để ho&agrave;n tất thủ tục trả g&oacute;p.&nbsp;</strong></p>\r\n\r\n<p><strong><img alt="" src="http://kholaptop.vn/media/news/2003_4.jpg" /></strong></p>\r\n\r\n<p><em><strong>* TRƯỚC KHI TRẢ G&Oacute;P QUA THẺ T&Iacute;N DỤNG, QU&Yacute; KH&Aacute;CH N&Ecirc;N KIỂM TRA C&Aacute;C TH&Ocirc;NG TIN SAU:</strong></em></p>\r\n\r\n<ul>\r\n	<li><em>Số dư của thẻ: Số dư của thẻ cần phải lớn hơn hoặc bằng tổng gi&aacute; trị trả g&oacute;p.</em></li>\r\n	<li><em>Đ&atilde; đăng k&iacute; chức năng thanh to&aacute;n trực tuyến. Nếu Qu&yacute; kh&aacute;ch chưa đăng k&iacute; chức năng n&agrave;y, vui l&ograve;ng li&ecirc;n hệ đến ng&acirc;n h&agrave;ng ph&aacute;t h&agrave;nh thẻ để được hướng dẫn.</em></li>\r\n	<li><em>Kiểm tra ng&agrave;y hết hạn của thẻ: Thời hạn c&ograve;n lại của thẻ phải lớn hơn hoặc bằng k&igrave; hạn trả g&oacute;p.</em></li>\r\n	<li><em>Ng&agrave;y sao k&ecirc;: Giao dịch cận ng&agrave;y sao k&ecirc; (tức l&agrave; trước ng&agrave;y sao k&ecirc; 1-2 ng&agrave;y) sẽ ảnh hưởng trực tiếp tới quyền lợi của Qu&yacute; kh&aacute;ch như sau:</em></li>\r\n	<li><em>Qu&yacute; kh&aacute;ch sẽ c&oacute; &iacute;t thời gian để chuẩn bị cho khoản trả g&oacute;p đầu ti&ecirc;n;</em></li>\r\n	<li><em>Qu&yacute; kh&aacute;ch kh&ocirc;ng được huỷ đơn h&agrave;ng trả g&oacute;p do Ng&acirc;n h&agrave;ng kh&ocirc;ng cho ph&eacute;p huỷ giao dịch sau khi đ&atilde; l&ecirc;n sao k&ecirc;</em></li>\r\n	<li><em>Khoản trả g&oacute;p c&oacute; thể kh&ocirc;ng được l&ecirc;n sao k&ecirc; ngay, Ng&acirc;n h&agrave;ng sẽ kh&ocirc;ng hỗ trợ chuyển đổi trả g&oacute;p online nữa v&agrave; Qu&yacute; kh&aacute;ch phải trực tiếp đến Ng&acirc;n h&agrave;ng để l&agrave;m thủ tục chuyển đổi trả g&oacute;p.</em></li>\r\n	<li><em>Trong qu&aacute; tr&igrave;nh thanh to&aacute;n phải nhập đ&uacute;ng số thẻ, ng&agrave;y hết hạn v&agrave; số CVV</em></li>\r\n	<li><em>Tổng thời gian giao dịch tối đa của hệ thống l&agrave; 10 ph&uacute;t. Nếu qu&aacute; thời gian n&agrave;y chưa ho&agrave;n th&agrave;nh thao t&aacute;c x&aacute;c nhận chủ thẻ của ng&acirc;n h&agrave;ng, giao dịch sẽ tự động thất bại.</em></li>\r\n	<li><em>Khi cần trợ gi&uacute;p vui l&ograve;ng gọi 1900 6788 hoặc 1900 6743 (8h00-21h30) để được hỗ trợ nhanh nhất.</em></li>\r\n</ul>\r\n', '', 66, '/uploads/news/048bbe0bdf58c35b12f3fc41103f9f0a.jpg', 'huong-dan-mua-hang-tra-gop-qua-vi-dien-tu-ngan-luong-tren-kholaptopvn-', 'vn', 0, '2018-04-06 22:05:30'),
-(13, 'SỬA CHỮA CARD MÀN HÌNH VGA', NULL, 'Card đồ họa hoặc card VGA thường được phân biệt thành 2 loại:\r\n- Card Vga onboard (hay còn gọi là Vga share): là card đồ họa tích hợp chung với CPU và dùng chung bộ nhớ RAM. do vậy thường tốc độ sử lý và làm việc không thể bằng card rời.\r\n- Card Vga rời :', 'Card đồ họa hoặc card VGA thường được phân biệt thành 2 loại:\r\n- Card Vga onboard (hay còn gọi là Vga share): là card đồ họa tích hợp chung với CPU và dùng chung bộ nhớ RAM. do vậy thường tốc độ sử lý và làm việc không thể bằng card rời.\r\n- Card Vga rời :', '', '<p>Card đồ họa hoặc card VGA thường được ph&acirc;n biệt th&agrave;nh 2 loại:<br />\r\n- Card Vga onboard (hay c&ograve;n gọi l&agrave; Vga share): l&agrave; card đồ họa t&iacute;ch hợp chung với CPU v&agrave; d&ugrave;ng chung bộ nhớ RAM. do vậy thường tốc độ sử l&yacute; v&agrave; l&agrave;m việc kh&ocirc;ng thể bằng card rời.<br />\r\n- Card Vga rời : l&agrave; card được thiết kế ri&ecirc;ng. chip ri&ecirc;ng, bộ nhớ ri&ecirc;ng để c&oacute; thể l&agrave;m việc độc lập sử l&yacute; đồ họa 1 c&aacute;ch nhanh nhất, v&agrave; mạnh nhất</p>\r\n\r\n<p>khi ta chơi game, hay thiết kế đồ họa, chạy những bộ phim full HD, 4k th&igrave; l&uacute;c đ&oacute; bộ phận chip VGA sẽ được hoạt động hết c&ocirc;ng xuất. để c&oacute; thể xuất l&agrave; những h&igrave;nh ảnh chất lượng nhất. n&ecirc;n do vậy l&uacute;c đ&oacute; Chip thường rất n&oacute;ng. v&agrave; cẩn phải tản nhiệt tốt để hạ nhiệt độ của ch&iacute;p xuống. nếu để thời gian n&oacute;ng qua l&acirc;u do như l&acirc;u chưa vệ sinh, l&agrave;m việc với thời gian li&ecirc;n tục rất dễ đến sinh ra lỗi, c&oacute; thể g&acirc;y hỏng card.<br />\r\n-Dấu hiệu nhận biết laptop bị lỗi chip Vga, card m&agrave;n h&igrave;nh:<br />\r\n+ Laptop l&ecirc;n nguồn, đ&egrave;n nguồn s&aacute;ng, quạt nguồn quay nhưng kh&ocirc;ng c&oacute; hiển thị h&igrave;nh ảnh<br />\r\n+ M&agrave;n h&igrave;nh laptop xuất hiện sọc ngang, sọc dọc, đốm, h&igrave;nh ảnh bị nh&ograve;e, giật<br />\r\n+ Khi mở c&aacute;c ứng dụng nặng laptop tự động tắt ngang ứng dụng hoặc tắt lu&ocirc;n nguồn<br />\r\n+ V&agrave;o Win nhận VGA l&agrave; Dump xanh<br />\r\n+ Macbook treo t&aacute;o, trắng m&agrave;n h&igrave;nh.</p>\r\n\r\n<p>+ T&ugrave;y v&agrave;o d&ograve;ng m&aacute;y sẽ c&oacute; những tiếng bip mặc định:&nbsp;laptop DELL b&aacute;o 8 tiếng bip li&ecirc;n tục ,laptop HP b&aacute;o chớp 3 hoặc 1 đ&egrave;n caplock</p>\r\n\r\n<p>Những biểu hiện đ&oacute; th&igrave; tốt nhất bạn n&ecirc;n mang đến 1 cơ sở sửa chữa c&oacute; uy t&iacute;n để kiểm tra v&agrave; khắc phục, chứ kh&ocirc;ng n&ecirc;n để như vậy để tiếp tục d&ugrave;ng. c&oacute; thể g&acirc;y hỏng c&aacute;c linh kiện, kh&oacute; khắc phục hơn.</p>\r\n\r\n<p>Dịch vụ sửa chữa &ndash; thay thế chip Vga tại trung t&acirc;m KHOLAPTOP:</p>\r\n\r\n<ul>\r\n	<li>Sửa chữa nhanh ch&oacute;ng, lấy liền ngay trong ng&agrave;y với c&aacute;c d&ograve;ng m&aacute;y th&ocirc;ng dụng.</li>\r\n	<li>&Aacute;p dụng c&ocirc;ng nghệ đ&oacute;ng chip Vga t&acirc;n tiến, hiện đại nhất hiện nay</li>\r\n	<li>Đảm bảo kh&ocirc;i phục hiệu năng hoạt động của laptop</li>\r\n	<li>Giảm thiểu nguy cơ t&aacute;i ph&aacute;t lỗi</li>\r\n	<li>Quy tr&igrave;nh sửa chữa chip Vga c&ocirc;ng khai, kh&aacute;ch h&agrave;ng trực tiếp quan s&aacute;t</li>\r\n	<li>Kh&ocirc;ng g&acirc;y ảnh hưởng đến c&aacute;c linh kiện kh&aacute;c</li>\r\n	<li>Chi ph&iacute; sửa chữa cạnh tranh, tư vấn phương &aacute;n tiết kiệm v&agrave; hiệu quả nhất cho kh&aacute;ch h&agrave;ng</li>\r\n	<li>Bảo h&agrave;nh l&acirc;u d&agrave;i sau khi sửa</li>\r\n	<li>Ho&agrave;n lại 100% chi ph&iacute; nếu laptop t&aacute;i ph&aacute;t lỗi Vga.</li>\r\n</ul>\r\n\r\n<p>Địa chỉ: Tầng 2- Số 9, Th&aacute;i H&agrave;, H&agrave; Nội</p>\r\n', '', 66, '/uploads/news/04d780f32fee0016ffccfb7184d5e302.jpg', 'sua-chua-card-man-hinh-vga-12', 'vn', 0, '2018-04-06 22:06:19');
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -529,7 +583,7 @@ CREATE TABLE IF NOT EXISTS `ci_orders` (
   `created_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_orders`
@@ -562,21 +616,21 @@ CREATE TABLE IF NOT EXISTS `ci_order_details` (
   `more_info` text COLLATE utf8_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_order_details`
 --
 
 INSERT INTO `ci_order_details` (`id`, `order_id`, `product_id`, `product_option_value_id`, `product_sub_option_value_id`, `quantity`, `base_price`, `total_price`, `more_info`, `created_date`) VALUES
-(11, 3, 37, 0, 0, 1, 10990000, 10990000, '[[{"name_option":"","name_option_value":"","price":0}]]', '2018-04-08 15:35:02'),
-(12, 3, 36, 0, 0, 1, 23590000, 23590000, '[[{"name_option":"","name_option_value":"","price":0}]]', '2018-04-08 15:35:02'),
-(13, 4, 37, 0, 0, 1, 10990000, 10990000, '[[{"name_option":"","name_option_value":"","price":0}]]', '2018-04-08 15:36:34'),
-(14, 5, 35, 0, 0, 1, 13500000, 13500000, '[[{"name_option":"","name_option_value":"","price":0}]]', '2018-04-08 15:37:21'),
-(15, 6, 36, 0, 0, 1, 23590000, 23590000, '[[{"name_option":"","name_option_value":"","price":0}]]', '2018-04-08 15:37:37'),
-(16, 7, 36, 0, 0, 1, 23590000, 23590000, '[[{"name_option":"","name_option_value":"","price":0}]]', '2018-04-08 15:38:40'),
-(17, 8, 37, 0, 0, 1, 10990000, 10990000, '[[{"name_option":"","name_option_value":"","price":0}]]', '2018-04-08 16:46:15'),
-(18, 8, 37, 0, 0, 1, 10990000, 13990000, '{"257":{"368":{"name_option":"Ram","name_option_value":"8GB","price":1000000}},"258":{"370":{"name_option":"SSD","name_option_value":"120GB","price":1500000}},"259":{"371":{"name_option":"Color","name_option_value":"#000000","price":500000}}}', '2018-04-08 16:46:15');
+(11, 3, 37, 0, 0, 1, 10990000, 10990000, '[[{\"name_option\":\"\",\"name_option_value\":\"\",\"price\":0}]]', '2018-04-08 15:35:02'),
+(12, 3, 36, 0, 0, 1, 23590000, 23590000, '[[{\"name_option\":\"\",\"name_option_value\":\"\",\"price\":0}]]', '2018-04-08 15:35:02'),
+(13, 4, 37, 0, 0, 1, 10990000, 10990000, '[[{\"name_option\":\"\",\"name_option_value\":\"\",\"price\":0}]]', '2018-04-08 15:36:34'),
+(14, 5, 35, 0, 0, 1, 13500000, 13500000, '[[{\"name_option\":\"\",\"name_option_value\":\"\",\"price\":0}]]', '2018-04-08 15:37:21'),
+(15, 6, 36, 0, 0, 1, 23590000, 23590000, '[[{\"name_option\":\"\",\"name_option_value\":\"\",\"price\":0}]]', '2018-04-08 15:37:37'),
+(16, 7, 36, 0, 0, 1, 23590000, 23590000, '[[{\"name_option\":\"\",\"name_option_value\":\"\",\"price\":0}]]', '2018-04-08 15:38:40'),
+(17, 8, 37, 0, 0, 1, 10990000, 10990000, '[[{\"name_option\":\"\",\"name_option_value\":\"\",\"price\":0}]]', '2018-04-08 16:46:15'),
+(18, 8, 37, 0, 0, 1, 10990000, 13990000, '{\"257\":{\"368\":{\"name_option\":\"Ram\",\"name_option_value\":\"8GB\",\"price\":1000000}},\"258\":{\"370\":{\"name_option\":\"SSD\",\"name_option_value\":\"120GB\",\"price\":1500000}},\"259\":{\"371\":{\"name_option\":\"Color\",\"name_option_value\":\"#000000\",\"price\":500000}}}', '2018-04-08 16:46:15');
 
 -- --------------------------------------------------------
 
@@ -594,7 +648,7 @@ CREATE TABLE IF NOT EXISTS `ci_pages` (
   `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -615,7 +669,7 @@ CREATE TABLE IF NOT EXISTS `ci_partner` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -630,7 +684,7 @@ CREATE TABLE IF NOT EXISTS `ci_phap_ly` (
   `created_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ci_phap_ly`
@@ -667,7 +721,7 @@ CREATE TABLE IF NOT EXISTS `ci_posts` (
   `language` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_posts`
@@ -693,7 +747,7 @@ CREATE TABLE IF NOT EXISTS `ci_producer` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -722,15 +776,15 @@ CREATE TABLE IF NOT EXISTS `ci_products` (
   `update_date` datetime NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_products`
 --
 
 INSERT INTO `ci_products` (`id`, `product_code`, `product_name`, `product_name_en`, `price`, `sale_price`, `content`, `content_en`, `description`, `description_en`, `title`, `meta_description`, `slug`, `status`, `is_feature`, `is_new`, `update_date`, `created_date`) VALUES
-(35, 'P060420180035', 'DELL INSPIRON 15R N5567 M5I5353 (I57200-8-1TB-AMD) GRAY', '', 13500000, '', '<p>H&agrave;ng ph&acirc;n phối của Dell Việt Nam. Core i5-7200U 2.5Ghz 8192MB 1TB DVDRW 15.6&quot; HD WLED webcam bluetooth AMD Radeon R7 M445 2G DDR5 VGA Weight 2.4kg. Gray Color. Made in China. Brand New 100%. &nbsp;Gi&aacute; đ&atilde; bao gồm VAT 10%</p>', '', '<p><strong>H&agrave;ng ph&acirc;n phối của Dell Việt Nam.</strong><br />\r\n<strong>Core i5-7200U 2.5Ghz 8192MB 1TB</strong>&nbsp;DVDRW 15.6&quot; HD WLED<br />\r\n<strong>webcam bluetooth&nbsp;AMD Radeon R7 M445 2G DDR5 VGA</strong><br />\r\nWeight 2.4kg.&nbsp;<strong>Gray Color</strong>.<br />\r\nMade in China. Brand New 100%.&nbsp;<br />\r\nGi&aacute; đ&atilde; bao gồm VAT 10%</p>', '', 'DELL INSPIRON 15R N5567 M5I5353 (I57200-8-1TB-AMD) GRAY', 'Hàng phân phối của Dell Việt Nam. Core i5-7200U 2.5Ghz 8192MB 1TB DVDRW 15.6" HD WLED webcam bluetooth AMD Radeon R7 M445 2G DDR5 VGA Weight 2.4kg. Gray Color. Made in China. Brand New 100%.  Giá đã bao gồm VAT 10%', 'dell-inspiron-15r-n5567-m5i5353-i57200-8-1tb-amd-gray-35', 1, 1, 1, '0000-00-00 00:00:00', '2018-04-06 15:19:12'),
-(36, 'P060420180036', 'HP ENVY 13-AD140TU -3CH47PA', '', 23590000, '', '<p><strong>Bảo h&agrave;nh:&nbsp;</strong>12 Th&aacute;ng<br>\r\n<strong>Kho:&nbsp;</strong>C&ograve;n h&agrave;ng<br>\r\n<strong>SKU:&nbsp;</strong>1151-003-657401</p>\r\n\r\n<p>Core i7 8550U, 1.8 upto 4Ghz, 8GB DDR4, SSD 256GB, Intel UHD620, 13.3&quot; full HD, Led_key, 1.23 kg, Win 10H. Gold Color Made in China. Brand New 100%.&nbsp; Gi&aacute; đ&atilde; gồm VAT 10%</p>', '', '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Product number</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>3CH47PA</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Product name</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>HP ENVY - 13-ad140tu</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Microprocessor</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>Intel&reg; Core&trade; i7-8550U (1.8 GHz base frequency, up to 4 GHz with Intel&reg; Turbo Boost Technology, 8 MB cache, 4 cores)</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Memory, standard</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>8 GB LPDDR3-1866 SDRAM (onboard)</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Video graphics</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>Intel&reg; UHD Graphics 620</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Hard drive</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>256 GB PCIe&reg; NVMe&trade; M.2 SSD</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Display</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>13.3&quot; diagonal FHD IPS BrightView WLED-backlit (1920 x 1080)</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Keyboard</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>Full-size island-style backlit keyboard</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Pointing device</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>HP Imagepad with multi-touch gesture support</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Wireless connectivity</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>Intel&reg; 802.11a/b/g/n/ac (2x2) Wi-Fi&reg; and Bluetooth&reg; 4.2 Combo</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Expansion slots</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>1 microSD media card reader</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>External ports</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>1 headphone/microphone combo; 2 USB 3.1 Gen 1 (1 HP Sleep and Charge); 2 USB 3.1 Type-C&trade; Gen 1 (Data Transfer up to 5 Gb/s, DP1.2, HP Sleep and Charge)</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Dimensions (W x D x H)</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>30.54 x 21.56 x 1.39 cm</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Weight</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>Starting at 1.23 kg</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Power supply type</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>45 W AC power adapter</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Battery type</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>6-cell, 53.6 Wh Li-ion polymer</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Battery life mixed usage</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>Up to 14 hours and 15 minutes</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Video Playback Battery life</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>Up to 12 hours and 30 minutes</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Webcam</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>HP Wide Vision HD Camera with integrated dual array digital microphone</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p><strong>Audio features</strong></p>\r\n			</td>\r\n			<td rowspan="1" style="vertical-align:top">\r\n			<p>Bang &amp; Olufsen, quad speakers, HP Audio Boost</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', '', 'HP ENVY 13-AD140TU -3CH47PA', 'HP ENVY 13-AD140TU -3CH47PA', 'hp-envy-13-ad140tu--3ch47pa-35', 1, 1, 1, '0000-00-00 00:00:00', '2018-04-06 16:54:51'),
+(35, 'P060420180035', 'DELL INSPIRON 15R N5567 M5I5353 (I57200-8-1TB-AMD) GRAY', '', 13500000, '', '<p>H&agrave;ng ph&acirc;n phối của Dell Việt Nam. Core i5-7200U 2.5Ghz 8192MB 1TB DVDRW 15.6&quot; HD WLED webcam bluetooth AMD Radeon R7 M445 2G DDR5 VGA Weight 2.4kg. Gray Color. Made in China. Brand New 100%. &nbsp;Gi&aacute; đ&atilde; bao gồm VAT 10%</p>', '', '<p><strong>H&agrave;ng ph&acirc;n phối của Dell Việt Nam.</strong><br />\r\n<strong>Core i5-7200U 2.5Ghz 8192MB 1TB</strong>&nbsp;DVDRW 15.6&quot; HD WLED<br />\r\n<strong>webcam bluetooth&nbsp;AMD Radeon R7 M445 2G DDR5 VGA</strong><br />\r\nWeight 2.4kg.&nbsp;<strong>Gray Color</strong>.<br />\r\nMade in China. Brand New 100%.&nbsp;<br />\r\nGi&aacute; đ&atilde; bao gồm VAT 10%</p>', '', 'DELL INSPIRON 15R N5567 M5I5353 (I57200-8-1TB-AMD) GRAY', 'Hàng phân phối của Dell Việt Nam. Core i5-7200U 2.5Ghz 8192MB 1TB DVDRW 15.6\" HD WLED webcam bluetooth AMD Radeon R7 M445 2G DDR5 VGA Weight 2.4kg. Gray Color. Made in China. Brand New 100%.  Giá đã bao gồm VAT 10%', 'dell-inspiron-15r-n5567-m5i5353-i57200-8-1tb-amd-gray-35', 1, 1, 1, '0000-00-00 00:00:00', '2018-04-06 15:19:12'),
+(36, 'P060420180036', 'HP ENVY 13-AD140TU -3CH47PA', '', 23590000, '', '<p><strong>Bảo h&agrave;nh:&nbsp;</strong>12 Th&aacute;ng<br>\r\n<strong>Kho:&nbsp;</strong>C&ograve;n h&agrave;ng<br>\r\n<strong>SKU:&nbsp;</strong>1151-003-657401</p>\r\n\r\n<p>Core i7 8550U, 1.8 upto 4Ghz, 8GB DDR4, SSD 256GB, Intel UHD620, 13.3&quot; full HD, Led_key, 1.23 kg, Win 10H. Gold Color Made in China. Brand New 100%.&nbsp; Gi&aacute; đ&atilde; gồm VAT 10%</p>', '', '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Product number</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>3CH47PA</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Product name</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>HP ENVY - 13-ad140tu</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Microprocessor</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>Intel&reg; Core&trade; i7-8550U (1.8 GHz base frequency, up to 4 GHz with Intel&reg; Turbo Boost Technology, 8 MB cache, 4 cores)</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Memory, standard</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>8 GB LPDDR3-1866 SDRAM (onboard)</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Video graphics</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>Intel&reg; UHD Graphics 620</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Hard drive</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>256 GB PCIe&reg; NVMe&trade; M.2 SSD</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Display</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>13.3&quot; diagonal FHD IPS BrightView WLED-backlit (1920 x 1080)</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Keyboard</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>Full-size island-style backlit keyboard</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Pointing device</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>HP Imagepad with multi-touch gesture support</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Wireless connectivity</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>Intel&reg; 802.11a/b/g/n/ac (2x2) Wi-Fi&reg; and Bluetooth&reg; 4.2 Combo</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Expansion slots</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>1 microSD media card reader</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>External ports</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>1 headphone/microphone combo; 2 USB 3.1 Gen 1 (1 HP Sleep and Charge); 2 USB 3.1 Type-C&trade; Gen 1 (Data Transfer up to 5 Gb/s, DP1.2, HP Sleep and Charge)</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Dimensions (W x D x H)</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>30.54 x 21.56 x 1.39 cm</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Weight</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>Starting at 1.23 kg</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Power supply type</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>45 W AC power adapter</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Battery type</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>6-cell, 53.6 Wh Li-ion polymer</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Battery life mixed usage</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>Up to 14 hours and 15 minutes</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Video Playback Battery life</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>Up to 12 hours and 30 minutes</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Webcam</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>HP Wide Vision HD Camera with integrated dual array digital microphone</p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p><strong>Audio features</strong></p>\r\n			</td>\r\n			<td rowspan=\"1\" style=\"vertical-align:top\">\r\n			<p>Bang &amp; Olufsen, quad speakers, HP Audio Boost</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', '', 'HP ENVY 13-AD140TU -3CH47PA', 'HP ENVY 13-AD140TU -3CH47PA', 'hp-envy-13-ad140tu--3ch47pa-35', 1, 1, 1, '0000-00-00 00:00:00', '2018-04-06 16:54:51'),
 (37, 'P060420180037', 'ASUS A540UP-GO097T', '', 10990000, '', '<p><strong>Bảo h&agrave;nh:&nbsp;</strong>24 Th&aacute;ng</p>\r\n\r\n<p><strong>Kho:&nbsp;</strong>C&ograve;n h&agrave;ng</p>\r\n\r\n<p><strong>SKU:&nbsp;</strong>1151-005-1065403</p>\r\n\r\n<p>Core i5-7200U 2.5Ghz 4096MB 500GB&nbsp;DVDRW 15.6&quot; HD WLED webcam bluetooth AMD Radeon R5 M420 2GB VGA Windows 10. Weight 2.0kg. Blue Color. Made in China. Brand New 100%.&nbsp; Gi&aacute; đ&atilde; gồm VAT 10%</p>', '', '<p><strong>Core i5-7200U 2.5GHz 4096MB 500GB</strong>&nbsp;14.0&quot; HD WLED<br />\r\n<strong>webcam&nbsp;&nbsp;AMD&nbsp;Radeon R5 M420 2GB VGA</strong><br />\r\n<strong>Windows 10</strong>. Weight 1.75 kg.&nbsp;<strong>Blue&nbsp;Color.</strong><br />\r\nMade in China. Brand New 100%.<br />\r\nGi&aacute; đ&atilde; gồm VAT 10%</p>', '', 'ASUS A540UP-GO097T', 'ASUS A540UP-GO097T', 'asus-a540up-go097t-37', 1, 1, 1, '0000-00-00 00:00:00', '2018-04-06 17:05:58');
 
 -- --------------------------------------------------------
@@ -745,7 +799,7 @@ CREATE TABLE IF NOT EXISTS `ci_product_categories` (
   `product_id` bigint(20) NOT NULL,
   `category_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=84 ;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_product_categories`
@@ -769,7 +823,7 @@ CREATE TABLE IF NOT EXISTS `ci_product_images` (
   `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=96 ;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_product_images`
@@ -778,7 +832,8 @@ CREATE TABLE IF NOT EXISTS `ci_product_images` (
 INSERT INTO `ci_product_images` (`id`, `product_id`, `image`, `created_date`) VALUES
 (93, 35, '/uploads/products/b2e21cf4c62f97c661a00514e7529a86.gif', '2018-04-06 15:21:35'),
 (94, 36, '/uploads/products/30933595678cb83c738714ab082e035e.png', '2018-04-06 16:54:51'),
-(95, 37, '/uploads/products/0ced0c777dea9b51adb0c43237404a6a.jpg', '2018-04-06 16:58:56');
+(95, 37, '/uploads/products/0ced0c777dea9b51adb0c43237404a6a.jpg', '2018-04-06 16:58:56'),
+(96, 1, '/uploads/bds/77ac49c34b9ea8a3b2716f2ba30836cd.jpg', '2018-04-15 07:01:03');
 
 -- --------------------------------------------------------
 
@@ -793,7 +848,7 @@ CREATE TABLE IF NOT EXISTS `ci_product_option` (
   `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Color, Size',
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=260 ;
+) ENGINE=InnoDB AUTO_INCREMENT=260 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_product_option`
@@ -819,7 +874,7 @@ CREATE TABLE IF NOT EXISTS `ci_product_option_value` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `price` double NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=373 ;
+) ENGINE=InnoDB AUTO_INCREMENT=373 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_product_option_value`
@@ -847,7 +902,7 @@ CREATE TABLE IF NOT EXISTS `ci_product_price` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -858,6 +913,7 @@ CREATE TABLE IF NOT EXISTS `ci_product_price` (
 DROP TABLE IF EXISTS `ci_projects`;
 CREATE TABLE IF NOT EXISTS `ci_projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title_en` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -870,8 +926,16 @@ CREATE TABLE IF NOT EXISTS `ci_projects` (
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `language` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `ci_projects`
+--
+
+INSERT INTO `ci_projects` (`id`, `name`, `title`, `title_en`, `description`, `short_content`, `short_content_en`, `content`, `content_en`, `featured_image`, `slug`, `url`, `language`, `created_date`, `update_date`) VALUES
+(3, 'Garden Riverside Villa', 'Garden Riverside Villa', '', 'Khu Dân Cư Thanh Niên - Garden Riverside Villas ™ là dự án tiếp giáp với 3 mặt sông, không khí trong xanh và thoáng mát. Khu Dân Cư Thanh Niên - Garden Riverside Villas là nơi để để hưởng thụ cuộc sống thiên nhiên trong lành giữa thành phố nhộn nhịp hối h', 'Khu Dân Cư Thanh Niên - Garden Riverside Villas ™ là dự án tiếp giáp với 3 mặt sông, không khí trong xanh và thoáng mát. Khu Dân Cư Thanh Niên - Garden Riverside Villas là nơi để để hưởng thụ cuộc sống thiên nhiên trong lành giữa thành phố nhộn nhịp hối h', '', '<p><strong>Tổng quan dự &aacute;n</strong></p>\r\n\r\n<p>&nbsp;Khu D&acirc;n Cư Thanh Ni&ecirc;n - Garden Riverside Villas &trade; l&agrave; dự &aacute;n tiếp gi&aacute;p với 3 mặt s&ocirc;ng, kh&ocirc;ng kh&iacute; trong xanh v&agrave; tho&aacute;ng m&aacute;t. Khu D&acirc;n Cư Thanh Ni&ecirc;n - Garden Riverside Villas l&agrave; nơi để để hưởng thụ cuộc sống thi&ecirc;n nhi&ecirc;n trong l&agrave;nh giữa th&agrave;nh phố nhộn nhịp hối hả.&nbsp;</p>\r\n\r\n<p>T&ecirc;n Dự &Aacute;n: Khu D&acirc;n Cư Thanh Ni&ecirc;n - Garden Riverside Villas</p>\r\n\r\n<p>Địa điểm: X&atilde; Phước Lộc, huyện Nh&agrave; B&egrave;</p>\r\n\r\n<p>Quy m&ocirc;: 35ha</p>\r\n\r\n<p>Chủ đầu tư: C&ocirc;ng ty cổ phần đầu tư x&acirc;y dựng Thanh Ni&ecirc;n<br />\r\n<br />\r\n<img alt=\"\" src=\"http://image.diaoconline.vn/du-an/2018/04/12/thumb-2E5-tongquan(31).jpg\" /><br />\r\n&nbsp;</p>\r\n\r\n<p><strong>Vị tr&iacute; dự &aacute;n</strong></p>\r\n\r\n<p>&nbsp;Khu D&acirc;n Cư Thanh Ni&ecirc;n - Garden Riverside Villas&trade; nằm tr&ecirc;n trục đường Phạm H&ugrave;ng nối d&agrave;i, tọa lạc tại khu vực tiếp gi&aacute;p giữa huyện Nh&agrave; B&egrave; v&agrave; Khu Đ&ocirc; thị mới ph&iacute;a Nam th&agrave;nh phố, thuộc địa b&agrave;n x&atilde; Phước Lộc, huyện Nh&agrave; B&egrave;, c&aacute;ch trục đường Nguyễn Văn Linh 3km (con đường huyết mạch v&agrave; mang t&iacute;nh chiến lược của khu Nam S&agrave;i G&ograve;n, nối liền th&agrave;nh phố Hồ Ch&iacute; Minh &ndash; khu Đ&ocirc; thị mới Ph&uacute; Mỹ Hưng v&agrave; c&aacute;c tỉnh miền T&acirc;y Nam Bộ).</p>\r\n\r\n<p>Khu D&acirc;n Cư Thanh Ni&ecirc;n - Garden Riverside Villas c&aacute;ch trung t&acirc;m Quận 1 khoảng 10 km n&ecirc;n chỉ mất 20 ph&uacute;t để đến trung t&acirc;m th&agrave;nh phố v&agrave; chỉ khoảng 10 ph&uacute;t để tới trung t&acirc;m khu Đ&ocirc; thị mới Ph&uacute; Mỹ Hưng, rất thuận tiện về giao th&ocirc;ng dễ d&agrave;ng tiếp cận được c&aacute;c tiện &iacute;ch tại trung t&acirc;m Kinh tế, t&agrave;i ch&iacute;nh, thương mại&hellip;của TP.HCM. Garden Riverside Villas c&aacute;ch cầu Nguyễn Tri Phương 5 ph&uacute;t xe m&aacute;y. Hơn nữa, Garden Riverside Villas c&ograve;n gần trường Quốc tế Anh Việt, v&agrave; c&aacute;c khu đ&ocirc; thị Đại Ph&uacute;c, T30, Intresco...<br />\r\n<br />\r\n<img alt=\"\" src=\"http://image.diaoconline.vn/du-an/2018/04/12/thumb-066-vitri(29).jpg\" /><br />\r\n&nbsp;</p>\r\n\r\n<p><strong>Tiện &iacute;ch dự &aacute;n</strong></p>\r\n\r\n<p>&nbsp;Tiện &iacute;ch trong dự &aacute;n: Trung t&acirc;m thương mại, C&ocirc;ng vi&ecirc;n c&acirc;y xanh, c&ocirc;ng vi&ecirc;n bờ s&ocirc;ng d&agrave;i hơn 1km đ&atilde; h&igrave;nh th&agrave;nh, Trường học mẫu gi&aacute;o, trường cấp 1...</p>\r\n\r\n<p>Tiện &iacute;ch xung quang dự &aacute;n: si&ecirc;u thị Lotte, si&ecirc;u thị Co-op Mart, hệ thống trung t&acirc;m thương mại hiện đại &ndash; dịch vụ t&agrave;i ch&iacute;nh ng&acirc;n h&agrave;ng của khu đ&ocirc; thị mới Ph&uacute; Mỹ Hưng, trường đại học RMIT, trường đại học T&ocirc;n Đức Thắng, trường đại học T&agrave;i ch&iacute;nh Marketing, bệnh viện 30/4, bệnh viện FV, bệnh viện T&acirc;m Đức &hellip;<br />\r\n<br />\r\n<img alt=\"\" src=\"http://image.diaoconline.vn/du-an/2018/04/12/thumb-D0C-tienich(32).jpg\" /></p>\r\n', '', '', '', '', '', '2018-04-15 08:58:07', '2018-04-15 09:01:57');
 
 -- --------------------------------------------------------
 
@@ -887,7 +951,7 @@ CREATE TABLE IF NOT EXISTS `ci_provinces` (
   `created_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ci_provinces`
@@ -910,7 +974,7 @@ CREATE TABLE IF NOT EXISTS `ci_real_estate_type` (
   `created_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ci_real_estate_type`
@@ -948,7 +1012,7 @@ CREATE TABLE IF NOT EXISTS `ci_search_price` (
   `from_price` int(11) NOT NULL,
   `to_price` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ci_search_price`
@@ -970,7 +1034,7 @@ CREATE TABLE IF NOT EXISTS `ci_settings` (
   `value` text COLLATE utf8_unicode_ci NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=601 ;
+) ENGINE=InnoDB AUTO_INCREMENT=601 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_settings`
@@ -982,12 +1046,12 @@ INSERT INTO `ci_settings` (`id`, `key`, `value`, `created_date`) VALUES
 (592, 'defaultPageTitle', 'Dia oc online', '2018-04-11 04:22:23'),
 (593, 'copyrightOnFooter', '<p>&copy; 2013 Kholaptop - C&ocirc;ng ty Cổ Phần Đầu tư &amp; Ph&aacute;t triển Nam Phong.<br />\r\nĐịa chỉ ĐKKD 09 Th&aacute;i H&agrave; - Đống Đa - H&agrave; Nội. ĐKKD số 0102738082 do Sở KHĐT H&agrave; Nội cấp ng&agrave;y 28/04/2008<br />\r\nEmail: admin@kholaptop.vn - ĐT (024) 3857 3045 - 3537 9395</p>\r\n', '2018-04-11 04:22:23'),
 (594, 'googleAnalytics', '', '2018-04-11 04:22:23'),
-(595, 'fanpage', '<div class="fb-page" data-href="https://www.facebook.com/kholaptop/" data-tabs="timeline" data-width="248" data-height="196" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/kholaptop/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/kholaptop/">Kholaptop.vn</a></blockquote></div>', '2018-04-11 04:22:23'),
+(595, 'fanpage', '<div class=\"fb-page\" data-href=\"https://www.facebook.com/kholaptop/\" data-tabs=\"timeline\" data-width=\"248\" data-height=\"196\" data-small-header=\"true\" data-adapt-container-width=\"true\" data-hide-cover=\"false\" data-show-facepile=\"true\"><blockquote cite=\"https://www.facebook.com/kholaptop/\" class=\"fb-xfbml-parse-ignore\"><a href=\"https://www.facebook.com/kholaptop/\">Kholaptop.vn</a></blockquote></div>', '2018-04-11 04:22:23'),
 (596, 'companyCellPhone', '', '2018-04-11 04:22:23'),
 (597, 'companyPhone', '', '2018-04-11 04:22:23'),
 (598, 'showroom', '<h1>SHOWROOM</h1>\r\n\r\n<ul>\r\n	<li>09 Th&aacute;i H&agrave; - H&agrave; Nội</li>\r\n	<li>Tel 024.35379395 - 0985 985 278</li>\r\n	<li>121 Hồ B&aacute; Kiện - P15 - Q10 - TP HCM</li>\r\n	<li>Tel 028.3977 1918 - Mobile: 0904325909</li>\r\n</ul>\r\n', '2018-04-11 04:22:23'),
-(599, 'right_sidebar', '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td colspan="2"><strong>H&Agrave; NỘI -&nbsp;024 3537 9395</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td colspan="2"><strong>Kinh doanh b&aacute;n lẻ</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href="skype:anhanh552?chat"><img alt="" src="http://findicons.com/files/icons/727/leopard/128/skype.png" /></a></td>\r\n			<td><a href="skype:anhanh552?chat">&nbsp;Mr. Toản</a>&nbsp;- 096 727 6008</td>\r\n		</tr>\r\n		<tr>\r\n			<td colspan="2"><strong>Bảo h&agrave;nh &amp; Sửa chữa</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href="skype:duyhunghhtv?chat"><img alt="" src="http://findicons.com/files/icons/727/leopard/128/skype.png" /></a></td>\r\n			<td>\r\n			<p><a href="skype:duyhunghhtv?chat">&nbsp;Mr. H&ugrave;ng</a>- 024 3538 1088</p>\r\n\r\n			<p>098 273 6916</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td colspan="2"><strong>S&Agrave;I G&Ograve;N</strong> -&nbsp;028 3977 1918</td>\r\n		</tr>\r\n		<tr>\r\n			<td colspan="2">121 Hồ B&aacute; Kiện - P15 - Q10</td>\r\n		</tr>\r\n		<tr>\r\n			<td colspan="2"><strong>Kinh doanh b&aacute;n lẻ</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href="skype:thanglaptopnp-sg1?chat"><img alt="" src="http://findicons.com/files/icons/727/leopard/128/skype.png" /></a></td>\r\n			<td><a href="skype:thanglaptopnp-sg1?chat">&nbsp;Mr. Thắng</a>&nbsp;- 0904 325 909</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', '2018-04-11 04:22:23'),
-(600, 'info_card', '<p><img alt="Káº¿t quáº£ hÃ¬nh áº£nh cho thÃ´ng tin tÃ i khoáº£n ngÃ¢n hÃ ng" src="http://efix.vn/image/catalog/tai-khoan-ngan-hang-efix.jpg" /></p>\r\n', '2018-04-11 04:22:23');
+(599, 'right_sidebar', '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>H&Agrave; NỘI -&nbsp;024 3537 9395</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>Kinh doanh b&aacute;n lẻ</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"skype:anhanh552?chat\"><img alt=\"\" src=\"http://findicons.com/files/icons/727/leopard/128/skype.png\" /></a></td>\r\n			<td><a href=\"skype:anhanh552?chat\">&nbsp;Mr. Toản</a>&nbsp;- 096 727 6008</td>\r\n		</tr>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>Bảo h&agrave;nh &amp; Sửa chữa</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"skype:duyhunghhtv?chat\"><img alt=\"\" src=\"http://findicons.com/files/icons/727/leopard/128/skype.png\" /></a></td>\r\n			<td>\r\n			<p><a href=\"skype:duyhunghhtv?chat\">&nbsp;Mr. H&ugrave;ng</a>- 024 3538 1088</p>\r\n\r\n			<p>098 273 6916</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>S&Agrave;I G&Ograve;N</strong> -&nbsp;028 3977 1918</td>\r\n		</tr>\r\n		<tr>\r\n			<td colspan=\"2\">121 Hồ B&aacute; Kiện - P15 - Q10</td>\r\n		</tr>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>Kinh doanh b&aacute;n lẻ</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><a href=\"skype:thanglaptopnp-sg1?chat\"><img alt=\"\" src=\"http://findicons.com/files/icons/727/leopard/128/skype.png\" /></a></td>\r\n			<td><a href=\"skype:thanglaptopnp-sg1?chat\">&nbsp;Mr. Thắng</a>&nbsp;- 0904 325 909</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', '2018-04-11 04:22:23'),
+(600, 'info_card', '<p><img alt=\"Káº¿t quáº£ hÃ¬nh áº£nh cho thÃ´ng tin tÃ i khoáº£n ngÃ¢n hÃ ng\" src=\"http://efix.vn/image/catalog/tai-khoan-ngan-hang-efix.jpg\" /></p>\r\n', '2018-04-11 04:22:23');
 
 -- --------------------------------------------------------
 
@@ -1005,7 +1069,7 @@ CREATE TABLE IF NOT EXISTS `ci_streets` (
   `created_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ci_streets`
@@ -1043,7 +1107,7 @@ CREATE TABLE IF NOT EXISTS `ci_users` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `ci_users`
@@ -1065,7 +1129,7 @@ CREATE TABLE IF NOT EXISTS `ci_utilities` (
   `created_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ci_utilities`
@@ -1096,7 +1160,7 @@ CREATE TABLE IF NOT EXISTS `ci_wards` (
   `created_date` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ci_wards`
@@ -1104,6 +1168,7 @@ CREATE TABLE IF NOT EXISTS `ci_wards` (
 
 INSERT INTO `ci_wards` (`id`, `ward_name`, `district_id`, `created_date`, `update_date`) VALUES
 (1, 'Phường 3', 4, '2018-04-12 09:16:28', '2018-04-12 10:12:42');
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

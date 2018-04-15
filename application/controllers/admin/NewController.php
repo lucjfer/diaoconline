@@ -107,7 +107,9 @@ class NewController extends MY_Controller {
 
         if (count($model) > 0) {
             $this->news->delete_model($id);
+            echo 1;
         }
+        echo 0;
     }
 
     public function ajaxPublish() {

@@ -23,53 +23,34 @@ class Projects extends CI_Model {
 		if (!empty($conditions)) {
 			$query = $this->db->get_where('projects', $conditions);
 
-        	return $query->row();
+        	return $query->row(0, 'Projects');
 		} else {
 			$query = $this->db->query("SELECT * FROM ci_projects");
 			return $query->result('Projects');
 		}
 	}
 
-	public function set_model($image)
+	public function set_model($data_insert)
 	{
-        $data = array(
-            'title' => $this->input->post('title'),
-            'title_en' => $this->input->post('title_en'),
-            'description' => $this->input->post('description'),
-            'short_content' => $this->input->post('short_content'),
-            'short_content_en' => $this->input->post('short_content_en'),
-            'content' => $this->input->post('content'),
-            'content_en' => $this->input->post('content_en'),
-            'featured_image' => $image,
-            'slug' => $this->generateSlug($this->input->post('title')),
-            'url' => $this->input->post('url'),
-            'language' => 'vn',
-        );
+        $data_insert['created_date'] = date('Y-m-d H:i:s');
+        $data_insert['update_date'] = date('Y-m-d H:i:s');
 
-	    return $this->db->insert('projects', $data);
+        return $this->db->insert('projects', $data_insert);
 	}
 
-	public function update_model($id,$image)
+	public function update_model($id,$data_insert)
 	{
-	    $data = array(
-	        'title' => $this->input->post('title'),
-	        'title_en' => $this->input->post('title_en'),
-	        'description' => $this->input->post('description'),
-	        'short_content' => $this->input->post('short_content'),
-	        'short_content_en' => $this->input->post('short_content_en'),
-	        'content' => $this->input->post('content'),
-	        'content_en' => $this->input->post('content_en'),
-	        'featured_image' => $image,
-            'url' => $this->input->post('url'),
-            'language' => 'vn',
-	    );
+	    $data_insert['update_date'] = date('Y-m-d H:i:s');
 
 	    $this->db->where('id', $id);
-        $this->db->update('projects', $data);
+        $this->db->update('projects', $data_insert);
 	}
 
-	public function delete_model($id) {
-		$this->db->where('id', $id);
+	public function delete_model() {
+        if (is_file('./'.$this->featured_image)) {
+            unlink('./'.$this->featured_image);
+        }
+		$this->db->where('id', $this->id);
   		$this->db->delete('projects');
 	}
 

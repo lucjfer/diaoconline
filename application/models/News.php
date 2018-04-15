@@ -67,6 +67,9 @@ class News extends CI_Model {
 	}
 
 	public function delete_model($id) {
+        if (is_file('./'.$this->featured_image)) {
+            unlink('./'.$this->featured_image);
+        }
 		$this->db->where('id', $id);
   		$this->db->delete('news');
 	}

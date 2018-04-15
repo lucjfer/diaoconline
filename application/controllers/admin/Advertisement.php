@@ -117,10 +117,7 @@ class Advertisement extends MY_Controller {
         $model = $this->banner->get_model(['id' => $id]);
 
         if (count($model) > 0) {
-            if (is_file('.'.$model->image)) {
-                unlink('.'.$model->image);
-            }
-            $this->banner->delete_model($id);
+            $model->delete_model();
             echo 1;
         } else {
             echo 0;

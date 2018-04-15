@@ -9,6 +9,10 @@ class Project extends MY_Controller {
         $config['allowed_types']        = 'jpg|png';
         $config['encrypt_name']         = TRUE;
         $this->load->library('upload', $config);
+
+        if (!file_exists('./uploads/projects')) {
+            mkdir('./uploads/projects', 0777, true);
+        }
     }
 
     public function index()
@@ -25,68 +29,69 @@ class Project extends MY_Controller {
         $data['link_submit'] = base_url('admin/project/create');
         $data['scenario'] = 'create';
 
-        if (isset($_POST['title']) && isset($_POST['short_content']) && isset($_POST['content'])) {
+        if (isset($_POST['Project'])) {
+            $data_insert = $_POST['Project'];
             $image = '';
-            if (!$this->upload->do_upload('featured_image')) {
-                $data['error'] = $this->upload->display_errors();
-            } else {
-                $uploadData = $this->upload->data();
-                $image = '/uploads/projects/'. $uploadData['file_name'];
+            if (isset($_FILES['Project']['name']) && !empty($_FILES['Project']['name'])) {
+                $files = $_FILES;
+                $_FILES['featured_image']['name'] = $files['Project']['name']['featured_image'];
+                $_FILES['featured_image']['type'] = $files['Project']['type']['featured_image'];
+                $_FILES['featured_image']['tmp_name'] = $files['Project']['tmp_name']['featured_image'];
+                $_FILES['featured_image']['error'] = $files['Project']['error']['featured_image'];
+                $_FILES['featured_image']['size'] = $files['Project']['size']['featured_image'];
+                if (!$this->upload->do_upload('featured_image')) {
+                    $data['error'] = $this->upload->display_errors();
+                } else {
+                    $uploadData = $this->upload->data();
+                    $image = '/uploads/projects/'. $uploadData['file_name'];
+                }
             }
+            $data_insert['featured_image'] = $image;
 
-            $this->projects->set_model($image);
+            $this->projects->set_model($data_insert);
             redirect('admin/project/index', 'refresh');
         }
 		$this->load->view('admin/layouts/index', $data);
     }
 
-    public function view($id) {
-        if ($this->input->is_ajax_request()) {
-            $query = $this->db->get_where('projects', ['id' => $id]);
-
-            $model = $query->result('Projects');
-            if (count($model) > 0) {
-                $result['title'] = $model[0]->title;
-                $result['description'] = $model[0]->description;
-                $result['short_content'] = $model[0]->short_content;
-                $result['content'] = $model[0]->content;
-                $result['featured_image'] = $model[0]->featured_image;
-                $result['slug'] = $model[0]->slug;
-                $result['language'] = ($model[0]->language == 'vn')? 'Tiếng Việt': 'English';
-                $result['created_date'] = $model[0]->created_date;
-
-                echo json_encode($result);
-            } else {
-                echo json_encode([]);
-            }
-        } else {
-            echo json_encode([]);
-        }
-    }
-
     public function update($id) {
         $data['title'] = 'Cập Nhật Dự Án';
         $data['template'] = 'admin/project/form';
-        $data['model'] = $this->projects->get_model(['id' => $id]);
+        $model = $this->projects->get_model(['id' => $id]);
+        $data['model'] = $model;
         $data['link_submit'] = base_url('admin/project/update/'.$id);
         $data['scenario'] = 'update';
 
-        if (isset($_POST['title']) && isset($_POST['short_content']) && isset($_POST['content'])) {
-            $oldModel = $this->projects->get_model(array('id' => $id));
-            if (!$this->upload->do_upload('featured_image')) {
-                $data['error'] = $this->upload->display_errors();
+        $image = $model->featured_image;
 
-                $this->projects->update_model($id,$oldModel->featured_image);
-                redirect('admin/project/index', 'refresh');
+        if (isset($_POST['Project'])) {
+            $data_insert = $_POST['Project'];
+
+            if (isset($_POST['remove_img']) && $_POST['remove_img'] == true) {
+                if (is_file('.'.$image)) {
+                    unlink('.'.$image);
+                }
+                $data_insert['featured_image'] = '';
             } else {
-                $path = '.'.$oldModel->featured_image;
-                @unlink($path);
-
-                $uploadData = $this->upload->data();
-                $image = '/uploads/projects/'. $uploadData['file_name'];
-                $this->projects->update_model($id,$image);
-                redirect('admin/project/index', 'refresh');
+                if (isset($_FILES['Project']['name']) && !empty($_FILES['Project']['name'])) {
+                    $files = $_FILES;
+                    $_FILES['featured_image']['name'] = $files['Project']['name']['featured_image'];
+                    $_FILES['featured_image']['type'] = $files['Project']['type']['featured_image'];
+                    $_FILES['featured_image']['tmp_name'] = $files['Project']['tmp_name']['featured_image'];
+                    $_FILES['featured_image']['error'] = $files['Project']['error']['featured_image'];
+                    $_FILES['featured_image']['size'] = $files['Project']['size']['featured_image'];
+                    if (!$this->upload->do_upload('featured_image')) {
+                        $data['error'] = $this->upload->display_errors();
+                    } else {
+                        $uploadData = $this->upload->data();
+                        $image = '/uploads/projects/'. $uploadData['file_name'];
+                        $data_insert['featured_image'] = $image;
+                    }
+                }
             }
+
+            $this->projects->update_model($id, $data_insert);
+            redirect('admin/project/index', 'refresh');
         }
 
         $this->load->view('admin/layouts/index', $data);
@@ -96,8 +101,10 @@ class Project extends MY_Controller {
         $model = $this->projects->get_model(['id' => $id]);
 
         if (count($model) > 0) {
-            $this->projects->delete_model($id);
+            $model->delete_model();
+            echo 1;
         }
+        echo 0;
     }
 
     public function bulkDelete() {
@@ -107,7 +114,7 @@ class Project extends MY_Controller {
             $query = $this->db->query("SELECT * FROM ci_projects WHERE id in(".implode(',', $deleteItems).")");
             $models = $query->result('Projects');
             foreach ($models as $model) {
-                $this->projects->delete_model($model->id);
+                $model->delete_model();
             }
         }
         redirect('admin/project/index', 'refresh');

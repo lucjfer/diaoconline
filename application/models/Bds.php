@@ -3,10 +3,16 @@
 class Bds extends CI_Model {
 
 	public $arr_type = [
-        'TYPE_SELL' => 'Bán / Sang nhượng',
-        'TYPE_FOR_RENT' => 'Cho thuê',
-        'TYPE_BUY' => 'Cần mua',
-        'TYPE_RENT' => 'Cần thuê',
+        TYPE_SELL => 'Bán / Sang nhượng',
+        TYPE_FOR_RENT => 'Cho thuê',
+        TYPE_BUY => 'Cần mua',
+        TYPE_RENT => 'Cần thuê',
+    ];
+
+    public $unit = [
+    	ALL => 'Tổng diện tích',
+    	METERS => 'm2',
+    	MONTH => 'Tháng'
     ];
 
     public function __construct()

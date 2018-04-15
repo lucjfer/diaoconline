@@ -18,6 +18,10 @@ defined('TYPE_FOR_RENT')  OR define('TYPE_FOR_RENT', 2);
 defined('TYPE_BUY')  OR define('TYPE_BUY', 3);
 defined('TYPE_RENT')  OR define('TYPE_RENT', 4);
 
+defined('ALL')  OR define('ALL', 1);
+defined('METERS')  OR define('METERS', 2);
+defined('MONTH')  OR define('MONTH', 3);
+
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
