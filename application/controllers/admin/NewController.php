@@ -38,8 +38,8 @@ class NewController extends MY_Controller {
                 $uploadData = $this->upload->data();
                 $image = '/uploads/news/'. $uploadData['file_name'];
             }
-
-            $this->news->set_model($image);
+            $slug = $this->generateSlug($_POST['title'], 'news');
+            $this->news->set_model($image, $slug);
             redirect('admin/newController/index', 'refresh');
         }
 		$this->load->view('admin/layouts/index', $data);

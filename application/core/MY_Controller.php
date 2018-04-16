@@ -42,6 +42,7 @@ class MY_Controller extends CI_Controller {
 
     public function generateSlug($str, $type){
         $str = trim(mb_strtolower($str));
+        $str = str_replace("-"," ",$str);
         $str = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $str);
         $str = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/', 'e', $str);
         $str = preg_replace('/(ì|í|ị|ỉ|ĩ)/', 'i', $str);

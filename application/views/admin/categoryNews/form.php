@@ -52,13 +52,13 @@
                         </div> -->
                     </div>
 
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label class="col-sm-12">Lớp cha</label>
                         <div class="col-sm-12">
                             <?php
                                 $id = isset($model) ? $model->id : 0;
                                 $parent_id = isset($model) ? $model->parent_id : 0;
-                                $categories = $this->categories->get_dropdown_category($id, 'category');
+                                $categories = $this->categories->get_dropdown_category($id, 'news');
                             ?>
                             <select class="form-control" name="Categories[parent_id]" id="parent_id">
                                 <option value="0"> -- Chọn lớp cha -- </option>
@@ -71,7 +71,14 @@
                                 endif; ?>
                             </select>
                         </div>
-                    </div> -->
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-12">Thứ tự</label>
+                        <div class="col-md-12">
+                            <input type="number" class="form-control" value="<?php echo (isset($model)) ? $model->display_order : ''?>" name="Categories[display_order]">
+                        </div>
+                    </div>
                 </div>
                 <!-- <div class="col-sm-6 col-xs-12">
                     <ul class="nav nav-tabs">

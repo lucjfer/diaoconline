@@ -38,6 +38,7 @@ class Menu extends MY_Controller {
                     $thumb = '/uploads/categories/'. $uploadData['file_name'];
                 }
             }
+            $data_insert['slug'] = $this->generateSlug($data_insert['category_name'], 'menu');
             $data_insert['thumb'] = $thumb;
             $data_insert['type'] = 'menu';
             $this->categories->set_model($data_insert);

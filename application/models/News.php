@@ -29,7 +29,7 @@ class News extends CI_Model {
 		}
 	}
 
-	public function set_model($image)
+	public function set_model($image, $slug)
 	{
         $data = array(
             'title' => $this->input->post('title'),
@@ -38,7 +38,7 @@ class News extends CI_Model {
             'content' => $this->input->post('content'),
             'category_id' => $this->input->post('category'),
             'featured_image' => $image,
-            'slug' => $this->generateSlug($this->input->post('title')),
+            'slug' => $slug,
             'language' => 'vn',
             'created_date' => date('Y-m-d H:i:s'),
         );
@@ -185,5 +185,30 @@ class News extends CI_Model {
 
     public function getNewsUrl() {
         return base_url().$this->slug.'nd.html';
+    }
+
+    public function getNewsInMenu() {
+        $query = $this->db->query("SELECT * FROM ci_news ORDER BY created_date desc LIMIT 10");
+        $news = $query->result('News');
+
+        return $news;
+    }
+
+    public function shorterContent($text, $chars_limit)
+    {
+        // Check if length is larger than the character limit
+        if (strlen($text) > $chars_limit) {
+            // If so, cut the string at the character limit
+            $new_text = substr($text, 0, $chars_limit);
+            // Trim off white space
+            $new_text = trim($new_text);
+            // Add at end of text ...
+            return $new_text . "...";
+        }
+        // If not just return the text as is
+        else
+        {
+            return $text;
+        }
     }
 }

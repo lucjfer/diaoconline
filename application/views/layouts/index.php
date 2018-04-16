@@ -5,13 +5,13 @@
         <?php $this->load->view('layouts/header'); ?>
         <div id="content_container">
             <script type="text/javascript">
-            $(function () {
-            $('#email').val('');
-            $('#TuKhoaTimKiem').val('');
-            $("#LoaiTinDang,#LoaiDiaOc,#KhuVuc,#KhoangGia,#QuanHuyen").uniform({
-            selectAutoWidth: true
-            });
-            });
+                $(function () {
+                    $('#email').val('');
+                    $('#TuKhoaTimKiem').val('');
+                    $("#LoaiTinDang,#LoaiDiaOc,#KhuVuc,#KhoangGia,#QuanHuyen").uniform({
+                        selectAutoWidth: true
+                    });
+                });
             </script>
             <div class="wrap">
                 <?php $this->load->view('layouts/banner'); ?>
@@ -20,20 +20,20 @@
                     <div class="col_650  margin_bottom">
                         <div class="col_650 margin_bottom">
                             <script type="text/javascript">
-                            $(function () {
-                            // slide show trang chu
-                            $('#hot_latest_news').slides({
-                            preload: true,
-                            generateNextPrev: true,
-                            play: 5000,
-                            generatePagination: false,
-                            generateNextPrev: false,
-                            pagination: true,
-                            paginationClass: 'paging_1',
-                            currentClass: 'actived',
-                            preloadImage: '/Content/loading.gif'
-                            });
-                            });
+                                $(function () {
+                                // slide show trang chu
+                                $('#hot_latest_news').slides({
+                                    preload: true,
+                                    generateNextPrev: true,
+                                    play: 5000,
+                                    generatePagination: false,
+                                    generateNextPrev: false,
+                                    pagination: true,
+                                    paginationClass: 'paging_1',
+                                    currentClass: 'actived',
+                                    preloadImage: '/Content/loading.gif'
+                                    });
+                                });
                             </script>
                             <div id="hot_latest_news">
                                 <div class="slides_container">
@@ -459,549 +459,471 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col_300 margin_left">
-                    <div id="position_2" class ='banner_300x250'><div><a href="http://vietbuildafc.com.vn/vn/Hoi-cho-ct.aspx?pg=Hoi-cho&amp;id=76" target="_blank"><img src="../image.diaoconline.vn/banner-dool/2018/04/09/2A5-300x250.gif" width="300px" height="250px"/></a></div><div><a href="index.html" target="_blank"><img src="../image.diaoconline.vn/banner-dool/2018/01/09/9EE-imgpsh_fullsize.jpg" width="300px" height="250px"/></a></div></div><script type='text/javascript'>var Banner2=1;function Random_Banner2(){    var _Arr=document.getElementById("position_2").getElementsByTagName("div");    for (i=0; i<=_Arr.length-1; i++)    {        _Arr[i].className='bannerHide';    }    _Arr[Banner2 - 1].className='bannerShow';    var tempBanner = $(_Arr[Banner2 - 1]).html(); $(_Arr[Banner2 - 1]).html(''); $(_Arr[Banner2 - 1]).html(tempBanner);    window.setTimeout("Random_Banner2()" ,25000);    Banner2 = Banner2 + 1;    if(Banner2 > _Arr.length)        Banner2 = 1;}Random_Banner2();</script>
-                    <div id="userhot" class="margin_bottom">
-                        <div class="headline_title_1 rounded_style_5 rounded_box">
-                            <h2 class="headline"><span>NHÀ MÔI GIỚI NỔI BẬT</span></h2>
+                    </div>
+                    <div class="col_300 margin_left">
+                        <div id="position_2" class ='banner_300x250'><div><a href="http://vietbuildafc.com.vn/vn/Hoi-cho-ct.aspx?pg=Hoi-cho&amp;id=76" target="_blank"><img src="../image.diaoconline.vn/banner-dool/2018/04/09/2A5-300x250.gif" width="300px" height="250px"/></a></div><div><a href="index.html" target="_blank"><img src="../image.diaoconline.vn/banner-dool/2018/01/09/9EE-imgpsh_fullsize.jpg" width="300px" height="250px"/></a></div></div><script type='text/javascript'>var Banner2=1;function Random_Banner2(){    var _Arr=document.getElementById("position_2").getElementsByTagName("div");    for (i=0; i<=_Arr.length-1; i++)    {        _Arr[i].className='bannerHide';    }    _Arr[Banner2 - 1].className='bannerShow';    var tempBanner = $(_Arr[Banner2 - 1]).html(); $(_Arr[Banner2 - 1]).html(''); $(_Arr[Banner2 - 1]).html(tempBanner);    window.setTimeout("Random_Banner2()" ,25000);    Banner2 = Banner2 + 1;    if(Banner2 > _Arr.length)        Banner2 = 1;}Random_Banner2();</script>
+                        <div id="userhot" class="margin_bottom">
+                            <div class="headline_title_1 rounded_style_5 rounded_box">
+                                <h2 class="headline"><span>NHÀ MÔI GIỚI NỔI BẬT</span></h2>
+                            </div>
+                            <div class="rounded_style_2 rounded_box scroll" >
+                                <div class="content">
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loca939.html?tv=82506">
+                                                <img src="../image.diaoconline.vn/avatar/2011/07/06/16C-nhadatminhnhat.jpg" width="75" height="75" alt="Minh Nhật" title="Minh Nhật"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loca939.html?tv=82506">Minh Nhật</a></h2>
+                                                <p>Nh&#224; m&#244;i giới Quận 7</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loca8c3.html?tv=153042">
+                                                <img src="../image.diaoconline.vn/avatar/2015/03/10/867-phanvandienkt.jpg" width="75" height="75" alt="Phan Văn Điền" title="Phan Văn Điền"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loca8c3.html?tv=153042">Phan Văn Điền</a></h2>
+                                                <p>Chuy&#234;n vi&#234;n tư vấn Nh&#224; Phố Khang Điền Quận 2, Quận 9</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loc8e53.html?tv=181931">
+                                                <img src="../image.diaoconline.vn/avatar/2016/05/26/89C-tanliem0904.jpg" width="75" height="75" alt="Tấn Li&#234;m" title="Tấn Li&#234;m"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loc8e53.html?tv=181931">Tấn Li&#234;m</a></h2>
+                                                <p>Chuy&#234;n MG k&#253; gửi dự &#225;n Jamona Golden Silk</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loc6ba6.html?tv=196096">
+                                                <img src="../image.diaoconline.vn/avatar/2017/02/17/335-martialpth.jpg" width="75" height="75" alt="Phạm Trung Hiếu" title="Phạm Trung Hiếu"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loc6ba6.html?tv=196096">Phạm Trung Hiếu</a></h2>
+                                                <p>Nh&#224; m&#244;i giới quận 8</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loc8017.html?tv=149047">
+                                                <img src="../image.diaoconline.vn/avatar/2014/12/05/482-daongocnho%20.jpg" width="75" height="75" alt="Đ&#224;o Ngọc Nhớ" title="Đ&#224;o Ngọc Nhớ"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loc8017.html?tv=149047">Đ&#224;o Ngọc Nhớ</a></h2>
+                                                <p>Chuy&#234;n MG k&#253; gửi dự &#225;n H&#224; Đ&#244; Centrosa</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loc4c38.html?tv=187624">
+                                                <img src="../image.diaoconline.vn/avatar/2016/08/29/5FB-thanhsangnguyen234.jpg" width="75" height="75" alt="Nguyễn Thanh Sang" title="Nguyễn Thanh Sang"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loc4c38.html?tv=187624">Nguyễn Thanh Sang</a></h2>
+                                                <p>Nh&#224; m&#244;i giới Quận 7</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loc681b.html?tv=191709">
+                                                <img src="../image.diaoconline.vn/avatar/2016/10/30/887-dinhnambds0717.jpg" width="75" height="75" alt="Nguyễn Đ&#236;nh Nam" title="Nguyễn Đ&#236;nh Nam"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loc681b.html?tv=191709">Nguyễn Đ&#236;nh Nam</a></h2>
+                                                <p>Chuy&#234;n vi&#234;n tư vấn Bất động sản quận 2, 9, Thủ Đức</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loc1e68.html?tv=203900">
+                                                <img src="../image.diaoconline.vn/avatar/2017/06/02/147-anphuoc3011.jpg" width="75" height="75" alt="Nguyễn An Phước" title="Nguyễn An Phước"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loc1e68.html?tv=203900">Nguyễn An Phước</a></h2>
+                                                <p>Chuy&#234;n vi&#234;n tư vấn quận T&#226;n B&#236;nh</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loc9353.html?tv=47643">
+                                                <img src="../image.diaoconline.vn/LogoMember/2012/05/05_chan_dung_Nguyen_Ngoc_Ha.jpg" width="75" height="75" alt="Nguyễn Ngọc H&#224;" title="Nguyễn Ngọc H&#224;"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loc9353.html?tv=47643">Nguyễn Ngọc H&#224;</a></h2>
+                                                <p>Nh&#224; m&#244;i giới G&#242; Vấp, T&#226;n B&#236;nh</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loce036.html?tv=196891">
+                                                <img src="../image.diaoconline.vn/avatar/2017/02/28/004-tuanla261194.jpg" width="75" height="75" alt="L&#234; Anh Tuấn" title="L&#234; Anh Tuấn"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loce036.html?tv=196891">L&#234; Anh Tuấn</a></h2>
+                                                <p>Chuy&#234;n vi&#234;n tư vấn bất động sản quận 8</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loc03e5.html?tv=154027">
+                                                <img src="../image.diaoconline.vn/avatar/2015/03/20/3C1-phamduythanhgv.jpg" width="75" height="75" alt="Duy Th&#224;nh" title="Duy Th&#224;nh"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loc03e5.html?tv=154027">Duy Th&#224;nh</a></h2>
+                                                <p>Nh&#224; m&#244;i giới G&#242; Vấp, T&#226;n B&#236;nh v&#224; c&#225;c Quận</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loca077.html?tv=174213">
+                                                <img src="../image.diaoconline.vn/avatar/2016/01/12/A94-trieule.jpg" width="75" height="75" alt="L&#234; Văn Triều" title="L&#234; Văn Triều"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loca077.html?tv=174213">L&#234; Văn Triều</a></h2>
+                                                <p>Nh&#224; m&#244;i giới quận T&#226;n Ph&#250;</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agency_info_descript">
+                                        <div class="head_info">
+                                            <div class="logo">
+                                                <a href="sieu-thi/loc4857.html?tv=166084">
+                                                <img src="../image.diaoconline.vn/avatar/2015/09/03/064-batdongsancuong.jpg" width="75" height="75" alt="Mr.Cường" title="Mr.Cường"/></a>
+                                            </div>
+                                            <div class="agency_name">
+                                                <h2><a href="sieu-thi/loc4857.html?tv=166084">Mr.Cường</a></h2>
+                                                <p>Nh&#224; m&#244;i giới Q.2, Q.7, Q.4, Q.T&#226;n Ph&#250;, Q.B&#236;nh T&#226;n</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="rounded_style_2 rounded_box scroll" >
-                            <div class="content">
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loca939.html?tv=82506">
-                                            <img src="../image.diaoconline.vn/avatar/2011/07/06/16C-nhadatminhnhat.jpg" width="75" height="75" alt="Minh Nhật" title="Minh Nhật"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loca939.html?tv=82506">Minh Nhật</a></h2>
-                                            <p>Nh&#224; m&#244;i giới Quận 7</p>
-                                        </div>
-                                    </div>
+                        <div id="faq_list" class="margin_bottom">
+                            <div class="headline_title_1 rounded_style_5 rounded_box">
+                                <div class="content">
+                                    <ul class="headline_tab">
+                                        <li class="actived"><span class="L"></span><a href="tin-tuc/cafe-luat-c26.html">Cafe Luật</a><span class="R"></span></li>
+                                        <li><a href="kham-pha/phong-thuy-c9.html"><span>Phong Thủy</span></a></li>
+                                    </ul>
                                 </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loca8c3.html?tv=153042">
-                                            <img src="../image.diaoconline.vn/avatar/2015/03/10/867-phanvandienkt.jpg" width="75" height="75" alt="Phan Văn Điền" title="Phan Văn Điền"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loca8c3.html?tv=153042">Phan Văn Điền</a></h2>
-                                            <p>Chuy&#234;n vi&#234;n tư vấn Nh&#224; Phố Khang Điền Quận 2, Quận 9</p>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="rounded_style_2 rounded_box">
+                                <div class="content">
+                                    <ul class="listing_1">
+                                        <li >
+                                            <a href="tin-tuc/hop-thuc-hoa-c61/co-the-uy-quyen-thuc-hien-thu-tuc-chuyen-muc-dich-su-dung-dat-khong-i69796.html">
+                                                <img src="../image.diaoconline.vn/tin-tuc/2018/03/19/thumb-F9E-co-the-uy-quyen-thuc-hien-thu-tuc-chuyen-muc-dich-su-dung-dat-khong.jpg" alt="C&#243; thể ủy quyền thực hiện thủ tục chuyển mục đ&#237;ch sử dụng đất kh&#244;ng?" width="80" height="61" class="img-left"/>
+                                            Có thể ủy quyền thực hiện thủ tục chuyển mục đích sử dụng đất không?</a>
+                                        </li>
+                                        <li >
+                                            <span class="arrow"></span>
+                                            <a href="tin-tuc/thua-ke-c65/khong-co-di-chuc-tai-san-duoc-chia-nhu-the-nao-i69795.html">
+                                            Không có di chúc tài sản được chia như thế nào?</a>
+                                        </li>
+                                        <li >
+                                            <span class="arrow"></span>
+                                            <a href="tin-tuc/hop-thuc-hoa-c61/thu-tuc-bao-lanh-trong-ban-cho-thue-mua-nha-o-hinh-thanh-trong-tuong-lai-i68332.html">
+                                                Thủ tục bảo lãnh trong bán, cho thuê mua nhà ở hình thành trong tương lai</a>
+                                        </li>
+                                        <li >
+                                            <span class="arrow"></span>
+                                            <a href="tin-tuc/xay-dung-hoan-cong-c62/xay-nha-khong-con-hoa-don-nghiem-thu-co-duoc-phep-lam-hoan-cong-khong-i68152.html">
+                                            Xây nhà không còn hóa đơn nghiệm thu có được phép làm hoàn công không?</a>
+                                        </li>
+                                        <li >
+                                            <span class="arrow"></span>
+                                            <a href="tin-tuc/hop-thuc-hoa-c61/thu-tuc-thue-dat-thuoc-quy-dat-nong-nghiep-de-su-dung-chan-nuoi-trang-trai-i68136.html">
+                                            Thủ tục thuê đất thuộc quỹ đất nông nghiệp để sử dụng chăn nuôi trang trại?</a>
+                                        </li>
+                                        <li  class=last >
+                                            <span class="arrow"></span>
+                                            <a href="tin-tuc/hop-thuc-hoa-c61/co-the-xin-hien-thi-duong-di-tren-so-nha-dat-khong-i67967.html">
+                                            Có thể xin hiển thị đường đi trên sổ nhà đất không?</a>
+                                        </li>
+                                    </ul>
+                                    <a href="tin-tuc/cafe-luat-c26.html" class="more">Xem thêm »</a>
+                                    <p>&nbsp;</p>
                                 </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loc8e53.html?tv=181931">
-                                            <img src="../image.diaoconline.vn/avatar/2016/05/26/89C-tanliem0904.jpg" width="75" height="75" alt="Tấn Li&#234;m" title="Tấn Li&#234;m"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loc8e53.html?tv=181931">Tấn Li&#234;m</a></h2>
-                                            <p>Chuy&#234;n MG k&#253; gửi dự &#225;n Jamona Golden Silk</p>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                        <div id="agency_intro" class="margin_bottom">
+                            <div class="headline_title_1 rounded_style_5 rounded_box">
+                                <h2 class="headline"><span>GIỚI THIỆU DOANH NGHIỆP</span></h2>
+                            </div>
+                            <div class="rounded_style_2 rounded_box">
+                                <div class="content">
                                 </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loc6ba6.html?tv=196096">
-                                            <img src="../image.diaoconline.vn/avatar/2017/02/17/335-martialpth.jpg" width="75" height="75" alt="Phạm Trung Hiếu" title="Phạm Trung Hiếu"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loc6ba6.html?tv=196096">Phạm Trung Hiếu</a></h2>
-                                            <p>Nh&#224; m&#244;i giới quận 8</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loc8017.html?tv=149047">
-                                            <img src="../image.diaoconline.vn/avatar/2014/12/05/482-daongocnho%20.jpg" width="75" height="75" alt="Đ&#224;o Ngọc Nhớ" title="Đ&#224;o Ngọc Nhớ"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loc8017.html?tv=149047">Đ&#224;o Ngọc Nhớ</a></h2>
-                                            <p>Chuy&#234;n MG k&#253; gửi dự &#225;n H&#224; Đ&#244; Centrosa</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loc4c38.html?tv=187624">
-                                            <img src="../image.diaoconline.vn/avatar/2016/08/29/5FB-thanhsangnguyen234.jpg" width="75" height="75" alt="Nguyễn Thanh Sang" title="Nguyễn Thanh Sang"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loc4c38.html?tv=187624">Nguyễn Thanh Sang</a></h2>
-                                            <p>Nh&#224; m&#244;i giới Quận 7</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loc681b.html?tv=191709">
-                                            <img src="../image.diaoconline.vn/avatar/2016/10/30/887-dinhnambds0717.jpg" width="75" height="75" alt="Nguyễn Đ&#236;nh Nam" title="Nguyễn Đ&#236;nh Nam"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loc681b.html?tv=191709">Nguyễn Đ&#236;nh Nam</a></h2>
-                                            <p>Chuy&#234;n vi&#234;n tư vấn Bất động sản quận 2, 9, Thủ Đức</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loc1e68.html?tv=203900">
-                                            <img src="../image.diaoconline.vn/avatar/2017/06/02/147-anphuoc3011.jpg" width="75" height="75" alt="Nguyễn An Phước" title="Nguyễn An Phước"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loc1e68.html?tv=203900">Nguyễn An Phước</a></h2>
-                                            <p>Chuy&#234;n vi&#234;n tư vấn quận T&#226;n B&#236;nh</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loc9353.html?tv=47643">
-                                            <img src="../image.diaoconline.vn/LogoMember/2012/05/05_chan_dung_Nguyen_Ngoc_Ha.jpg" width="75" height="75" alt="Nguyễn Ngọc H&#224;" title="Nguyễn Ngọc H&#224;"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loc9353.html?tv=47643">Nguyễn Ngọc H&#224;</a></h2>
-                                            <p>Nh&#224; m&#244;i giới G&#242; Vấp, T&#226;n B&#236;nh</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loce036.html?tv=196891">
-                                            <img src="../image.diaoconline.vn/avatar/2017/02/28/004-tuanla261194.jpg" width="75" height="75" alt="L&#234; Anh Tuấn" title="L&#234; Anh Tuấn"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loce036.html?tv=196891">L&#234; Anh Tuấn</a></h2>
-                                            <p>Chuy&#234;n vi&#234;n tư vấn bất động sản quận 8</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loc03e5.html?tv=154027">
-                                            <img src="../image.diaoconline.vn/avatar/2015/03/20/3C1-phamduythanhgv.jpg" width="75" height="75" alt="Duy Th&#224;nh" title="Duy Th&#224;nh"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loc03e5.html?tv=154027">Duy Th&#224;nh</a></h2>
-                                            <p>Nh&#224; m&#244;i giới G&#242; Vấp, T&#226;n B&#236;nh v&#224; c&#225;c Quận</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loca077.html?tv=174213">
-                                            <img src="../image.diaoconline.vn/avatar/2016/01/12/A94-trieule.jpg" width="75" height="75" alt="L&#234; Văn Triều" title="L&#234; Văn Triều"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loca077.html?tv=174213">L&#234; Văn Triều</a></h2>
-                                            <p>Nh&#224; m&#244;i giới quận T&#226;n Ph&#250;</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="agency_info_descript">
-                                    <div class="head_info">
-                                        <div class="logo">
-                                            <a href="sieu-thi/loc4857.html?tv=166084">
-                                            <img src="../image.diaoconline.vn/avatar/2015/09/03/064-batdongsancuong.jpg" width="75" height="75" alt="Mr.Cường" title="Mr.Cường"/></a>
-                                        </div>
-                                        <div class="agency_name">
-                                            <h2><a href="sieu-thi/loc4857.html?tv=166084">Mr.Cường</a></h2>
-                                            <p>Nh&#224; m&#244;i giới Q.2, Q.7, Q.4, Q.T&#226;n Ph&#250;, Q.B&#236;nh T&#226;n</p>
-                                        </div>
+                            </div>
+                        </div>
+                                                
+                        <link href="<?php echo base_url('themes/website/js/slidejs/house_outstanding.css')?>" rel="stylesheet" type="text/css" />
+                        <script src="<?php echo base_url('themes/website/js/slidejs/jquery.flexslider.js')?>" type="text/javascript"></script>
+                        <script type="text/javascript">
+                            $(window).load(function () {
+                                $('#houseslider').flexslider({
+                                    animation: "slide",
+                                    controlNav: false,
+                                    animationLoop: true,
+                                    slideshow: true,
+                                    start: function (slider) {
+                                        $('body').removeClass('loading');
+                                    }
+                                });
+                            });
+                        </script>
+                        <div id="house_collection">
+                            <div class="rounded_style_2 rounded_box">
+                                <div class="content">
+                                    <h3>Bộ sưu tập nhà đẹp</h3>
+                                    <div id="houseslider" class="flexslider">
+                                        <ul class="slides">
+                                            <li>
+                                                <div class="houseimg">
+                                                    <a href="nha-dep/mau-nha-c1/can-ho-vui-tuoi-cua-nhung-nguoi-theo-chu-nghia-xe-dich-i1088.html"><img src="../image.diaoconline.vn/nha-dep/2018/03/29/special-07F-can-ho-vui-tuoi-cua-nhung-nguoi-theo-chu-nghia-xe-dich.jpg" alt="0" /></a>
+                                                </div>
+                                                <div class="housetitle"><a href="nha-dep/mau-nha-c1/can-ho-vui-tuoi-cua-nhung-nguoi-theo-chu-nghia-xe-dich-i1088.html">Căn hộ vui tươi của những người theo &quot;chủ nghĩa x&#234; dịch&quot;</a></div>
+                                            </li>
+                                            <li>
+                                                <div class="houseimg">
+                                                    <a href="nha-dep/phong-ngu-c3/nhung-kieu-phong-ngu-dep-dang-thinh-hanh-i1087.html"><img src="../image.diaoconline.vn/nha-dep/2018/03/14/special-F23-nhung-kieu-phong-ngu-dep-dang-thinh-hanh.jpg" alt="1" /></a>
+                                                </div>
+                                                <div class="housetitle"><a href="nha-dep/phong-ngu-c3/nhung-kieu-phong-ngu-dep-dang-thinh-hanh-i1087.html">Những kiểu ph&#242;ng ngủ đẹp đang thịnh h&#224;nh</a></div>
+                                            </li>
+                                            <li>
+                                                <div class="houseimg">
+                                                    <a href="nha-dep/mau-nha-c1/chiem-nguong-nha-co-200-tuoi-dep-me-hon-o-ha-noi-i1086.html"><img src="../image.diaoconline.vn/nha-dep/2018/02/07/special-766-chiem-nguong-nha-co-200-tuoi-dep-me-hon-o-ha-noi.jpg" alt="2" /></a>
+                                                </div>
+                                                <div class="housetitle"><a href="nha-dep/mau-nha-c1/chiem-nguong-nha-co-200-tuoi-dep-me-hon-o-ha-noi-i1086.html">Chi&#234;m ngưỡng nh&#224; cổ 200 tuổi “đẹp m&#234; hồn” ở H&#224; Nội</a></div>
+                                            </li>
+                                            <li>
+                                                <div class="houseimg">
+                                                    <a href="nha-dep/mau-nha-c1/nha-ruong-bac-thang-xay-7-nam-moi-xong-gay-xon-xao-trong-gioi-kien-truc-i1085.html"><img src="../image.diaoconline.vn/nha-dep/2018/02/07/special-DF7-nha-ruong-bac-thang-xay-7-nam-moi-xong-gay-xon-xao-trong-gioi-kien-truc.jpg" alt="3" /></a>
+                                                </div>
+                                                <div class="housetitle"><a href="nha-dep/mau-nha-c1/nha-ruong-bac-thang-xay-7-nam-moi-xong-gay-xon-xao-trong-gioi-kien-truc-i1085.html">Nh&#224; &quot;ruộng bậc thang&quot; x&#226;y 7 năm mới xong g&#226;y x&#244;n xao trong giới kiến tr&#250;c</a></div>
+                                            </li>
+                                            <li>
+                                                <div class="houseimg">
+                                                    <a href="nha-dep/mau-nha-c1/doc-dao-can-nha-duc-san-chi-mat-5-tieng-de-lap-ghep-i1084.html"><img src="../image.diaoconline.vn/nha-dep/2018/02/07/special-628-doc-dao-can-nha-duc-san-chi-mat-5-tieng-de-lap-ghep.jpg" alt="4" /></a>
+                                                </div>
+                                                <div class="housetitle"><a href="nha-dep/mau-nha-c1/doc-dao-can-nha-duc-san-chi-mat-5-tieng-de-lap-ghep-i1084.html">Độc đ&#225;o căn nh&#224; đ&#250;c sẵn chỉ mất 5 tiếng để lắp gh&#233;p</a></div>
+                                            </li>
+                                        </ul>
+                                        <div class="housebor"><ul><li></li></ul></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div id="faq_list" class="margin_bottom">
-                        <div class="headline_title_1 rounded_style_5 rounded_box">
-                            <div class="content">
-                                <ul class="headline_tab">
-                                    <li class="actived"><span class="L"></span><a href="tin-tuc/cafe-luat-c26.html">Cafe Luật</a><span class="R"></span></li>
-                                    <li><a href="kham-pha/phong-thuy-c9.html"><span>Phong Thủy</span></a></li>
+
+                </div>
+            </div>
+        </div>
+        <!--FOOTER-->
+        <div id="footer">
+            <div id="footer_top">
+                <div id="bottom_menu" class="wrap">
+                    <div id="news_menu">
+                        <h4>»THÔNG TIN ĐỊA ỐC</h4>
+                        <ul>
+                            <li><a href="tin-tuc/thi-truong-dia-oc-c18.html">Thị trường địa ốc</a></li>
+                            <li><a href="tin-tuc/hoat-dong-doanh-nghiep-c23.html">Hoạt động Doanh nghiệp</a></li>
+                            <li><a href="tin-tuc/chinh-sach-quy-hoach-c16.html">Chính sách - Quy hoạch</a></li>
+                            <li><a href="tin-tuc/tai-chinh-chung-khoan-c57.html">Tài chính - Chứng khoán</a></li>
+                            <li><a href="tin-tuc/xay-dung-c25.html">Xây dựng</a></li>
+                            <li><a href="tin-tuc/bat-dong-san-the-gioi-c24.html">Bất động sản thế giới</a></li>
+                        </ul>
+                    </div>
+                    <div id="market_menu">
+                        <h4>»SIÊU THỊ ĐỊA ỐC</h4>
+                        <ul>
+                            <li>
+                                <a href="sieu-thi/nha-pho-c20.html">Nhà phố</a>
+                            </li>
+                            <li>
+                                <a href="sieu-thi/villa-biet-thu-c1.html">Villa - Biệt thự</a>
+                            </li>
+                            <li>
+                                <a href="sieu-thi/can-ho-chung-cu-c8.html">Căn hộ chung cư</a>
+                            </li>
+                            <li>
+                                <a href="sieu-thi/dat-o-dat-tho-cu-c11.html">Đất ở - Đất thổ cư</a>
+                            </li>
+                            <li>
+                                <a href="sieu-thi/dat-du-an-quy-hoach-c12.html">Đất dự án - Quy hoạch</a>
+                            </li>
+                            <li>
+                                <a href="sieu-thi/van-phong-c9.html">Văn phòng</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="project_menu">
+                        <h4>»DỰ ÁN</h4>
+                        <ul>
+                            <li><a href="du-an/khu-du-lich-nghi-duong-c28.html">Khu du lịch - Nghỉ dưỡng</a></li>
+                            <li><a href="du-an/cong-trinh-cong-cong-c29.html">Công trình công cộng</a></li>
+                            <li><a href="du-an/khu-cong-nghiep-c11.html">Khu công nghiệp</a></li>
+                            <li><a href="du-an/khu-dan-cu-do-thi-moi-c24.html">Khu dân cư – Đô thị mới </a></li>
+                            <li><a href="du-an/khu-phuc-hop-thuong-mai-c25.html">Khu phức hợp - Thương mại</a></li>
+                            <li><a href="du-an/cao-oc-van-phong-c26.html">Cao ốc văn phòng</a></li>
+                        </ul>
+                    </div>
+                    <div id="company_menu">
+                        <h4>»DOANH NGHIỆP ĐỊA ỐC</h4>
+                        <ul>
+                            <li>
+                                <a href="doanh-nghiep/moi-gioi-dia-oc-c1.html">Môi giới địa ốc</a>
+                            </li>
+                            <li>
+                                <a href="doanh-nghiep/vlxd-thi-cong-c3.html">VLXD & Thi công</a>
+                            </li>
+                            <li>
+                                <a href="doanh-nghiep/tai-chinh-phap-ly-c6.html">Tài chính pháp lý</a>
+                            </li>
+                            <li>
+                                <a href="doanh-nghiep/dau-tu-du-an-c12.html">Đầu tư - Dự án</a>
+                            </li>
+                            <li>
+                                <a href="doanh-nghiep/thiet-ke-trang-tri-c14.html">Thiết kế - Trang trí</a>
+                            </li>
+                            <li>
+                                <a href="doanh-nghiep/truyen-thong-quang-cao-c16.html">Truyền thông - Quảng cáo</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="discover_menu" class="last">
+                        <h4>
+                        »KHÁM PHÁ - TRẢI NGHIỆM</h4>
+                        <ul>
+                            <li><a href="kham-pha/the-gioi-kien-truc-c4.html">Thế giới kiến trúc</a></li>
+                            <li><a href="kham-pha/mach-ban-c6.html">Mách bạn</a></li>
+                            <li><a href="kham-pha/phong-thuy-c9.html">Phong thủy</a></li>
+                            <li><a href="kham-pha/khong-gian-song-c7.html">Không gian sống</a></li>
+                            <li><a href="kham-pha/shopping-cung-dool-c10.html">Shopping cùng DOOL</a></li>
+                            <li><a href="kham-pha/thuong-hieu-c11.html">Thương hiệu</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div id="social_network" class="white_border_box rounded_box" style="width: 960px; text-align: center;">
+                        <div class="content">
+                            <div class="like" style="width: 250px;">
+                                <h2>Hỗ trợ kỹ thuật</h2>
+                                <span class="phone">0909 480 599</span><span>(Mr. Giang)</span>
+                            </div>
+                            <div class="like" style="width: 200px; border-left: 1px solid #e1e1e1;">
+                                <h2>Hỗ trợ dịch vụ</h2>
+                                <a style="color: #007bc4; font-size: 12px; line-height: 18px;" href="http://adv.diaoconline.vn/AboutUs/hotrotructuyen.html">Liên hệ phòng kinh doanh</a>
+                            </div>
+                            <div class="join_network" style="width: 488px;">
+                                <h4 style="width: 236px; float: left;">KẾT NỐI VỚI CHÚNG TÔI TẠI: </h4>
+                                <ul style="width: 236px; padding: 10px 0 10px 10px;">
+                                    <li class="facebook"><a href="http://facebook.com/diaoconlinefc" target="_blank">facebook</a></li>
+                                    <li class="twitter"><a href="https://twitter.com/DiaOcOnlinevn" target="_blank">twitter</a></li>
+                                    <li class="youtube"><a href="http://www.youtube.com/diaoconline" target="_blank">youtube</a></li>
+                                    <!--<li class="google"><a href="https://plus.google.com/u/1/b/101503616522434888485/" target="_blank">google</a></li>-->
+                                    <li class="linkedin"><a href="http://www.linkedin.com/in/diaoconline" target="_blank">linkedin</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="rounded_style_2 rounded_box">
-                            <div class="content">
-                                <ul class="listing_1">
-                                    <li >
-                                        <a href="tin-tuc/hop-thuc-hoa-c61/co-the-uy-quyen-thuc-hien-thu-tuc-chuyen-muc-dich-su-dung-dat-khong-i69796.html">
-                                            <img src="../image.diaoconline.vn/tin-tuc/2018/03/19/thumb-F9E-co-the-uy-quyen-thuc-hien-thu-tuc-chuyen-muc-dich-su-dung-dat-khong.jpg" alt="C&#243; thể ủy quyền thực hiện thủ tục chuyển mục đ&#237;ch sử dụng đất kh&#244;ng?" width="80" height="61" class="img-left"/>
-                                        Có thể ủy quyền thực hiện thủ tục chuyển mục đích sử dụng đất không?</a></li>
-                                        <li >
-                                            <span class="arrow"></span>
-                                            <a href="tin-tuc/thua-ke-c65/khong-co-di-chuc-tai-san-duoc-chia-nhu-the-nao-i69795.html">
-                                            Không có di chúc tài sản được chia như thế nào?</a></li>
-                                            <li >
-                                                <span class="arrow"></span>
-                                                <a href="tin-tuc/hop-thuc-hoa-c61/thu-tuc-bao-lanh-trong-ban-cho-thue-mua-nha-o-hinh-thanh-trong-tuong-lai-i68332.html">
-                                                Thủ tục bảo lãnh trong bán, cho thuê mua nhà ở hình thành trong tương lai</a></li>
-                                                <li >
-                                                    <span class="arrow"></span>
-                                                    <a href="tin-tuc/xay-dung-hoan-cong-c62/xay-nha-khong-con-hoa-don-nghiem-thu-co-duoc-phep-lam-hoan-cong-khong-i68152.html">
-                                                    Xây nhà không còn hóa đơn nghiệm thu có được phép làm hoàn công không?</a></li>
-                                                    <li >
-                                                        <span class="arrow"></span>
-                                                        <a href="tin-tuc/hop-thuc-hoa-c61/thu-tuc-thue-dat-thuoc-quy-dat-nong-nghiep-de-su-dung-chan-nuoi-trang-trai-i68136.html">
-                                                        Thủ tục thuê đất thuộc quỹ đất nông nghiệp để sử dụng chăn nuôi trang trại?</a></li>
-                                                        <li  class=last >
-                                                            <span class="arrow"></span>
-                                                            <a href="tin-tuc/hop-thuc-hoa-c61/co-the-xin-hien-thi-duong-di-tren-so-nha-dat-khong-i67967.html">
-                                                            Có thể xin hiển thị đường đi trên sổ nhà đất không?</a></li>
-                                                        </ul>
-                                                        <a href="tin-tuc/cafe-luat-c26.html" class="more">Xem thêm »</a>
-                                                        <p>&nbsp;</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="agency_intro" class="margin_bottom">
-                                                <div class="headline_title_1 rounded_style_5 rounded_box">
-                                                    <h2 class="headline"><span>GIỚI THIỆU DOANH NGHIỆP</span></h2>
-                                                </div>
-                                                <div class="rounded_style_2 rounded_box">
-                                                    <div class="content">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="subscribe" class="margin_bottom">
-                                                <h3 class="small_headline">
-                                                ĐĂNG KÝ NHẬN BẢN TIN ĐỊA ỐC HÀNG TUẦN</h3>
-                                                <div class="body" id="bodyNewsLetter">
-                                                    <form action="http://diaoconline.vn/Home/NewsLetter" id="frmNewsLetter" method="post" class="form_style_1">
-                                                        <span id="errormsg"></span>
-                                                        <input type="text" value="" name="email" id="email" placeholder="Nhập địa chỉ email của bạn"
-                                                        class="input_text" />
-                                                        <button type="submit">
-                                                        Đăng ký</button>
-                                                        <script type="text/javascript">
-                                                        $(function () {
-                                                        $('#email').val('');
-                                                        $('#TuKhoaTimKiem').val('');
-                                                        var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
-                                                        $('#frmNewsLetter').submit(function () {
-                                                        if (!filter.test($('#email').val())) {
-                                                        $('#email').focus();
-                                                        return false;
-                                                        } else {
-                                                        $.ajax({
-                                                        type: "POST"
-                                                        , url: '/Home/NewsLetter'
-                                                        , cache: false
-                                                        , data: { email: $('#email').val() }
-                                                        , dataType: "json"
-                                                        , success: function (data) {
-                                                        if (data != null & data != "") {
-                                                        if (data.msg == true) {
-                                                        $("#bodyNewsLetter").fadeOut(800).fadeIn(800);
-                                                        setTimeout(function () {
-                                                        $("#bodyNewsLetter").html('<p class="title-green"><img src="Content/Images/Complete.gif"/> Email của bạn đã đăng ký thành công.</p>')
-                                                        }, 500);
-                                                        } else {
-                                                        $("#errormsg").fadeOut(800).fadeIn(800);
-                                                        setTimeout(function () {
-                                                        $("#errormsg").html('<p class="title-red">Email không hợp lệ hoặc đã đăng ký rồi.</p>')
-                                                        }, 500);
-                                                        }
-                                                        }
-                                                        }
-                                                        });
-                                                        return false;
-                                                        }
-                                                        return false;
-                                                        });
-                                                        });
-                                                        </script>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <link href="<?php echo base_url('themes/website/js/slidejs/house_outstanding.css')?>" rel="stylesheet" type="text/css" />
-                                            <script src="<?php echo base_url('themes/website/js/slidejs/jquery.flexslider.js')?>" type="text/javascript"></script>
-                                            <script type="text/javascript">
-                                            $(window).load(function () {
-                                            $('#houseslider').flexslider({
-                                            animation: "slide",
-                                            controlNav: false,
-                                            animationLoop: true,
-                                            slideshow: true,
-                                            start: function (slider) {
-                                            $('body').removeClass('loading');
-                                            }
-                                            });
-                                            });
-                                            </script>
-                                            <div id="house_collection">
-                                                <div class="rounded_style_2 rounded_box">
-                                                    <div class="content">
-                                                        <h3>Bộ sưu tập nhà đẹp</h3>
-                                                        <div id="houseslider" class="flexslider">
-                                                            <ul class="slides">
-                                                                <li>
-                                                                    <div class="houseimg">
-                                                                        <a href="nha-dep/mau-nha-c1/can-ho-vui-tuoi-cua-nhung-nguoi-theo-chu-nghia-xe-dich-i1088.html"><img src="../image.diaoconline.vn/nha-dep/2018/03/29/special-07F-can-ho-vui-tuoi-cua-nhung-nguoi-theo-chu-nghia-xe-dich.jpg" alt="0" /></a>
-                                                                    </div>
-                                                                    <div class="housetitle"><a href="nha-dep/mau-nha-c1/can-ho-vui-tuoi-cua-nhung-nguoi-theo-chu-nghia-xe-dich-i1088.html">Căn hộ vui tươi của những người theo &quot;chủ nghĩa x&#234; dịch&quot;</a></div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="houseimg">
-                                                                        <a href="nha-dep/phong-ngu-c3/nhung-kieu-phong-ngu-dep-dang-thinh-hanh-i1087.html"><img src="../image.diaoconline.vn/nha-dep/2018/03/14/special-F23-nhung-kieu-phong-ngu-dep-dang-thinh-hanh.jpg" alt="1" /></a>
-                                                                    </div>
-                                                                    <div class="housetitle"><a href="nha-dep/phong-ngu-c3/nhung-kieu-phong-ngu-dep-dang-thinh-hanh-i1087.html">Những kiểu ph&#242;ng ngủ đẹp đang thịnh h&#224;nh</a></div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="houseimg">
-                                                                        <a href="nha-dep/mau-nha-c1/chiem-nguong-nha-co-200-tuoi-dep-me-hon-o-ha-noi-i1086.html"><img src="../image.diaoconline.vn/nha-dep/2018/02/07/special-766-chiem-nguong-nha-co-200-tuoi-dep-me-hon-o-ha-noi.jpg" alt="2" /></a>
-                                                                    </div>
-                                                                    <div class="housetitle"><a href="nha-dep/mau-nha-c1/chiem-nguong-nha-co-200-tuoi-dep-me-hon-o-ha-noi-i1086.html">Chi&#234;m ngưỡng nh&#224; cổ 200 tuổi “đẹp m&#234; hồn” ở H&#224; Nội</a></div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="houseimg">
-                                                                        <a href="nha-dep/mau-nha-c1/nha-ruong-bac-thang-xay-7-nam-moi-xong-gay-xon-xao-trong-gioi-kien-truc-i1085.html"><img src="../image.diaoconline.vn/nha-dep/2018/02/07/special-DF7-nha-ruong-bac-thang-xay-7-nam-moi-xong-gay-xon-xao-trong-gioi-kien-truc.jpg" alt="3" /></a>
-                                                                    </div>
-                                                                    <div class="housetitle"><a href="nha-dep/mau-nha-c1/nha-ruong-bac-thang-xay-7-nam-moi-xong-gay-xon-xao-trong-gioi-kien-truc-i1085.html">Nh&#224; &quot;ruộng bậc thang&quot; x&#226;y 7 năm mới xong g&#226;y x&#244;n xao trong giới kiến tr&#250;c</a></div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="houseimg">
-                                                                        <a href="nha-dep/mau-nha-c1/doc-dao-can-nha-duc-san-chi-mat-5-tieng-de-lap-ghep-i1084.html"><img src="../image.diaoconline.vn/nha-dep/2018/02/07/special-628-doc-dao-can-nha-duc-san-chi-mat-5-tieng-de-lap-ghep.jpg" alt="4" /></a>
-                                                                    </div>
-                                                                    <div class="housetitle"><a href="nha-dep/mau-nha-c1/doc-dao-can-nha-duc-san-chi-mat-5-tieng-de-lap-ghep-i1084.html">Độc đ&#225;o căn nh&#224; đ&#250;c sẵn chỉ mất 5 tiếng để lắp gh&#233;p</a></div>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="housebor"><ul><li></li></ul></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--<div id="video" class="wrap margin_bottom">
-                                            <div class="rounded_style_5 rounded_box">
-                                                <div class="content">
-                                                    <div class="infiniteCarousel">
-                                                        <div class="wrapper">
-                                                            <ul>
-                                                                <li><a href="http://tv.diaoconline.vn/DuAn/Post/3018/2012/02/17/arista-villa--dac-dia-the-dac-anh-tai.aspx"
-                                                                    target="_blank">
-                                                                    <img src="/images/demo/video_1.jpg" alt="" /><span class="play"></span></a></li>
-                                                                    <li><a href="http://tv.diaoconline.vn/DuAn/Post/3015/2012/02/13/tropic-garden-residence.aspx"
-                                                                        target="_blank">
-                                                                        <img src="/images/demo/video_2.jpg" alt="" /><span class="play"></span></a></li>
-                                                                        <li><a href="http://tv.diaoconline.vn/DuAn/Post/3014/2012/02/08/song-da-riverside--noi-cuoc-song-an-vui.aspx"
-                                                                            target="_blank">
-                                                                            <img src="/images/demo/video_3.jpg" alt="" /><span class="play"></span></a></li>
-                                                                            <li><a href="http://tv.diaoconline.vn/DuAn/Post/3011/2012/01/05/mandarin-garden--vi-tri-khong-the-dep-hon.aspx"
-                                                                                target="_blank">
-                                                                                <img src="/images/demo/video_4.jpg" alt="" /><span class="play"></span></a></li>
-                                                                                <li><a href="http://tv.diaoconline.vn/DuAn/Post/1167/2008/07/23/du-an-the-mansion.aspx"
-                                                                                    target="_blank">
-                                                                                    <img src="/images/demo/video_5.jpg" alt="" /><span class="play"></span></a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>-->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!--FOOTER-->
-                                                <div id="footer">
-                                                    <div id="footer_top">
-                                                        <div id="bottom_menu" class="wrap">
-                                                            <div id="news_menu">
-                                                                <h4>»THÔNG TIN ĐỊA ỐC</h4>
-                                                                <ul>
-                                                                    <li><a href="tin-tuc/thi-truong-dia-oc-c18.html">Thị trường địa ốc</a></li>
-                                                                    <li><a href="tin-tuc/hoat-dong-doanh-nghiep-c23.html">Hoạt động Doanh nghiệp</a></li>
-                                                                    <li><a href="tin-tuc/chinh-sach-quy-hoach-c16.html">Chính sách - Quy hoạch</a></li>
-                                                                    <li><a href="tin-tuc/tai-chinh-chung-khoan-c57.html">Tài chính - Chứng khoán</a></li>
-                                                                    <li><a href="tin-tuc/xay-dung-c25.html">Xây dựng</a></li>
-                                                                    <li><a href="tin-tuc/bat-dong-san-the-gioi-c24.html">Bất động sản thế giới</a></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div id="market_menu">
-                                                                <h4>»SIÊU THỊ ĐỊA ỐC</h4>
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="sieu-thi/nha-pho-c20.html">Nhà phố</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="sieu-thi/villa-biet-thu-c1.html">Villa - Biệt thự</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="sieu-thi/can-ho-chung-cu-c8.html">Căn hộ chung cư</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="sieu-thi/dat-o-dat-tho-cu-c11.html">Đất ở - Đất thổ cư</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="sieu-thi/dat-du-an-quy-hoach-c12.html">Đất dự án - Quy hoạch</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="sieu-thi/van-phong-c9.html">Văn phòng</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div id="project_menu">
-                                                                <h4>»DỰ ÁN</h4>
-                                                                <ul>
-                                                                    <li><a href="du-an/khu-du-lich-nghi-duong-c28.html">Khu du lịch - Nghỉ dưỡng</a></li>
-                                                                    <li><a href="du-an/cong-trinh-cong-cong-c29.html">Công trình công cộng</a></li>
-                                                                    <li><a href="du-an/khu-cong-nghiep-c11.html">Khu công nghiệp</a></li>
-                                                                    <li><a href="du-an/khu-dan-cu-do-thi-moi-c24.html">Khu dân cư – Đô thị mới </a></li>
-                                                                    <li><a href="du-an/khu-phuc-hop-thuong-mai-c25.html">Khu phức hợp - Thương mại</a></li>
-                                                                    <li><a href="du-an/cao-oc-van-phong-c26.html">Cao ốc văn phòng</a></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div id="company_menu">
-                                                                <h4>»DOANH NGHIỆP ĐỊA ỐC</h4>
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="doanh-nghiep/moi-gioi-dia-oc-c1.html">Môi giới địa ốc</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="doanh-nghiep/vlxd-thi-cong-c3.html">VLXD & Thi công</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="doanh-nghiep/tai-chinh-phap-ly-c6.html">Tài chính pháp lý</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="doanh-nghiep/dau-tu-du-an-c12.html">Đầu tư - Dự án</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="doanh-nghiep/thiet-ke-trang-tri-c14.html">Thiết kế - Trang trí</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="doanh-nghiep/truyen-thong-quang-cao-c16.html">Truyền thông - Quảng cáo</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div id="discover_menu" class="last">
-                                                                <h4>
-                                                                »KHÁM PHÁ - TRẢI NGHIỆM</h4>
-                                                                <ul>
-                                                                    <li><a href="kham-pha/the-gioi-kien-truc-c4.html">Thế giới kiến trúc</a></li>
-                                                                    <li><a href="kham-pha/mach-ban-c6.html">Mách bạn</a></li>
-                                                                    <li><a href="kham-pha/phong-thuy-c9.html">Phong thủy</a></li>
-                                                                    <li><a href="kham-pha/khong-gian-song-c7.html">Không gian sống</a></li>
-                                                                    <li><a href="kham-pha/shopping-cung-dool-c10.html">Shopping cùng DOOL</a></li>
-                                                                    <li><a href="kham-pha/thuong-hieu-c11.html">Thương hiệu</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="wrap">
-                                                            <div id="social_network" class="white_border_box rounded_box" style="width: 960px; text-align: center;">
-                                                                <div class="content">
-                                                                    <div class="like" style="width: 250px;">
-                                                                        <h2>Hỗ trợ kỹ thuật</h2>
-                                                                        <span class="phone">0909 480 599</span><span>(Mr. Giang)</span>
-                                                                    </div>
-                                                                    <div class="like" style="width: 200px; border-left: 1px solid #e1e1e1;">
-                                                                        <h2>Hỗ trợ dịch vụ</h2>
-                                                                        <a style="color: #007bc4; font-size: 12px; line-height: 18px;" href="http://adv.diaoconline.vn/AboutUs/hotrotructuyen.html">Liên hệ phòng kinh doanh</a>
-                                                                    </div>
-                                                                    <div class="join_network" style="width: 488px;">
-                                                                        <h4 style="width: 236px; float: left;">KẾT NỐI VỚI CHÚNG TÔI TẠI: </h4>
-                                                                        <ul style="width: 236px; padding: 10px 0 10px 10px;">
-                                                                            <li class="facebook"><a href="http://facebook.com/diaoconlinefc" target="_blank">facebook</a></li>
-                                                                            <li class="twitter"><a href="https://twitter.com/DiaOcOnlinevn" target="_blank">twitter</a></li>
-                                                                            <li class="youtube"><a href="http://www.youtube.com/diaoconline" target="_blank">youtube</a></li>
-                                                                            <!--<li class="google"><a href="https://plus.google.com/u/1/b/101503616522434888485/" target="_blank">google</a></li>-->
-                                                                            <li class="linkedin"><a href="http://www.linkedin.com/in/diaoconline" target="_blank">linkedin</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div id="misc" class="rounded_style_3 rounded_box">
-                                                                <div class="content">
-                                                                    <ul>
-                                                                        <li class="btn_help_center first"><a href="http://adv.diaoconline.vn/AboutUs/trogiup.html" target="_blank"><span></span>TRUNG TÂM TRỢ GIÚP</a></li>
-                                                                        <li class="btn_ad_price_list"><a href="http://adv.diaoconline.vn/AboutUs/banggia.html" target="_blank"><span></span>BẢNG GIÁ QUẢNG CÁO</a></li>
-                                                                        <li class="btn_point_load"><a href="http://adv.diaoconline.vn/AboutUs/trogiup_tphi_napthe.html" target="_blank"><span></span>NẠP ĐIỂM DOOL</a></li>
-                                                                        <li class="btn_our_services"><a href="http://adv.diaoconline.vn/AboutUs/dichvu.html" target="_blank"><span></span>DỊCH VỤ CỦA CHÚNG TÔI</a></li>
-                                                                        <li class="btn_post_guide"><a href="http://adv.diaoconline.vn/AboutUs/trogiup_tdang.html" target="_blank"><span></span>HƯỚNG DẪN ĐĂNG TIN</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="footer_bottom" style="height: 200px; background: #0071b5;;">
-                                                        <div id="foot_content" class="wrap">
-                                                            <div style="position: relative; float: right; width: 120px; padding-top: 10px;" id="bocongthuong"></div>
-                                                            <div id="foot_nav">
-                                                                <ul>
-                                                                    <li class="first"><a href="http://adv.diaoconline.vn/AboutUs" target="_blank">Về chúng tôi</a></li>
-                                                                    <li><a href="http://adv.diaoconline.vn/AboutUs/trogiup.html" target="_blank">Hướng dẫn sử dụng</a></li>
-                                                                    <li><a href="quy-che-hoat-dong.html">Quy chế hoạt động</a></li>
-                                                                    <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
-                                                                    <li><a href="chinh-sach-giai-quyet-khieu-nai.html">Chính sách giải quyết khiếu nại</a></li>
-                                                                    <li><a href="lien-he.html">Liên hệ</a></li>
-                                                                    <li><a href="rss.html"><img width="36" height="14" alt="rss diaoconline" src="Content/images/icon_rss.gif"/></a></li>
-                                                                </div>
-                                                                <div class="copyright" style="padding-top: 10px;">
-                                                                    <p style="width: 40%;float: left; text-align: left; color: #8dccf2;">
-                                                                        Copyright &copy; 2007 - 2016 DiaOcOnline Corp. &reg; <br>
-                                                                        Ghi rõ nguồn "DiaOcOnline.vn" khi phát hành lại thông tin từ website này.<br>
-                                                                        Công ty Cổ phần Địa ốc Trực Tuyến. Lầu 1, Phòng 102 tòa nhà OfficeSpot, 79C Điện Biên Phủ, phường Đakao, Quận 1, TP.HCM, Viet Nam. <br>
-                                                                        Tel: (028) 39115304 - Fax: (028) 39115360
-                                                                    </p>
-                                                                    <p style="width: 20%;float: left;">
-                                                                        <a href="http://online.gov.vn/WebsiteDisplay.aspx?DocId=23064" target="_blank"><img src="Content/images/diaoconline.vn_bocongthuong.png" title="" alt=""></a>
-                                                                    </p>
-                                                                    <p style="width: 40%; float: left; text-align: left; color: #8dccf2;">
-                                                                        Giấy phép MXH số 285/GP-BTTTT cấp ngày 14/06/2017 <br />
-                                                                        Đơn vị chủ quản: CÔNG TY CỔ PHẦN ĐỊA ỐC TRỰC TUYẾN
-                                                                        <!--
-                                                                        Giấy xác nhận cung cấp dịch vụ mạng xã hội trực tuyến số 131/GXN-TTĐT do Cục QL Phát thanh, Truyền hình và Thông tin điện tử cấp.<br>
-                                                                        Giấy phép ICP số 07/GP-ICP-STTTT do Sở Thông tin và Truyền thông TP. HCM cấp.-->
-                                                                        
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- STICKY FOOTER -->
-                                                    <!--<div style="position: fixed; bottom: 0; z-index: 999; width: 100%;">
-                                                            <div style="width: 960px; margin-left: auto; margin-right: auto;">
-                                                                        <div id="swiffycontainer" style="width: 960px; height: 50px; background: #fff;">
-                                                                                <a href="http://www.diaockimoanh.com.vn/dat-nen/du-an-dau-giay-center-city-2/240/2774" target="_blank"><img src="http://image.diaoconline.vn/kimoanh_sf_960x50.gif" /></a>
-                                                                </div>
-                                                            </div>
-                                                    </div>-->
-                                                    <script type="text/javascript">
-                                                    /* <![CDATA[ */
-                                                    var google_conversion_id = 899111951;
-                                                    var google_custom_params = window.google_tag_params;
-                                                    var google_remarketing_only = true;
-                                                    /* ]]> */
-                                                    </script>
-                                                    <script type="text/javascript" src="../www.googleadservices.com/pagead/f.txt">
-                                                    </script>
-                                                    <noscript>
-                                                    <div style="display:inline;">
-                                                        <img height="1" width="1" style="border-style:none;" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/899111951/?value=0&amp;guid=ON&amp;script=0"/>
-                                                    </div>
-                                                    </noscript>
-                                                    <script src="<?php echo base_url('themes/website/js/uniform/uniform.js')?>" type="text/javascript"></script>
-                                                    <script src="<?php echo base_url('themes/website/js/script.js')?>" type="text/javascript"></script>
-                                                    <script src="<?php echo base_url('themes/website/js/tooltip/tooltipsy.min.js')?>" type="text/javascript"></script>
-                                                    <script src="<?php echo base_url('themes/website/js/slides/slides.min.jquery.js')?>" type="text/javascript"></script>
-                                                    <script src="<?php echo base_url('themes/website/js/doolv330c8.js?1419')?>" type="text/javascript"></script>
-                                                    <script src="<?php echo base_url('themes/website/js/jquery-scrolltofixed-min.js')?>" type="text/javascript"></script>
-                                                    <script src="<?php echo base_url('themes/website/js/jquery.stickyelement.js')?>" type="text/javascript"></script>
-                                                </div>
-                                            </body>
-                                        </html>
+                    </div>
+                    <div id="misc" class="rounded_style_3 rounded_box">
+                        <div class="content">
+                            <ul>
+                                <li class="btn_help_center first"><a href="http://adv.diaoconline.vn/AboutUs/trogiup.html" target="_blank"><span></span>TRUNG TÂM TRỢ GIÚP</a></li>
+                                <li class="btn_ad_price_list"><a href="http://adv.diaoconline.vn/AboutUs/banggia.html" target="_blank"><span></span>BẢNG GIÁ QUẢNG CÁO</a></li>
+                                <li class="btn_point_load"><a href="http://adv.diaoconline.vn/AboutUs/trogiup_tphi_napthe.html" target="_blank"><span></span>NẠP ĐIỂM DOOL</a></li>
+                                <li class="btn_our_services"><a href="http://adv.diaoconline.vn/AboutUs/dichvu.html" target="_blank"><span></span>DỊCH VỤ CỦA CHÚNG TÔI</a></li>
+                                <li class="btn_post_guide"><a href="http://adv.diaoconline.vn/AboutUs/trogiup_tdang.html" target="_blank"><span></span>HƯỚNG DẪN ĐĂNG TIN</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer_bottom" style="height: 200px; background: #0071b5;;">
+                <div id="foot_content" class="wrap">
+                    <div style="position: relative; float: right; width: 120px; padding-top: 10px;" id="bocongthuong"></div>
+                        <div id="foot_nav">
+                            <ul>
+                                <li class="first"><a href="http://adv.diaoconline.vn/AboutUs" target="_blank">Về chúng tôi</a></li>
+                                <li><a href="http://adv.diaoconline.vn/AboutUs/trogiup.html" target="_blank">Hướng dẫn sử dụng</a></li>
+                                <li><a href="quy-che-hoat-dong.html">Quy chế hoạt động</a></li>
+                                <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+                                <li><a href="chinh-sach-giai-quyet-khieu-nai.html">Chính sách giải quyết khiếu nại</a></li>
+                                <li><a href="lien-he.html">Liên hệ</a></li>
+                                <li><a href="rss.html"><img width="36" height="14" alt="rss diaoconline" src="Content/images/icon_rss.gif"/></a></li>
+                        </div>
+                        <div class="copyright" style="padding-top: 10px;">
+                            <p style="width: 40%;float: left; text-align: left; color: #8dccf2;">
+                                Copyright &copy; 2007 - 2016 DiaOcOnline Corp. &reg; <br>
+                                Ghi rõ nguồn "DiaOcOnline.vn" khi phát hành lại thông tin từ website này.<br>
+                                Công ty Cổ phần Địa ốc Trực Tuyến. Lầu 1, Phòng 102 tòa nhà OfficeSpot, 79C Điện Biên Phủ, phường Đakao, Quận 1, TP.HCM, Viet Nam. <br>
+                                Tel: (028) 39115304 - Fax: (028) 39115360
+                            </p>
+                            <p style="width: 20%;float: left;">
+                                <a href="http://online.gov.vn/WebsiteDisplay.aspx?DocId=23064" target="_blank"><img src="Content/images/diaoconline.vn_bocongthuong.png" title="" alt=""></a>
+                            </p>
+                            <p style="width: 40%; float: left; text-align: left; color: #8dccf2;">
+                                Giấy phép MXH số 285/GP-BTTTT cấp ngày 14/06/2017 <br />
+                                Đơn vị chủ quản: CÔNG TY CỔ PHẦN ĐỊA ỐC TRỰC TUYẾN
+                                <!--
+                                Giấy xác nhận cung cấp dịch vụ mạng xã hội trực tuyến số 131/GXN-TTĐT do Cục QL Phát thanh, Truyền hình và Thông tin điện tử cấp.<br>
+                                Giấy phép ICP số 07/GP-ICP-STTTT do Sở Thông tin và Truyền thông TP. HCM cấp.-->
+                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+            /* <![CDATA[ */
+            var google_conversion_id = 899111951;
+            var google_custom_params = window.google_tag_params;
+            var google_remarketing_only = true;
+            /* ]]> */
+            </script>
+            <script type="text/javascript" src="../www.googleadservices.com/pagead/f.txt">
+            </script>
+            <noscript>
+            <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/899111951/?value=0&amp;guid=ON&amp;script=0"/>
+            </div>
+            </noscript>
+            <script src="<?php echo base_url('themes/website/js/uniform/uniform.js')?>" type="text/javascript"></script>
+            <script src="<?php echo base_url('themes/website/js/script.js')?>" type="text/javascript"></script>
+            <script src="<?php echo base_url('themes/website/js/tooltip/tooltipsy.min.js')?>" type="text/javascript"></script>
+            <script src="<?php echo base_url('themes/website/js/slides/slides.min.jquery.js')?>" type="text/javascript"></script>
+            <script src="<?php echo base_url('themes/website/js/doolv330c8.js?1419')?>" type="text/javascript"></script>
+            <script src="<?php echo base_url('themes/website/js/jquery-scrolltofixed-min.js')?>" type="text/javascript"></script>
+            <script src="<?php echo base_url('themes/website/js/jquery.stickyelement.js')?>" type="text/javascript"></script>
+        </div>
+    </body>
+</html>

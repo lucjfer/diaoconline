@@ -92,7 +92,27 @@
                     <div class="form-group">
                         <label class="col-md-12">Mô tả</label>
                         <div class="col-md-12">
-                            <textarea class="form-control" rows="5" name="Categories[description]"><?php echo (isset($model)) ? $model->description : ''?></textarea>
+                            <textarea class="form-control" rows="6" name="Categories[description]"><?php echo (isset($model)) ? $model->description : ''?></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Hiển thị thông tin</label>
+                        <div class="col-md-12">
+                            <?php 
+                                if (isset($model)) {
+                                    $checked_new = ($model->show_type == 'new') ? 'checked' : '';
+                                    $checked_bds = ($model->show_type == 'bds') ? 'checked' : '';
+                                } else {
+                                    $checked_new = 'checked';
+                                    $checked_bds = '';
+                                }
+                            ?>
+                            <div class="col-xs-4">
+                                <input type="radio" name="Categories[show_type]" value="new" <?php echo $checked_new ?>> Tin tức<br>
+                            </div>
+                            <div class="col-xs-4">
+                                <input type="radio" name="Categories[show_type]" value="bds" <?php echo $checked_bds ?>> Bất động sản<br>
+                            </div>
                         </div>
                     </div>
                 </div>

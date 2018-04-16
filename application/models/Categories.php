@@ -42,10 +42,10 @@ class Categories extends CI_Model {
 	    }
 	    $data_insert['created_date'] = date('Y-m-d H:i:s');
 	    $data_insert['update_date'] = date('Y-m-d H:i:s');
-	    $data_insert['slug'] = $this->generateSlug($data_insert['category_name']);
-        if (isset($data_insert['category_name_en'])) {
-            $data_insert['slug_en'] = $this->generateSlug($data_insert['category_name_en']);
-        }
+	    // $data_insert['slug'] = $this->generateSlug($data_insert['category_name']);
+        // if (isset($data_insert['category_name_en'])) {
+        //     $data_insert['slug_en'] = $this->generateSlug($data_insert['category_name_en']);
+        // }
 	    $data_insert['type_level'] = $type_level;
 	    return $this->db->insert('categories', $data_insert);
 	}
@@ -63,10 +63,10 @@ class Categories extends CI_Model {
 	    	}
 	    }
 	    $data_insert['update_date'] = date('Y-m-d H:i:s');
-        $data_insert['slug'] = $this->generateSlug($data_insert['category_name']);
-        if (isset($data_insert['category_name_en'])) {
-            $data_insert['slug_en'] = $this->generateSlug($data_insert['category_name_en']);
-        }
+        // $data_insert['slug'] = $this->generateSlug($data_insert['category_name']);
+        // if (isset($data_insert['category_name_en'])) {
+        //     $data_insert['slug_en'] = $this->generateSlug($data_insert['category_name_en']);
+        // }
         if (!isset($data_insert['is_featured'])) {
             $data_insert['is_featured'] = 0;
         }
@@ -77,7 +77,11 @@ class Categories extends CI_Model {
 	}
 
 	public function rChilds($parent_id, &$items, $level, $id, $type) {
-		if ($level <= 1) {
+        $block_level = 1;
+        if ($type == 'news') {
+            $block_level = 2;
+        }
+		if ($level < $block_level) {
 			$query = $this->db->query("SELECT * FROM ci_categories WHERE parent_id = ".$parent_id." AND id != ".$id.' AND type = "'.$type.'"');
 			$childs = $query->result('Categories');
 
@@ -529,6 +533,7 @@ class Categories extends CI_Model {
             echo '<tr id="tr-'.$this->id.'">
                     <td class="text-center check-element"><input type="checkbox" name="select[]" value="'.$this->id.'"></td>
                     <td>'.$str.' '.$this->category_name.'</td>
+                    <td>'.$this->get_parent_name().'</td>
                     <td>'.$this->get_update_date().'</td>
                     <td class="button-column">
                         <a class="btn btn-danger" href="'.base_url($url.'/update/'.$this->id).'"><i class="fa fa-edit"></i></a>

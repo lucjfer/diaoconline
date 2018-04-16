@@ -38,6 +38,7 @@ class CategoryNews extends MY_Controller {
                     $thumb = '/uploads/categories/'. $uploadData['file_name'];
                 }
             }
+            $data_insert['slug'] = $this->generateSlug($data_insert['category_name'], 'cat_new');
             $data_insert['thumb'] = $thumb;
             $data_insert['type'] = 'news';
             $this->categories->set_model($data_insert);
@@ -111,6 +112,7 @@ class CategoryNews extends MY_Controller {
                     $data_update['thumb'] = '';
                 }
             }
+            $data_update['slug'] = $this->generateSlug($data_update['category_name'], 'cat_new');
             $data_update['type'] = 'news';
             $this->categories->update_model($id, $data_update);
             redirect('admin/categoryNews/index', 'refresh');
