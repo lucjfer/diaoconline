@@ -43,17 +43,6 @@
                         </div>
                     </div>
 
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-md-12">Kiểu Danh Mục</label>-->
-<!--                        <div class="col-md-12">-->
-<!--                            <select class="form-control" name="Categories[type]" id="type_category">-->
-<!--                                <option --><?php //echo (isset($model) && $model->type == 'menu')? 'selected' : ''; ?><!-- value="menu">Menu</option>-->
-<!--                                <option --><?php //echo (isset($model) && $model->type == 'category')? 'selected' : ''; ?><!-- value="category">Category</option>-->
-<!--                            </select>-->
-<!--                            --><?php //echo form_error('type'); ?>
-<!--                        </div>-->
-<!--                    </div>-->
-
                     <div class="form-group">
                         <label class="col-sm-12">Lớp cha</label>
                         <div class="col-sm-12">
@@ -81,20 +70,7 @@
                             <input type="number" class="form-control" value="<?php echo (isset($model)) ? $model->display_order : ''?>" name="Categories[display_order]">
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                        <label class="col-md-12">Tiêu đề</label>
-                        <div class="col-md-12">
-                            <input type="text" class="form-control" value="<?php echo (isset($model)) ? $model->title : ''?>" name="Categories[title]">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-12">Mô tả</label>
-                        <div class="col-md-12">
-                            <textarea class="form-control" rows="6" name="Categories[description]"><?php echo (isset($model)) ? $model->description : ''?></textarea>
-                        </div>
-                    </div>
+
                     <div class="form-group">
                         <label class="col-md-12">Hiển thị thông tin</label>
                         <div class="col-md-12">
@@ -108,11 +84,39 @@
                                 }
                             ?>
                             <div class="col-xs-4">
-                                <input type="radio" name="Categories[show_type]" value="new" <?php echo $checked_new ?>> Tin tức<br>
+                                <input type="radio" class="change-type" name="Categories[show_type]" value="new" <?php echo $checked_new ?>> Tin tức<br>
                             </div>
                             <div class="col-xs-4">
-                                <input type="radio" name="Categories[show_type]" value="bds" <?php echo $checked_bds ?>> Bất động sản<br>
+                                <input type="radio" class="change-type" name="Categories[show_type]" value="bds" <?php echo $checked_bds ?>> Bất động sản<br>
                             </div>
+                        </div>
+                    </div>
+                    <?php $hidden = $checked_new == 'checked' ? '' : 'hidden'; ?>
+                    <div class="form-group show-new <?php echo $hidden ?>">
+                        <label class="col-md-12">Loại tin</label>
+                        <div class="col-md-12">
+                            <?php $cat_news = $this->categories->getCategoryByLevel('news', 1); ?>
+                            <select class="form-control" name="Categories[type_id]">
+                                <option value="0">-------</option>
+                                <?php foreach ($cat_news as $new): 
+                                    $selected = (isset($model) && $model->type_id == $new->id) ? 'selected' : ''; ?>
+                                    <option value="<?php echo $new->id ?>" <?php echo $selected ?>><?php echo $new->category_name ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        <label class="col-md-12">Tiêu đề</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" value="<?php echo (isset($model)) ? $model->title : ''?>" name="Categories[title]">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12">Mô tả</label>
+                        <div class="col-md-12">
+                            <textarea class="form-control" rows="6" name="Categories[description]"><?php echo (isset($model)) ? $model->description : ''?></textarea>
                         </div>
                     </div>
                 </div>
@@ -148,6 +152,14 @@
                 return true;
             }
             return false;
+        });
+
+        $('.change-type').change(function() {
+            if ($(this).val() == 'new') {
+                $('.show-new').removeClass('hidden');
+            } else {
+                $('.show-new').addClass('hidden');
+            }
         });
 
 //        $('#type_category').change(function() {

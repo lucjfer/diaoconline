@@ -14,6 +14,7 @@ class Sites extends Front_Controller {
         $this->load->model('posts');
         $this->load->model('projects');
         $this->load->model('news');
+        $this->load->model('bds');
         $this->load->database();
         $this->load->library('pagination');
     }

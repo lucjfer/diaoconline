@@ -97,4 +97,39 @@ class Bds extends CI_Model {
 
     	return '';
     }
+
+    public function getBdsMenu() {
+    	$query = $this->db->query("SELECT * FROM ci_bds ORDER BY created_date desc LIMIT 13");
+		return $query->result('Bds');
+    }
+
+    public function getUrl() {
+    	return '';
+    }
+
+    public function getFirstImage(){
+        $query = $this->db->query("SELECT * FROM ci_product_images WHERE product_id = '".$this->id."'");
+        $images = $query->result();
+
+        if(!empty($images)){
+            return base_url($images[0]->image);
+        }else{
+            return base_url('/uploads/bds/no_image.png');
+        }
+    }
+
+    public function shorterContent($text, $chars_limit)
+    {   
+        $text = strip_tags($text);
+        if (strlen($text) > $chars_limit) {
+            $length = (int)(strlen($text) / $chars_limit);
+            $new_text = substr($text, 0, strpos($text, ' ', $chars_limit));
+            // Trim off white space
+            $new_text = trim($new_text);
+            // Add at end of text ...
+            return $new_text . "...";
+        } else {
+            return $text;
+        }
+    }
 }

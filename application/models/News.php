@@ -187,27 +187,41 @@ class News extends CI_Model {
         return base_url().$this->slug.'nd.html';
     }
 
-    public function getNewsInMenu() {
-        $query = $this->db->query("SELECT * FROM ci_news ORDER BY created_date desc LIMIT 10");
+    public function getNewsInMenu($cat_id) {
+        $this->load->model('categories');
+        $arr_cat = [];
+        $this->categories->getArrayChild($cat_id, $arr_cat);
+        if ($cat_id == 0) {
+            $query = $this->db->query("SELECT * FROM ci_news ORDER BY created_date desc LIMIT 10");
+        } else {
+            if (empty($arr_cat)) {
+                $arr_cat = [0];
+            }
+            $query = $this->db->query("SELECT * FROM ci_news WHERE category_id IN (".implode(',', $arr_cat).") ORDER BY created_date desc LIMIT 10");
+        }
+        $news = $query->result('News');
+
+        return $news;
+    }
+
+    public function getNewsHome($limit) {
+        $query = $this->db->query("SELECT * FROM ci_news ORDER BY created_date desc LIMIT ".$limit);
         $news = $query->result('News');
 
         return $news;
     }
 
     public function shorterContent($text, $chars_limit)
-    {
-        // Check if length is larger than the character limit
+    {   
+        $text = strip_tags($text);
         if (strlen($text) > $chars_limit) {
-            // If so, cut the string at the character limit
-            $new_text = substr($text, 0, $chars_limit);
+            $length = (int)(strlen($text) / $chars_limit);
+            $new_text = substr($text, 0, strpos($text, ' ', $chars_limit));
             // Trim off white space
             $new_text = trim($new_text);
             // Add at end of text ...
             return $new_text . "...";
-        }
-        // If not just return the text as is
-        else
-        {
+        } else {
             return $text;
         }
     }

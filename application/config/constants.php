@@ -22,6 +22,9 @@ defined('ALL')  OR define('ALL', 1);
 defined('METERS')  OR define('METERS', 2);
 defined('MONTH')  OR define('MONTH', 3);
 
+defined('HEADER_ADVERTISEMENT')  OR define('HEADER_ADVERTISEMENT', 0);
+defined('SIDEBAR_ADVERTISEMENT')  OR define('SIDEBAR_ADVERTISEMENT', 1);
+
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

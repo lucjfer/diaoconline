@@ -86,4 +86,9 @@ class Banner extends CI_Model {
 
 		return $this->$field;
     }
+
+    public function getAdsByLocation($location) {
+    	$query = $this->db->query("SELECT * FROM ci_banners WHERE publish = ".STATUS_ACTIVE." AND location = '".$location."' AND type = 'advertisement' ORDER BY created_date desc");
+		return $query->result('Banner');
+    }
 }

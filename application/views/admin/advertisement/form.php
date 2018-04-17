@@ -32,10 +32,14 @@
                 </div>
                 <div class="col-sm-6 col-xs-12">
                     <div class="form-group">
-                        <label class="col-md-12">Thứ tự</label>
+                        <label class="col-md-12">Vị trí</label>
                         <div class="col-md-12">
-                            <input type="number" name="Banner[display_order]" class="form-control" value="<?php echo (isset($model)) ? $model->display_order : ''?>">
-                            <?php echo form_error('display_order'); ?>
+                            <select class="form-control" name="Banner[location]">
+                                <?php $selected = (isset($model) && $model->location == HEADER_ADVERTISEMENT) ? 'selected' : '';
+                                $selected_right = (isset($model) && $model->location == SIDEBAR_ADVERTISEMENT) ? 'selected' : ''; ?>
+                                <option value="<?php echo HEADER_ADVERTISEMENT ?>" <?php echo $selected ?>>Header</option>
+                                <option value="<?php echo SIDEBAR_ADVERTISEMENT ?>" <?php echo $selected_right ?>>Sidebar Right</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

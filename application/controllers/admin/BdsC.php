@@ -43,6 +43,8 @@ class BdsC extends MY_Controller {
             $data_insert = $_POST['Bds'];
             $data_insert['slug'] = $this->generateSlug($data_insert['name'], 'bds');
 
+            $this->bds->set_model($data_insert);
+            $id = $this->db->insert_id();
             $arrFiles = [];
             if(isset($_FILES['Images'])){
                 $arrFiles = $this->reArrayFiles($_FILES['Images']);
@@ -64,7 +66,6 @@ class BdsC extends MY_Controller {
                 }
             }
             
-            $this->bds->set_model($data_insert);
             redirect('admin/bdsC/index', 'refresh');
         }
 

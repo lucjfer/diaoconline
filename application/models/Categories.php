@@ -78,9 +78,7 @@ class Categories extends CI_Model {
 
 	public function rChilds($parent_id, &$items, $level, $id, $type) {
         $block_level = 1;
-        if ($type == 'news') {
-            $block_level = 2;
-        }
+
 		if ($level < $block_level) {
 			$query = $this->db->query("SELECT * FROM ci_categories WHERE parent_id = ".$parent_id." AND id != ".$id.' AND type = "'.$type.'"');
 			$childs = $query->result('Categories');
@@ -229,6 +227,8 @@ class Categories extends CI_Model {
 				$items[$child->id] = [
 					'name' => $child->getFieldFollowLanguage('category_name'),
 					'url' => $child->url,
+                    'show_type' => '',
+                    'type_id' => 0,
 					'child' => $this->rChildsFE($child->id),
 				];
 			}
@@ -248,6 +248,8 @@ class Categories extends CI_Model {
 				$items[$model->id] = [
 					'name' => $model->getFieldFollowLanguage('category_name'),
 					'url' => $model->url,
+                    'show_type' => $model->show_type,
+                    'type_id' => $model->type_id,
 					'child' => $this->rChildsFE($model->id),
 				];
 			}
@@ -312,6 +314,17 @@ class Categories extends CI_Model {
             }
         }
         return $items;
+    }
+
+    public function getArrayChild($parent_id, &$result) {
+        $query = $this->db->query("SELECT * FROM ci_categories WHERE parent_id = ".$parent_id);
+        $childs = $query->result('Categories');
+        if (count($childs) > 0) {
+            foreach ($childs as $child) {
+                $result[] = $child->id;
+                $this->getArrayChild($child->id, $result);
+            }
+        }
     }
 
     public function getDataFE(){
@@ -642,5 +655,12 @@ class Categories extends CI_Model {
             endif;
         endif;
         echo '<li class="category3"><a href="'.$this->getUrl().'" title="'.$this->category_name.'">'.$this->category_name.'</a></li>';
+    }
+
+    public function getCategoryByLevel($type, $level) {
+        $query = $this->db->query("SELECT * FROM ci_categories WHERE type = '".$type."' AND type_level = ".$level." ORDER BY category_name asc");
+        $models = $query->result('Categories');
+
+        return $models;
     }
 }

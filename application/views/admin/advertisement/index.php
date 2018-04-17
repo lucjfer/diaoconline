@@ -31,7 +31,7 @@
                                         <!-- <th>Tên nút Slider</th> -->
                                         <th>Đường dẫn</th>
                                         <th>Hình ảnh</th>
-                                        <th>Thứ tự</th>
+                                        <th>Vị trí</th>
                                         <th>Hiển thị</th>
                                         <th>Ngày cập nhật</th>
                                         <th>Hành động</th>
@@ -49,7 +49,7 @@
                                                     <img src="<?php echo $model->get_image() ?>" alt="<?php echo $model->name ?>" width="100">
                                                 <?php endif ?>
                                             </td>
-                                            <td><?php echo $model->display_order ?></td>
+                                            <td><?php echo $model->location == HEADER_ADVERTISEMENT ? 'Header' : 'Sidebar Right' ?></td>
                                             <td><?php $checked = $model->publish ? 'checked' : '' ?>
                                                 <input type="checkbox" <?php echo $checked ?> class="js-switch publish-ajax" data-color="#13dafe" data-id="<?php echo $model->id ?>" value="1"/>
                                             </td>
