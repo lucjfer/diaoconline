@@ -353,6 +353,25 @@
                     </div>
                 </div>
 
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="publish" class="col-md-12">Hiển thị trang chủ</label>
+                        <div class="col-md-12">
+                            <?php
+                                $checked = 'checked';
+                                if (isset($model)) {
+                                    if ($model['is_featured'] == true) {
+                                        $checked = 'checked';
+                                    } else {
+                                        $checked = '';
+                                    }
+                                }
+                            ?>
+                            <input type="checkbox" <?php echo $checked ?> class="js-switch publish-ajax" data-color="#13dafe" value="1" id="publish" name="Bds[is_featured]"/>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-xs-12 m-t-30">
                     <div class="text-center">
                         <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Lưu</button>

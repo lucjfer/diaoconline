@@ -1,5 +1,5 @@
 <div class="col_650 margin_bottom">
-    <?php $news = $this->news->getNewsHome(11); ?>
+    <?php $news = $this->news->getNewsHome(11, HEADER_NEWS); ?>
     <?php if (count($news) > 0): ?>
         <div id="hot_latest_news">
             <div class="slides_container">

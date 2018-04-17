@@ -77,7 +77,7 @@ class Categories extends CI_Model {
 	}
 
 	public function rChilds($parent_id, &$items, $level, $id, $type) {
-        $block_level = 1;
+        $block_level = 2;
 
 		if ($level < $block_level) {
 			$query = $this->db->query("SELECT * FROM ci_categories WHERE parent_id = ".$parent_id." AND id != ".$id.' AND type = "'.$type.'"');
@@ -111,6 +111,20 @@ class Categories extends CI_Model {
 
 		return $items;
 	}
+
+    public function get_dropdown_category_by_level($level, $type = 'menu') {
+        $items = [];
+        $query = $this->db->query('SELECT * FROM ci_categories WHERE type_level = '.$level.' AND type = "'.$type.'"');
+        $parents = $query->result('Categories');
+        $level = 1;
+        if (count($parents) > 0) {
+            foreach ($parents as $row) {
+                $items[$row->id] = $row->category_name;
+            }
+        }
+
+        return $items;
+    }
 
     public function get_dropdown_category_product($id, $type = 'category') {
         $items = array();

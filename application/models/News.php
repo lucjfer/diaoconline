@@ -43,6 +43,8 @@ class News extends CI_Model {
             'created_date' => date('Y-m-d H:i:s'),
         );
 
+        var_dump($this->input->post('location'));die;
+
 	    return $this->db->insert('news', $data);
 	}
 
@@ -61,7 +63,11 @@ class News extends CI_Model {
             'language' => 'vn',
             'created_date' => date('Y-m-d H:i:s'),
 	    );
-
+        $location = '';
+        if (is_array($this->input->post('location'))) {
+            $location = json_encode($this->input->post('location'));
+        }
+        $data['location'] = $location;
 	    $this->db->where('id', $id);
         $this->db->update('news', $data);
 	}
@@ -189,7 +195,7 @@ class News extends CI_Model {
 
     public function getNewsInMenu($cat_id) {
         $this->load->model('categories');
-        $arr_cat = [];
+        $arr_cat = [$cat_id];
         $this->categories->getArrayChild($cat_id, $arr_cat);
         if ($cat_id == 0) {
             $query = $this->db->query("SELECT * FROM ci_news ORDER BY created_date desc LIMIT 10");
@@ -204,8 +210,8 @@ class News extends CI_Model {
         return $news;
     }
 
-    public function getNewsHome($limit) {
-        $query = $this->db->query("SELECT * FROM ci_news ORDER BY created_date desc LIMIT ".$limit);
+    public function getNewsHome($limit, $location) {
+        $query = $this->db->query("SELECT * FROM ci_news WHERE location LIKE '%\"".$location."\"%' ORDER BY created_date desc LIMIT ".$limit);
         $news = $query->result('News');
 
         return $news;

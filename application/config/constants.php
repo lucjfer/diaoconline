@@ -24,6 +24,8 @@ defined('MONTH')  OR define('MONTH', 3);
 
 defined('HEADER_ADVERTISEMENT')  OR define('HEADER_ADVERTISEMENT', 0);
 defined('SIDEBAR_ADVERTISEMENT')  OR define('SIDEBAR_ADVERTISEMENT', 1);
+defined('HEADER_NEWS')  OR define('HEADER_NEWS', 0);
+defined('FOOTER_NEWS')  OR define('FOOTER_NEWS', 1);
 
 /*
 |--------------------------------------------------------------------------

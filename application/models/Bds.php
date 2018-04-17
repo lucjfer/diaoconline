@@ -132,4 +132,9 @@ class Bds extends CI_Model {
             return $text;
         }
     }
+
+    public function getBdsFeatured() {
+        $query = $this->db->query("SELECT * FROM ci_bds WHERE is_featured = 1 ORDER BY created_date desc");
+        return $query->result('Bds');
+    }
 }
