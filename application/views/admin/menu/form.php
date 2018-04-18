@@ -1,3 +1,4 @@
+<link href="<?php echo base_url('themes/admin/plugins/bower_components/bootstrap-select/bootstrap-select.min.css') ?>" rel="stylesheet" type="text/css" />
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
         <h4 class="page-title"><?php echo $title ?></h4>
@@ -78,11 +79,16 @@
                                 if (isset($model)) {
                                     $checked_new = ($model->show_type == 'new') ? 'checked' : '';
                                     $checked_bds = ($model->show_type == 'bds') ? 'checked' : '';
+                                    $checked = ($model->show_type == '') ? 'checked' : '';
                                 } else {
-                                    $checked_new = 'checked';
+                                    $checked = 'checked';
+                                    $checked_new = '';
                                     $checked_bds = '';
                                 }
                             ?>
+                            <div class="col-xs-4">
+                                <input type="radio" class="change-type" name="Categories[show_type]" value="" <?php echo $checked ?>> Không<br>
+                            </div>
                             <div class="col-xs-4">
                                 <input type="radio" class="change-type" name="Categories[show_type]" value="new" <?php echo $checked_new ?>> Tin tức<br>
                             </div>
@@ -116,7 +122,33 @@
                     <div class="form-group">
                         <label class="col-md-12">Mô tả</label>
                         <div class="col-md-12">
-                            <textarea class="form-control" rows="6" name="Categories[description]"><?php echo (isset($model)) ? $model->description : ''?></textarea>
+                            <textarea class="form-control" rows="5" name="Categories[description]"><?php echo (isset($model)) ? $model->description : ''?></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-12">Vị trí menu</label>
+                        <div class="col-md-12">
+                            <select class="form-control selectpicker" name="Categories[location][]" multiple data-style="form-control">
+                                <?php 
+                                    $selected = $selected_footer = '';
+                                    if (isset($model) && !empty($model->location)) {
+                                        $location = json_decode($model->location);
+                                        if (in_array(HEADER_MENU, $location)) {
+                                            $selected = 'selected';
+                                        }
+                                        if (in_array(FOOTER_MENU, $location)) {
+                                            $selected_footer = 'selected';
+                                        }
+                                        if (in_array(FOOTER_MENU_2, $location)) {
+                                            $selected_footer = 'selected';
+                                        }
+                                    }
+                                ?>
+                                <option value="<?php echo HEADER_MENU ?>" <?php echo $selected ?>>Header</option>
+                                <option value="<?php echo FOOTER_MENU ?>" <?php echo $selected_footer ?>>Footer</option>
+                                <option value="<?php echo FOOTER_MENU_2 ?>" <?php echo $selected_footer ?>>Link Footer</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -142,6 +174,7 @@
         </div>
     </div>
 </div>
+<script src="<?php echo base_url('themes/admin/plugins/bower_components/bootstrap-select/bootstrap-select.min.js')?>" type="text/javascript"></script>
 
 <script>
     $(document).ready(function() {

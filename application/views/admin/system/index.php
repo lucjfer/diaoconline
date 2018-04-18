@@ -118,6 +118,7 @@
     $(document).ready(function() {
         var drEvent_logo = $('.dropify-logoFE').dropify();
         var drEvent_favicon = $('.dropify-favicon').dropify();
+        var drEvent_footer = $('.dropify-copyrightOnFooter_image').dropify();
 
         drEvent_logo.on('dropify.beforeClear', function(event, element){
             if (confirm("Bạn có chắc chắn muốn xóa hình này ?")) {
@@ -133,6 +134,15 @@
             }
             return false;
         });
+
+        drEvent_footer.on('dropify.beforeClear', function(event, element){
+            if (confirm("Bạn có chắc chắn muốn xóa hình này ?")) {
+                $('#rm-img-copyrightOnFooter_image').prop('checked', true);
+                return true;
+            }
+            return false;
+        });
+
         $('.del-img-setting').click(function() {
             if (confirm('Are you sure want to delete this image?')) {
                 var key = $(this).data('key');
@@ -164,6 +174,12 @@
             filebrowserWindowHeight: '700'
         });
         CKEDITOR.replace('editor-full-4', {
+            filebrowserBrowseUrl: "<?php echo base_url('themes/admin/plugins/ckfinder/ckfinder.html')?>",
+            filebrowserUploadUrl: "<?php echo base_url('themes/admin/plugins/ckfinder/core/connector/php/connector.php').'?command=QuickUpload&type=Files' ?>",
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        CKEDITOR.replace('editor-full-5', {
             filebrowserBrowseUrl: "<?php echo base_url('themes/admin/plugins/ckfinder/ckfinder.html')?>",
             filebrowserUploadUrl: "<?php echo base_url('themes/admin/plugins/ckfinder/core/connector/php/connector.php').'?command=QuickUpload&type=Files' ?>",
             filebrowserWindowWidth: '1000',

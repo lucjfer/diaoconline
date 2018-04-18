@@ -2,7 +2,7 @@
     <div id="head_content" class="wrap">
         <span id="logo"><a href="<?php echo base_url() ?>" title="Về trang chủ DiaOcOnline.vn">Địa Ốc Online</a></span>
         <div id="head_nav">
-            <?php $menus = $this->categories->get_menuFE();
+            <?php $menus = $this->categories->get_menuFE(HEADER_MENU);
             if (!empty($menus)) :?>
                 <ul>
                     <?php foreach ($menus as $menu_id => $menu): ?>
