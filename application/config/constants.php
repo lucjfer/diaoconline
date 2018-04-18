@@ -26,6 +26,9 @@ defined('HEADER_ADVERTISEMENT')  OR define('HEADER_ADVERTISEMENT', 0);
 defined('SIDEBAR_ADVERTISEMENT')  OR define('SIDEBAR_ADVERTISEMENT', 1);
 defined('HEADER_NEWS')  OR define('HEADER_NEWS', 0);
 defined('FOOTER_NEWS')  OR define('FOOTER_NEWS', 1);
+defined('HEADER_MENU')  OR define('HEADER_MENU', 0);
+defined('FOOTER_MENU')  OR define('FOOTER_MENU', 1);
+defined('FOOTER_MENU_2')  OR define('FOOTER_MENU_2', 3);
 
 /*
 |--------------------------------------------------------------------------

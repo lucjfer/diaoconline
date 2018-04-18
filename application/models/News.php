@@ -43,8 +43,11 @@ class News extends CI_Model {
             'created_date' => date('Y-m-d H:i:s'),
         );
 
-        var_dump($this->input->post('location'));die;
-
+        $location = '';
+        if (is_array($this->input->post('location'))) {
+            $location = json_encode($this->input->post('location'));
+        }
+        $data['location'] = $location;
 	    return $this->db->insert('news', $data);
 	}
 

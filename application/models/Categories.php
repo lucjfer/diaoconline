@@ -78,7 +78,9 @@ class Categories extends CI_Model {
 
 	public function rChilds($parent_id, &$items, $level, $id, $type) {
         $block_level = 2;
-
+        if ($type == 'menu') {
+            $block_level = 1;
+        }
 		if ($level < $block_level) {
 			$query = $this->db->query("SELECT * FROM ci_categories WHERE parent_id = ".$parent_id." AND id != ".$id.' AND type = "'.$type.'"');
 			$childs = $query->result('Categories');
@@ -231,9 +233,9 @@ class Categories extends CI_Model {
 		return '';
 	}
 
-	public function rChildsFE($parent_id) {
+	public function rChildsFE($parent_id, $location) {
 		$items = [];
-		$query = $this->db->query("SELECT * FROM ci_categories WHERE parent_id = ".$parent_id." AND type = 'menu'  ORDER BY display_order asc");
+		$query = $this->db->query("SELECT * FROM ci_categories WHERE parent_id = ".$parent_id." AND type = 'menu' AND location LIKE '%\"".$location."\"%' ORDER BY display_order asc");
 		$childs = $query->result('Categories');
 
 		if (count($childs) > 0) {
@@ -243,7 +245,7 @@ class Categories extends CI_Model {
 					'url' => $child->url,
                     'show_type' => '',
                     'type_id' => 0,
-					'child' => $this->rChildsFE($child->id),
+					'child' => $this->rChildsFE($child->id, $location),
 				];
 			}
 		}
@@ -251,9 +253,9 @@ class Categories extends CI_Model {
 		return $items;
 	}
 
-	public function get_menuFE() {
+	public function get_menuFE($location) {
 		$items = [];
-		$query = $this->db->query("SELECT * FROM ci_categories WHERE parent_id = 0 AND type = 'menu' ORDER BY display_order asc");
+		$query = $this->db->query("SELECT * FROM ci_categories WHERE parent_id = 0 AND type = 'menu' AND location LIKE '%\"".$location."\"%' ORDER BY display_order asc");
 		$models = $query->result('Categories');
 		$level = 1;
 
@@ -264,7 +266,7 @@ class Categories extends CI_Model {
 					'url' => $model->url,
                     'show_type' => $model->show_type,
                     'type_id' => $model->type_id,
-					'child' => $this->rChildsFE($model->id),
+					'child' => $this->rChildsFE($model->id, $location),
 				];
 			}
 		}

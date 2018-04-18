@@ -86,4 +86,9 @@ class Provinces extends CI_Model {
 	public function getUrl() {
 		return '';
 	}
+
+	public function getProvincesFE() {
+		$query = $this->db->query("SELECT * FROM ci_provinces ORDER BY province_name asc");
+		return $query->result('Provinces');
+	}
 }
