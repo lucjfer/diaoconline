@@ -16,29 +16,93 @@ class Sites extends Front_Controller {
         $this->load->model('news');
         $this->load->model('bds');
         $this->load->model('provinces');
-
-        $this->load->database();
         $this->load->library('pagination');
+        $this->load->database();
     }
 
-    public function index()
-    {
+    public function actionLevelTwo($slug_parent, $slug) {
+        $this->load->model('genSlug');
+        $model_slug_parent = $this->genSlug->get_model(['slug' => $slug_parent]);
+        $model_slug = $this->genSlug->get_model(['slug' => $slug]);
+        if (count($model_slug_parent) > 0 && count($model_slug) > 0) {
+            if ($model_slug_parent->type == 'cat_new' && $model_slug->type == 'cat_new') {
+                $this->categoryNew($model_slug_parent, $slug);
+            }
+        } else {
+            die('error');
+            redirect('sites', 'refresh');
+        }
+    }
+
+    public function index() {
         $data['title'] = 'Trang Chủ';
         $data['description'] = 'Trang Chủ';
 
         $data['template'] = 'sites/index';
 
-        $query = $this->db->query("SELECT * FROM ci_banners WHERE publish = 1 AND type = 'advertisement' ORDER BY display_order asc, name asc");
-        $advertisements = $query->result('Banner');
-        $data['advertisements'] = $advertisements;
-
-        $data['newProducts'] = $this->products->getNewProducts(10,0);
-        $data['featureProducts'] = $this->products->getFeatureProducts(10,0);
-        
-        $data['categories'] = $this->categories->getFeatureCategories();
-
 		$this->load->view('layouts/index', $data);
     }
+
+    ////////////// Page news /////////////
+    public function news() {
+        $data['title'] = 'Tin tức';
+        $data['description'] = 'Tin tức';
+
+        $data['template'] = 'news/index';
+
+        $this->load->view('layouts/index', $data);
+    }
+
+    private function categoryNew($model_slug_parent, $slug) {
+        $data['title'] = 'Tin tức';
+        $data['description'] = 'Tin tức';
+
+        $data['template'] = 'news/layout';
+        $data['template_sub'] = 'news/cat_news';
+
+        $category = $this->categories->get_model(['slug' => $slug, 'type' => 'news']);
+        $num = 4;
+        if (count($category) > 0) {
+            $condition = 'WHERE category_id = '.$category->id;
+            $arr_condition = ['category_id' => $category->id];
+            $data['category_name'] = $category->category_name;
+            // $data['link_2'] = $this->categories->getUrlCustom(['slug' => $category->slug, 'name' => $category->category_name]);
+            $url = $this->categories->getUrlCustom(['slug' => $category->slug]);
+        }
+        $query = $this->db->query("SELECT * FROM ci_news ".$condition." ORDER BY created_date desc");
+        $this->paginationNews($data, $query, $arr_condition, $url, $num);
+        $this->load->view('layouts/index', $data);
+    }
+
+    private function paginationNews(&$data, $query, $arr_condition, $url, $num) {
+        $config['base_url'] = base_url($url);
+        $config['total_rows'] = $this->news->countNews($query);
+        $config['per_page'] = 1;
+        $config['uri_segment'] = 2;
+        $config['use_page_numbers'] = TRUE;
+
+        $config["prev_tag_open"] = "<li id='pagination_previous_bottom' class='pagination_previous'>";
+        $config["prev_tag_close"] = "<li>";
+
+        $config["next_tag_open"] = "<li id='pagination_next_bottom' class='pagination_next'>";
+        $config["next_tag_open"] = "<li>";
+
+        $config["num_tag_open"] = "<li>";
+        $config["num_tag_close"] = "</li>";
+
+        $config["cur_tag_open"] = "<li class='actived'><a href='javascript:void(0)'>";
+        $config["cur_tag_close"] = "</a></li>";
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment($num)) ? $this->uri->segment($num) : 1;
+        $page = $config['per_page'] * ($page-1);
+        
+        $data['news'] = $this->news->getNews($config["per_page"], $page, $arr_condition);
+        $data["links"] = $this->pagination->create_links();
+    }
+
+    ////////////// End page news /////////////
 
     public function newProducts(){
         $data['title'] = 'Sản Phẩm Mới';
@@ -120,282 +184,5 @@ class Sites extends Front_Controller {
         $data['template'] = 'sites/featureProducts';
 
         $this->load->view('layouts/index', $data);
-    }
-
-    public function shoppingCart() {
-        $data['title'] = 'Thông tin giỏ hàng';
-        $data['description'] = 'Thông tin giỏ hàng';
-
-        $data['template'] = 'sites/shoppingCart';
-
-        $this->load->view('layouts/index', $data);
-    }
-
-    public function shoppingCartStep2() {
-        if (isset($_SESSION['shopping_cart'])) {
-            $this->load->model('orders');
-            $this->load->model('orderDetails');
-
-            $data['title'] = 'Thông tin giỏ hàng';
-            $data['description'] = 'Thông tin giỏ hàng';
-            $data['template'] = 'sites/shoppingCartStep2';
-
-            $data['show_card'] = false;
-
-            if (isset($_POST['Orders'])) {
-                $orders = $_POST['Orders'];
-                $orders['number_invoice'] = $this->orders->generateCode();
-                $orders['order_date'] = date('Y-m-d H:i:s');
-                $orders['status'] = STATUS_ORDER_PENDING;
-                $this->orders->set_model($orders);
-                $order_id = $this->db->insert_id();
-                if (!empty($order_id)) {
-                    $arr_product = $_SESSION['shopping_cart'];
-                    $order_detail['order_id'] = $order_id;
-                    $total_price_order = 0;
-                    foreach ($arr_product['data'] as $product_id => $data_cart) {
-                        $order_detail['product_id'] = $product_id;
-                        $order_detail['base_price'] = $data_cart['base_price'];
-                        foreach ($data_cart['info'] as $infos) {
-                            $order_detail['more_info'] = json_encode($infos['data']);
-                            $price = 0;
-                            foreach ($infos['data'] as $infos_data) {
-                                foreach ($infos_data as $info) {
-                                    $price += (int)$info['price'];
-                                }
-                            }
-                            $order_detail['quantity'] = $infos['quantity'];
-                            $order_detail['total_price'] = ((int)$price + (int)$data_cart['base_price']) * $infos['quantity'];
-                            $total_price_order += $order_detail['total_price'];
-                            $this->orderDetails->set_model($order_detail);
-                        }
-                    }
-
-                    $this->db->where('id', $order_id);
-                    $this->db->update('orders', ['total_payment' => $total_price_order]);
-                    unset($_SESSION['shopping_cart']);
-                    if ($_POST['Orders']['type_payment'] == PAYMENT_CARD) {
-                        $data['show_card'] = true;
-                    }
-                    $data['finish'] = true;
-                }
-            }
-            $this->load->view('layouts/index', $data);
-        } else {
-            redirect('/', 'refresh');
-        }
-    }
-
-    public function addCart() {
-        if ($this->input->server('REQUEST_METHOD') == 'POST') {
-            if (isset($_POST['Product'])) {
-                $this->load->model('productOptionValue');
-                $arr_product = isset($_SESSION['shopping_cart']) ? $_SESSION['shopping_cart'] : [];
-
-                $product = $this->products->get_model(['id' => $_POST['Product']['product_id']]);
-                if (count($product) > 0) {
-                    $added = false;
-                    if (isset($arr_product['data'])) {
-                        foreach ($arr_product['data'] as $data) {
-                            foreach ($data['info'] as $arr_type) {
-                                foreach ($arr_type['data'] as $type) {
-                                    if ($data['product_id'] == $_POST['Product']['product_id']) {
-                                        $temp = [];
-                                        if (!isset($_POST['Product']['option_value'])) {
-                                            if (isset($type[0])) {
-                                                $added = true;
-                                            }
-                                        } else {
-                                            foreach ($type as $product_option_value_id => $row) {
-                                                $temp[] = $product_option_value_id;
-                                            }
-                                            if (empty(array_diff($temp, $_POST['Product']['option_value'])) && empty(array_diff($_POST['Product']['option_value'], $temp))) {
-                                                $added = true;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    if (!$added) {
-                        $info = [];
-                        if (isset($_POST['Product']['option_value'])) {
-                            foreach ($_POST['Product']['option_value'] as $product_option_value_id) {
-                                $product_option_value = $this->productOptionValue->getOptionValueById($product_option_value_id);
-                                if (count($product_option_value) > 0) {
-                                    $info[$product_option_value->product_option_id][$product_option_value->id] = [
-                                        'name_option' => $product_option_value->getAttributeName($product_option_value->product_option_id),
-                                        'name_option_value' => $product_option_value->name,
-                                        'price' => (int)$product_option_value->price,
-                                    ];
-                                }
-                            }
-                        } else {
-                            $info[0][0] = [
-                                'name_option' => '',
-                                'name_option_value' => '',
-                                'price' => 0,
-                            ];
-                        }
-                        if (!isset($arr_product['data'][$product->id])) {
-                            $arr_product['data'][$product->id] = [
-                                'product_id' => $product->id,
-                                'image' => $product->getFirstImage(),
-                                'url' => $product->getUrl(),
-                                'product_name' => $product->product_name,
-                                'base_price' => (int)$_POST['Product']['base_price'],
-                            ];
-                        }
-                        
-                        $arr_product['data'][$product->id]['info'][] = [
-                            'data' => $info,
-                            'quantity' => $_POST['Product']['quantity'],
-                        ];
-
-                        $total_price = 0;
-                        foreach ($arr_product['data'] as $data) {
-                            foreach ($data['info'] as $arr_type) {
-                                $total_price_more = 0;
-                                foreach ($arr_type['data'] as $type) {
-                                    foreach ($type as $row) {
-                                        $total_price_more += (int)$row['price'];
-                                    }
-                                }
-                                $total_price += ((int)$total_price_more + (int)$data['base_price']) * $arr_type['quantity'];
-                            }
-                        }
-                        $arr_product['total_price'] = $total_price;
-
-                        $_SESSION['shopping_cart'] = $arr_product;
-                    }
-                    echo 1;
-                }
-            }
-        }
-    }
-
-    public function updateCart() {
-        if ($this->input->server('REQUEST_METHOD') == 'POST') {
-            if (isset($_POST['Product']) && isset($_SESSION['shopping_cart'])) {
-                $arr_product = $_SESSION['shopping_cart'];
-                $product_id = $_POST['Product']['product_id'];
-                $quantity = $_POST['Product']['quantity'];
-
-                $info = [];
-                if (isset($_POST['Product']['option_value'])) {
-                    $temp = [];
-                    foreach ($_POST['Product']['option_value'] as $product_option_value_id) {
-                        $product_option_value = $this->productOptionValue->getOptionValueById($product_option_value_id);
-                        if (count($product_option_value) > 0) {
-                            $temp[$product_option_value->product_option_id][] = $product_option_value->id;
-                        } else {
-                            $temp[0][] = 0;
-                        }
-                    }
-                }
-                $is_exists = true;
-                if (isset($arr_product['data'][$product_id]['info'])) {
-                    foreach ($arr_product['data'][$product_id]['info'] as &$pro) {
-                        if (count($pro['data']) == count($temp)) {
-                            foreach ($temp as $product_option_id => $arr_option_value) {
-                                foreach ($arr_option_value as $product_option_value_id) {
-                                    if (!isset($pro['data'][$product_option_id][$product_option_value_id])) {
-                                        $is_exists = false;
-                                    }
-                                }
-                            }
-                            if ($is_exists == true) {
-                                $pro['quantity'] = $quantity;
-                                break;
-                            }
-                        }
-                    }
-                }
-                $total_price = 0;
-                foreach ($arr_product['data'] as $data) {
-                    foreach ($data['info'] as $arr_type) {
-                        $total_price_more = 0;
-                        foreach ($arr_type['data'] as $type) {
-                            foreach ($type as $row) {
-                                $total_price_more += (int)$row['price'];
-                            }
-                        }
-                        $total_price += ((int)$total_price_more + (int)$data['base_price']) * $arr_type['quantity'];
-                    }
-                }
-
-                $arr_product['total_price'] = $total_price;
-                $_SESSION['shopping_cart'] = $arr_product;
-                echo number_format($total_price);
-            }
-        }
-    }
-
-    public function subCart() {
-        if ($this->input->server('REQUEST_METHOD') == 'POST') {
-            if (isset($_POST['Product']) && isset($_SESSION['shopping_cart'])) {
-                $arr_product = $_SESSION['shopping_cart'];
-                $product_id = $_POST['Product']['product_id'];
-                $quantity = $_POST['Product']['quantity'];
-
-                $info = [];
-                if (isset($_POST['Product']['option_value'])) {
-                    $temp = [];
-                    foreach ($_POST['Product']['option_value'] as $product_option_value_id) {
-                        $product_option_value = $this->productOptionValue->getOptionValueById($product_option_value_id);
-                        if (count($product_option_value) > 0) {
-                            $temp[$product_option_value->product_option_id][] = $product_option_value->id;
-                        } else {
-                            $temp[0][] = 0;
-                        }
-                    }
-                }
-                $is_exists = true;
-                if (isset($arr_product['data'][$product_id]['info'])) {
-                    foreach ($arr_product['data'][$product_id]['info'] as $key => $pro) {
-                        if (count($pro['data']) == count($temp)) {
-                            foreach ($temp as $product_option_id => $arr_option_value) {
-                                foreach ($arr_option_value as $product_option_value_id) {
-                                    if (!isset($pro['data'][$product_option_id][$product_option_value_id])) {
-                                        $is_exists = false;
-                                    }
-                                }
-                            }
-                            if ($is_exists == true) {
-                                unset($arr_product['data'][$product_id]['info'][$key]);
-                                if ($arr_product['data'][$product_id]['info'] === NULL) {
-                                    unset($arr_product['data'][$product_id]);
-                                }
-                                break;
-                            }
-                        }
-                    }
-                }
-                $arr_product['data'][$product_id]['info'] = array_values($arr_product['data'][$product_id]['info']);
-
-                $total_price = 0;
-                if (isset($arr_product['data']) && !empty($arr_product['data'])) {
-                    foreach ($arr_product['data'] as $data) {
-                        foreach ($data['info'] as $arr_type) {
-                            $total_price_more = 0;
-                            foreach ($arr_type['data'] as $type) {
-                                foreach ($type as $row) {
-                                    $total_price_more += (int)$row['price'];
-                                }
-                            }
-                            $total_price += ((int)$total_price_more + (int)$data['base_price']) * $arr_type['quantity'];
-                        }
-                    }
-                }
-                if ($total_price == 0) {
-                    unset($_SESSION['shopping_cart']);
-                } else {
-                    $arr_product['total_price'] = $total_price;
-                    $_SESSION['shopping_cart'] = $arr_product;
-                }
-            }
-        }
     }
 }

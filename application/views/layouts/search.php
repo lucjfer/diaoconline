@@ -1,3 +1,12 @@
+<script type="text/javascript">
+    $(function () {
+        $('#email').val('');
+        $('#TuKhoaTimKiem').val('');
+        $("#LoaiTinDang,#LoaiDiaOc,#KhuVuc,#KhoangGia,#QuanHuyen").uniform({
+            selectAutoWidth: true
+        });
+    });
+</script>
 <div id="status_search" class="wrap margin_bottom clearfix">
     <div id="status" class="rounded_style_1 rounded_box">
         <div class="content">

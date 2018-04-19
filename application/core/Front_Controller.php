@@ -1,4 +1,6 @@
 <?php
+require_once APPPATH . 'controllers/NewsSite.php';
+
 class Front_Controller extends CI_Controller {
 
     public function __construct()
@@ -21,10 +23,11 @@ class Front_Controller extends CI_Controller {
 
     public function _remap($method, $params = array())
     {
-        if (method_exists($this, $method))
+        if (method_exists($this, $method) && ($method == 'actionLevelOne' || $method == 'actionLevelTwo'))
         {
             return call_user_func_array(array($this, $method), $params);
         }
+
         show_404();
     }
 }

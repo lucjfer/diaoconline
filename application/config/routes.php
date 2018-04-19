@@ -55,25 +55,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'sites/index';
 $route['admin'] = 'admin/login';
-$route['page-(:any).html'] = 'sites/cms/$1';
 
-$route['san-pham-moi.html'] = 'sites/newProducts';
-$route['san-pham-moi.html/(:num)'] = 'sites/newProducts/$1';
-$route['san-pham-hot.html'] = 'sites/featureProducts';
-$route['san-pham-hot.html/(:num)'] = 'sites/featureProducts/$1';
-
-$route['tin-tuc.html'] = 'newsSite/index';
+$route['(:any)/(:any).html'] = 'sites/actionLevelTwo/$1/$2';
 $route['tin-tuc.html/(:num)'] = 'newsSite/index/$1';
 $route['(:any)n.html'] = 'newsSite/index/$1';
 $route['(:any)n.html/(:num)'] = 'newsSite/index/$1/$2';
 $route['(:any)nd.html'] = 'newsSite/detail/$1';
-
-$route['(:any)p.html'] = 'pages/detail/$1';
-
-$route['(:any)c.html'] = 'category/category/$1';
-$route['(:any)c.html/(:num)'] = 'category/category/$1';
-
-$route['(:any)/(:any)p.html'] = 'product/detail/$2';
-
-$route['gio-hang.html'] = 'sites/shoppingCart';
-$route['gio-hang/thanh-toan.html'] = 'sites/shoppingCartStep2';

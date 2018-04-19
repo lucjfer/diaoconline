@@ -98,8 +98,8 @@ class Bds extends CI_Model {
     	return '';
     }
 
-    public function getBdsMenu() {
-    	$query = $this->db->query("SELECT * FROM ci_bds ORDER BY created_date desc LIMIT 13");
+    public function getBdsMenu($limit = 13) {
+    	$query = $this->db->query("SELECT * FROM ci_bds ORDER BY created_date desc LIMIT ".$limit);
 		return $query->result('Bds');
     }
 

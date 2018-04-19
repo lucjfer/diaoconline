@@ -599,9 +599,9 @@ class Categories extends CI_Model {
 		return $this->$field;
     }
 
-    public function getCategoryNewFE() {
+    public function getCategoryNewFE($level = 1) {
         $items = [];
-        $query = $this->db->query("SELECT * FROM ci_categories WHERE parent_id = 0 AND type = 'news' ORDER BY display_order asc");
+        $query = $this->db->query("SELECT * FROM ci_categories WHERE type_level = ".$level." AND type = 'news' ORDER BY display_order asc");
         $models = $query->result('Categories');
         $level = 1;
         if (count($models)) {
@@ -647,7 +647,7 @@ class Categories extends CI_Model {
     }
 
     public function getUrlCustom($category){
-        return anchor(''.$category['slug'].'n.html', $category['name'], ['title' => $category['name']]);
+        return $category['slug'].'.html';
     }
 
     public function getFeatureCategories(){
