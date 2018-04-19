@@ -94,7 +94,7 @@ class Product extends MY_Controller {
                         $this->productImages->set_model(array(
                             'product_id' => $id,
                             'image' => $image,
-                            'created_date' => date('Y-m-d H:i:s')
+                            'created_date' => gmdate('Y-m-d H:i:s', time()+7*3600)
                         ));
                     }
                 }
@@ -206,7 +206,7 @@ class Product extends MY_Controller {
                         $this->productImages->set_model(array(
                             'product_id' => $id,
                             'image' => $image,
-                            'created_date' => date('Y-m-d H:i:s')
+                            'created_date' => gmdate('Y-m-d H:i:s', time()+7*3600)
                         ));
                     }
                 }

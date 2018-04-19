@@ -40,8 +40,8 @@ class Categories extends CI_Model {
 	    		$type_level = 1;
 	    	}
 	    }
-	    $data_insert['created_date'] = date('Y-m-d H:i:s');
-	    $data_insert['update_date'] = date('Y-m-d H:i:s');
+	    $data_insert['created_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
+	    $data_insert['update_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
 	    // $data_insert['slug'] = $this->generateSlug($data_insert['category_name']);
         // if (isset($data_insert['category_name_en'])) {
         //     $data_insert['slug_en'] = $this->generateSlug($data_insert['category_name_en']);
@@ -62,7 +62,7 @@ class Categories extends CI_Model {
 	    		$type_level = 1;
 	    	}
 	    }
-	    $data_insert['update_date'] = date('Y-m-d H:i:s');
+	    $data_insert['update_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
         // $data_insert['slug'] = $this->generateSlug($data_insert['category_name']);
         // if (isset($data_insert['category_name_en'])) {
         //     $data_insert['slug_en'] = $this->generateSlug($data_insert['category_name_en']);
@@ -603,7 +603,7 @@ class Categories extends CI_Model {
         $items = [];
         $query = $this->db->query("SELECT * FROM ci_categories WHERE type_level = ".$level." AND type = 'news' ORDER BY display_order asc");
         $models = $query->result('Categories');
-        $level = 1;
+
         if (count($models)) {
             foreach ($models as $model) {
                 $items[$model->id] = [
@@ -647,7 +647,11 @@ class Categories extends CI_Model {
     }
 
     public function getUrlCustom($category){
-        return $category['slug'].'.html';
+        if (isset($category['slug_parent']) && !empty($category['slug_parent'])) {
+            return base_url($category['slug_parent'].'/'.$category['slug'].'.html');
+        } 
+
+        return base_url($category['slug'].'.html');
     }
 
     public function getFeatureCategories(){

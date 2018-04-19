@@ -9,14 +9,14 @@
                         <div class="TR"></div>
                         <div class="BL"></div>
                         <div class="BR"></div>
-                        <h2 class="headline"><a href="<?php echo $this->categories->getUrlCustom($category) ?>"><span><?php echo $category['name'] ?></span></a></h2>
+                        <h2 class="headline"><a href="<?php echo $this->categories->getUrlCustom(['slug' => $category['slug']]) ?>"><span><?php echo $category['name'] ?></span></a></h2>
                     </div>
                     <?php if (!empty($category['child'])): ?>
                         <div class="headline_title_2 rounded_box">
                             <ul>
-                                <?php foreach ($category['child'] as $child_id => $child): ?>
-                                    <li><a href="<?php echo $this->categories->getUrlCustom($child) ?>"><?php echo $child['name'] ?></a></li>
-                                    <!-- class=actived -->
+                                <?php foreach ($category['child'] as $child_id => $child):
+                                    $class = $active == $child_id ? 'actived' : '';?>
+                                    <li class="<?php echo $class ?>"><a href="<?php echo $this->categories->getUrlCustom(['slug_parent' => $category['slug'], 'slug' => $child['slug']]) ?>"><?php echo $child['name'] ?></a></li>
                                 <?php endforeach ?>
                             </ul>
                         </div>

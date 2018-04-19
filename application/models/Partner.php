@@ -37,7 +37,7 @@ class Partner extends CI_Model {
 	        'url' => $this->input->post('url'),
 	        'logo' => $logo,
 	        'publish' => $this->input->post('publish'),
-	        'update_date' => date('Y-m-d H:i:s'),
+	        'update_date' => gmdate('Y-m-d H:i:s', time()+7*3600),
 	    );
 	    return $this->db->insert('partner', $data);
 	}
@@ -51,7 +51,7 @@ class Partner extends CI_Model {
 	        'description_en' => $this->input->post('description_en'),
 	        'url' => $this->input->post('url'),
 	        'publish' => $this->input->post('publish'),
-	        'update_date' => date('Y-m-d H:i:s'),
+	        'update_date' => gmdate('Y-m-d H:i:s', time()+7*3600),
 	    );
 	    if (!empty($logo)) {
 	    	$data['logo'] = $logo;

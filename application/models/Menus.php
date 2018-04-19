@@ -40,7 +40,7 @@ class Menus extends CI_Model {
 	        'show_in_menu' => $show_in_menu,
 	        'display_order' => $display_order,
 	        'application_id' => 1,
-	        'update_date' => date('Y-m-d H:i:s'),
+	        'update_date' => gmdate('Y-m-d H:i:s', time()+7*3600),
 	    );
 
 	    return $this->db->insert('menus', $data);
@@ -59,7 +59,7 @@ class Menus extends CI_Model {
 	        'show_in_menu' => $show_in_menu,
 	        'display_order' => $display_order,
 	        'application_id' => 1,
-	        'update_date' => date('Y-m-d H:i:s'),
+	        'update_date' => gmdate('Y-m-d H:i:s', time()+7*3600),
 	    );
 
 	    $this->db->where('id', $id);

@@ -40,15 +40,15 @@ class PhapLy extends CI_Model {
 
 	public function set_model($data_insert)
 	{
-	    $data_insert['created_date'] = date('Y-m-d H:i:s');
-	    $data_insert['update_date'] = date('Y-m-d H:i:s');
+	    $data_insert['created_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
+	    $data_insert['update_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
 
 	    return $this->db->insert('phap_ly', $data_insert);
 	}
 
 	public function update_model($id, $data_insert)
 	{
-	    $data_insert['update_date'] = date('Y-m-d H:i:s');
+	    $data_insert['update_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
 	    $this->db->where('id', $id);
         $this->db->update('phap_ly', $data_insert);
 	}

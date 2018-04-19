@@ -13,7 +13,7 @@ class ProductOption extends CI_Model {
         $data = array(
             'product_id' => $product_id,
             'name' => $name,
-            'created_date' => date('Y-m-d H:i:s'),
+            'created_date' => gmdate('Y-m-d H:i:s', time()+7*3600),
         );
 
         $this->db->insert('product_option', $data);

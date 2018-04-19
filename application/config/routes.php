@@ -57,6 +57,9 @@ $route['default_controller'] = 'sites/index';
 $route['admin'] = 'admin/login';
 
 $route['(:any)/(:any).html'] = 'sites/actionLevelTwo/$1/$2';
+$route['(:any)/(:any).html/(:num)'] = 'sites/actionLevelTwo/$1/$2/$3';
+$route['(:any).html'] = 'sites/actionLevelOne/$1';
+
 $route['tin-tuc.html/(:num)'] = 'newsSite/index/$1';
 $route['(:any)n.html'] = 'newsSite/index/$1';
 $route['(:any)n.html/(:num)'] = 'newsSite/index/$1/$2';

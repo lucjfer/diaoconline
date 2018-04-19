@@ -97,7 +97,7 @@ class Sites extends Front_Controller {
                 }
             }
             $data_insert['file'] = $file;
-            $data_insert['created_date'] = date('Y-m-d H:i:s');
+            $data_insert['created_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
             $this->db->insert('contact', $data_insert);
             $insert_id = $this->db->insert_id();
             $data['status'] = 'Yêu cầu thành công!';
@@ -563,7 +563,7 @@ class Sites extends Front_Controller {
                             $this->db->where('id', $order_details->id);
                             $this->db->update('order_details', $data_update_detail);
 
-                            $data_update['update_date'] = date('Y-m-d H:i:s');
+                            $data_update['update_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
                             $this->db->where('id', $order->id);
                             $this->db->update('orders', $data_update);
                         }
@@ -574,14 +574,14 @@ class Sites extends Front_Controller {
                         $data_insert['user_id'] = $user->id;
                         $data_insert['email'] = $user->email;
                         $data_insert['status'] = STATUS_ORDER_TEMP;
-                        $data_insert['created_date'] = date('Y-m-d H:i:s');
-                        $data_insert['update_date'] = date('Y-m-d H:i:s');
+                        $data_insert['created_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
+                        $data_insert['update_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
                         $this->db->insert('orders', $data_insert);
                         $order_id = $this->db->insert_id();
 
                         $data_insert_detail = $_POST['Orders'];
                         $data_insert_detail['order_id'] = $order_id;
-                        $data_insert_detail['created_date'] = date('Y-m-d H:i:s');
+                        $data_insert_detail['created_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
                         $this->db->insert('order_details', $data_insert_detail);
                     }
                     echo 1;
@@ -619,8 +619,8 @@ class Sites extends Front_Controller {
                         if (isset($_POST['shipping_address'])) {
                             $data_order['shipping_address'] = $_POST['shipping_address'];
                         }
-                        $data_order['order_date'] = date('Y-m-d H:i:s');
-                        $data_order['update_date'] = date('Y-m-d H:i:s');
+                        $data_order['order_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
+                        $data_order['update_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
                         $data_order['status'] = STATUS_ORDER_PENDING;
                         $this->db->where('id', $order_detail_id);
                         $this->db->update('orders', $data_order);

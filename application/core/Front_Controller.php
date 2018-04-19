@@ -23,7 +23,7 @@ class Front_Controller extends CI_Controller {
 
     public function _remap($method, $params = array())
     {
-        if (method_exists($this, $method) && ($method == 'actionLevelOne' || $method == 'actionLevelTwo'))
+        if (method_exists($this, $method))
         {
             return call_user_func_array(array($this, $method), $params);
         }

@@ -78,8 +78,8 @@ class Users extends CI_Model {
 	{
 		$data_insert['full_name'] = $data_insert['last_name'] .' '. $data_insert['first_name'];
 		$data_insert['password_hash'] = md5($data_insert['password']);
-	    $data_insert['created_date'] = date('Y-m-d H:i:s');
-	    $data_insert['update_date'] = date('Y-m-d H:i:s');
+	    $data_insert['created_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
+	    $data_insert['update_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
 	    $data_insert['status'] = STATUS_ACTIVE;
 	    $data_insert['application_id'] = FE;
 
@@ -90,7 +90,7 @@ class Users extends CI_Model {
 	{
 		$data_insert['full_name'] = $data_insert['last_name'] .' '. $data_insert['first_name'];
 		$data_insert['password_hash'] = md5($data_insert['password']);
-		$data_insert['update_date'] = date('Y-m-d H:i:s');
+		$data_insert['update_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
 	    $this->db->where('id', $id);
         $this->db->update('users', $data_insert);
 	}

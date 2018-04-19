@@ -40,7 +40,7 @@ class Contact extends CI_Model {
 
 	public function set_model($data_insert)
 	{
-	    $data_insert['created_date'] = date('Y-m-d H:i:s');
+	    $data_insert['created_date'] = gmdate('Y-m-d H:i:s', time()+7*3600);
 
 	    return $this->db->insert('contact', $data_insert);
 	}

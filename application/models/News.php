@@ -40,7 +40,7 @@ class News extends CI_Model {
             'featured_image' => $image,
             'slug' => $slug,
             'language' => 'vn',
-            'created_date' => date('Y-m-d H:i:s'),
+            'created_date' => gmdate('Y-m-d H:i:s', time()+7*3600),
         );
 
         $location = '';
@@ -64,7 +64,7 @@ class News extends CI_Model {
             'category_id' => $this->input->post('category'),
             'featured_image' => $image,
             'language' => 'vn',
-            'created_date' => date('Y-m-d H:i:s'),
+            'created_date' => gmdate('Y-m-d H:i:s', time()+7*3600),
 	    );
         $location = '';
         if (is_array($this->input->post('location'))) {
@@ -193,7 +193,7 @@ class News extends CI_Model {
     }
 
     public function getNewsUrl() {
-        return base_url().$this->slug.'nd.html';
+        return base_url().$this->slug.'.html';
     }
 
     public function getNewsInMenu($cat_id) {

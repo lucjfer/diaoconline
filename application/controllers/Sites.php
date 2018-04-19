@@ -20,16 +20,27 @@ class Sites extends Front_Controller {
         $this->load->database();
     }
 
-    public function actionLevelTwo($slug_parent, $slug) {
+    public function actionLevelOne($slug) {
+        $this->load->model('genSlug');
+        $model_slug = $this->genSlug->get_model(['slug' => $slug]);
+        if (count($model_slug) > 0) {
+            if ($model_slug->type == 'news') {
+                $this->detailNew($slug);
+            }
+        } else {
+            redirect('sites', 'refresh');
+        }
+    }
+
+    public function actionLevelTwo($slug_parent, $slug, $page = '') {
         $this->load->model('genSlug');
         $model_slug_parent = $this->genSlug->get_model(['slug' => $slug_parent]);
         $model_slug = $this->genSlug->get_model(['slug' => $slug]);
         if (count($model_slug_parent) > 0 && count($model_slug) > 0) {
             if ($model_slug_parent->type == 'cat_new' && $model_slug->type == 'cat_new') {
-                $this->categoryNew($model_slug_parent, $slug);
+                $this->categoryNew($slug_parent, $slug);
             }
         } else {
-            die('error');
             redirect('sites', 'refresh');
         }
     }
@@ -53,31 +64,42 @@ class Sites extends Front_Controller {
         $this->load->view('layouts/index', $data);
     }
 
-    private function categoryNew($model_slug_parent, $slug) {
+    private function categoryNew($slug_parent, $slug) {
         $data['title'] = 'Tin tức';
         $data['description'] = 'Tin tức';
 
         $data['template'] = 'news/layout';
-        $data['template_sub'] = 'news/cat_news';
 
+        $category_parent = $this->categories->get_model(['slug' => $slug_parent, 'type' => 'news']);
         $category = $this->categories->get_model(['slug' => $slug, 'type' => 'news']);
-        $num = 4;
-        if (count($category) > 0) {
+        $num = 3;
+        $data['active'] = 0;
+        if (count($category_parent) > 0 && count($category) > 0 && $category_parent->id == $category->parent_id) {
+            $url = $this->categories->getUrlCustom(['slug_parent' => $category_parent->slug, 'slug' => $category->slug]);
+            $data['active'] = $category->id;
             $condition = 'WHERE category_id = '.$category->id;
             $arr_condition = ['category_id' => $category->id];
+            $data['parent_category_name'] = $category_parent->category_name;
+            $data['link_1'] = $this->categories->getUrlCustom(['slug' => $category_parent->slug]);
             $data['category_name'] = $category->category_name;
-            // $data['link_2'] = $this->categories->getUrlCustom(['slug' => $category->slug, 'name' => $category->category_name]);
-            $url = $this->categories->getUrlCustom(['slug' => $category->slug]);
+            $data['link_2'] = $url;
         }
         $query = $this->db->query("SELECT * FROM ci_news ".$condition." ORDER BY created_date desc");
         $this->paginationNews($data, $query, $arr_condition, $url, $num);
+
+        if ($this->news->countNews($query) == 1) {
+            $data['template_sub'] = 'news/detail';
+        } else {
+            $data['template_sub'] = 'news/cat_news';
+        }
+
         $this->load->view('layouts/index', $data);
     }
 
     private function paginationNews(&$data, $query, $arr_condition, $url, $num) {
         $config['base_url'] = base_url($url);
         $config['total_rows'] = $this->news->countNews($query);
-        $config['per_page'] = 1;
+        $config['per_page'] = PAGINATION_FE;
         $config['uri_segment'] = 2;
         $config['use_page_numbers'] = TRUE;
 
@@ -97,9 +119,35 @@ class Sites extends Front_Controller {
 
         $page = ($this->uri->segment($num)) ? $this->uri->segment($num) : 1;
         $page = $config['per_page'] * ($page-1);
-        
+
         $data['news'] = $this->news->getNews($config["per_page"], $page, $arr_condition);
         $data["links"] = $this->pagination->create_links();
+    }
+
+    private function detailNew($slug) {
+        $data['template'] = 'news/layout';
+        $data['template_sub'] = 'news/detail';
+        $new = $this->news->get_model(['slug' => $slug]);
+        $data['new'] = $new;
+        if (count($new) > 0) {
+            $data['title'] = $new->title;
+            $data['description'] = $new->description;
+
+            $category = $this->categories->get_model(['id' => $new->category_id]);
+            $category_parent = $this->categories->get_model(['id' => $category->parent_id]);
+            if (count($category) > 0 && count($category_parent) > 0) {
+                $data['parent_category_name'] = $category_parent->category_name;
+                $data['link_1'] = $this->categories->getUrlCustom(['slug' => $category_parent->slug]);
+                $data['category_name'] = $category->category_name;
+                $data['link_2'] = $this->categories->getUrlCustom(['slug_parent' => $category_parent->slug, 'slug' => $category->slug]);
+                $data['active'] = $category->id;
+            }
+
+            $query = $this->db->query("SELECT * FROM ci_news WHERE category_id = '{$new->category_id}' AND id != '{$new->id}' ORDER BY created_date desc LIMIT 6");
+            $news = $query->result('News');
+            $data['news'] = $news;
+            $this->load->view('layouts/index', $data);
+        }
     }
 
     ////////////// End page news /////////////
